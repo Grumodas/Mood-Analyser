@@ -58,6 +58,7 @@ namespace AWSLambda1
                 float value;
                 if(float.TryParse(environmentMinConfidence, out value))
                 {
+                    Console.WriteLine("Creating a random line!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                     this.MinConfidence = value;
                     Console.WriteLine($"Setting minimum confidence to {this.MinConfidence}");
                 }
