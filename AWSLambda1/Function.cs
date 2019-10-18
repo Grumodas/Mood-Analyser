@@ -20,7 +20,7 @@ namespace AWSLambda1
         public static async Task<ArrayList> FunctionHandler(String photo)
         {
             //REIK ISIRASYT SAVO BUCKET'A I THINK
-            String bucket = "rimantasbucket2";
+            String bucket = "moodanalysis";
             ArrayList result = new ArrayList();
 
             AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
