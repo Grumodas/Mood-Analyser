@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace MoodAnalyserApp
 {
+
+    public class
+
+
+
+    public class
     static class Program
     {
         /// <summary>

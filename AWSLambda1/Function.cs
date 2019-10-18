@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Diagnostics;
@@ -16,11 +17,11 @@ namespace AWSLambda1
     public class Function
     {
 
-        public static async Task<String> FunctionHandler(String photo)
+        public static async Task<ArrayList> FunctionHandler(String photo)
         {
             //REIK ISIRASYT SAVO BUCKET'A I THINK
             String bucket = "rimantasbucket2";
-            String result = "";
+            ArrayList result = new ArrayList();
 
             AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
 
@@ -45,11 +46,9 @@ namespace AWSLambda1
                 // GRAB THE EMOTION
                 foreach (Emotion emot in face.Emotions)
                 {
-                    result += emot.Type + " " + emot.Confidence + "\n";
+                    result.Add(emot.Type);
+                    result.Add(emot.Confidence);
                 }
-
-                // GRAB THE BOUDING BOXES
-                // CHECK PAPER NOTES FOR MORE INFO
             }
 
 
