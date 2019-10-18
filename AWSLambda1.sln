@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "someName", "..\..\SomeProje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "camTest", "..\..\CamTest\camTest\camTest.csproj", "{23EDC8B3-1904-421F-9739-9CEC6798A682}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoodAnalyserApp", "MoodAnalyserApp\MoodAnalyserApp\MoodAnalyserApp.csproj", "{2BE25F8F-4184-4FFC-AAF0-E61B53C21A19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{23EDC8B3-1904-421F-9739-9CEC6798A682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23EDC8B3-1904-421F-9739-9CEC6798A682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23EDC8B3-1904-421F-9739-9CEC6798A682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BE25F8F-4184-4FFC-AAF0-E61B53C21A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BE25F8F-4184-4FFC-AAF0-E61B53C21A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BE25F8F-4184-4FFC-AAF0-E61B53C21A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BE25F8F-4184-4FFC-AAF0-E61B53C21A19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
