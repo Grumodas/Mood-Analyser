@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 public enum Emotion
 {
     UNKNOWN = 0b_0000_0000, // 0
