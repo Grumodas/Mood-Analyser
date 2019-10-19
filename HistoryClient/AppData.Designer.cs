@@ -285,7 +285,23 @@ namespace HistoryClient {
             
             private global::System.Data.DataColumn columnSituation;
             
-            private global::System.Data.DataColumn columnEmotion;
+            private global::System.Data.DataColumn columnHappy;
+            
+            private global::System.Data.DataColumn columnSad;
+            
+            private global::System.Data.DataColumn columnAngry;
+            
+            private global::System.Data.DataColumn columnConfused;
+            
+            private global::System.Data.DataColumn columnDisgusted;
+            
+            private global::System.Data.DataColumn columnSuprised;
+            
+            private global::System.Data.DataColumn columnCalm;
+            
+            private global::System.Data.DataColumn columnFear;
+            
+            private global::System.Data.DataColumn columnUnknown;
             
             private global::System.Data.DataColumn columnPhoto;
             
@@ -348,9 +364,73 @@ namespace HistoryClient {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn EmotionColumn {
+            public global::System.Data.DataColumn HappyColumn {
                 get {
-                    return this.columnEmotion;
+                    return this.columnHappy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SadColumn {
+                get {
+                    return this.columnSad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AngryColumn {
+                get {
+                    return this.columnAngry;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ConfusedColumn {
+                get {
+                    return this.columnConfused;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DisgustedColumn {
+                get {
+                    return this.columnDisgusted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SuprisedColumn {
+                get {
+                    return this.columnSuprised;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CalmColumn {
+                get {
+                    return this.columnCalm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FearColumn {
+                get {
+                    return this.columnFear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UnknownColumn {
+                get {
+                    return this.columnUnknown;
                 }
             }
             
@@ -399,13 +479,21 @@ namespace HistoryClient {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TableRow AddTableRow(System.DateTime _Date___Time, string Situation, int Emotion, byte[] Photo) {
+            public TableRow AddTableRow(System.DateTime _Date___Time, string Situation, bool Happy, bool Sad, bool Angry, bool Confused, bool Disgusted, bool Suprised, bool Calm, bool Fear, bool Unknown, byte[] Photo) {
                 TableRow rowTableRow = ((TableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         _Date___Time,
                         Situation,
-                        Emotion,
+                        Happy,
+                        Sad,
+                        Angry,
+                        Confused,
+                        Disgusted,
+                        Suprised,
+                        Calm,
+                        Fear,
+                        Unknown,
                         Photo};
                 rowTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTableRow);
@@ -439,7 +527,15 @@ namespace HistoryClient {
                 this.columnId = base.Columns["Id"];
                 this._columnDate___Time = base.Columns["Date & Time"];
                 this.columnSituation = base.Columns["Situation"];
-                this.columnEmotion = base.Columns["Emotion"];
+                this.columnHappy = base.Columns["Happy"];
+                this.columnSad = base.Columns["Sad"];
+                this.columnAngry = base.Columns["Angry"];
+                this.columnConfused = base.Columns["Confused"];
+                this.columnDisgusted = base.Columns["Disgusted"];
+                this.columnSuprised = base.Columns["Suprised"];
+                this.columnCalm = base.Columns["Calm"];
+                this.columnFear = base.Columns["Fear"];
+                this.columnUnknown = base.Columns["Unknown"];
                 this.columnPhoto = base.Columns["Photo"];
             }
             
@@ -454,8 +550,24 @@ namespace HistoryClient {
                 base.Columns.Add(this._columnDate___Time);
                 this.columnSituation = new global::System.Data.DataColumn("Situation", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSituation);
-                this.columnEmotion = new global::System.Data.DataColumn("Emotion", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEmotion);
+                this.columnHappy = new global::System.Data.DataColumn("Happy", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHappy);
+                this.columnSad = new global::System.Data.DataColumn("Sad", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSad);
+                this.columnAngry = new global::System.Data.DataColumn("Angry", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAngry);
+                this.columnConfused = new global::System.Data.DataColumn("Confused", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConfused);
+                this.columnDisgusted = new global::System.Data.DataColumn("Disgusted", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDisgusted);
+                this.columnSuprised = new global::System.Data.DataColumn("Suprised", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSuprised);
+                this.columnCalm = new global::System.Data.DataColumn("Calm", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCalm);
+                this.columnFear = new global::System.Data.DataColumn("Fear", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFear);
+                this.columnUnknown = new global::System.Data.DataColumn("Unknown", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnknown);
                 this.columnPhoto = new global::System.Data.DataColumn("Photo", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPhoto);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -659,17 +771,145 @@ namespace HistoryClient {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Emotion {
+            public bool Happy {
                 get {
                     try {
-                        return ((int)(this[this.tableTable.EmotionColumn]));
+                        return ((bool)(this[this.tableTable.HappyColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Emotion\' in table \'Table\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Happy\' in table \'Table\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTable.EmotionColumn] = value;
+                    this[this.tableTable.HappyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Sad {
+                get {
+                    try {
+                        return ((bool)(this[this.tableTable.SadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Sad\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.SadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Angry {
+                get {
+                    try {
+                        return ((bool)(this[this.tableTable.AngryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Angry\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.AngryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Confused {
+                get {
+                    try {
+                        return ((bool)(this[this.tableTable.ConfusedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Confused\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.ConfusedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Disgusted {
+                get {
+                    try {
+                        return ((bool)(this[this.tableTable.DisgustedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Disgusted\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.DisgustedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Suprised {
+                get {
+                    try {
+                        return ((bool)(this[this.tableTable.SuprisedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Suprised\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.SuprisedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Calm {
+                get {
+                    try {
+                        return ((bool)(this[this.tableTable.CalmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Calm\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.CalmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Fear {
+                get {
+                    try {
+                        return ((bool)(this[this.tableTable.FearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fear\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.FearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Unknown {
+                get {
+                    try {
+                        return ((bool)(this[this.tableTable.UnknownColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Unknown\' in table \'Table\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTable.UnknownColumn] = value;
                 }
             }
             
@@ -715,14 +955,110 @@ namespace HistoryClient {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEmotionNull() {
-                return this.IsNull(this.tableTable.EmotionColumn);
+            public bool IsHappyNull() {
+                return this.IsNull(this.tableTable.HappyColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEmotionNull() {
-                this[this.tableTable.EmotionColumn] = global::System.Convert.DBNull;
+            public void SetHappyNull() {
+                this[this.tableTable.HappyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSadNull() {
+                return this.IsNull(this.tableTable.SadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSadNull() {
+                this[this.tableTable.SadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAngryNull() {
+                return this.IsNull(this.tableTable.AngryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAngryNull() {
+                this[this.tableTable.AngryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConfusedNull() {
+                return this.IsNull(this.tableTable.ConfusedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConfusedNull() {
+                this[this.tableTable.ConfusedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDisgustedNull() {
+                return this.IsNull(this.tableTable.DisgustedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDisgustedNull() {
+                this[this.tableTable.DisgustedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSuprisedNull() {
+                return this.IsNull(this.tableTable.SuprisedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSuprisedNull() {
+                this[this.tableTable.SuprisedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCalmNull() {
+                return this.IsNull(this.tableTable.CalmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCalmNull() {
+                this[this.tableTable.CalmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFearNull() {
+                return this.IsNull(this.tableTable.FearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFearNull() {
+                this[this.tableTable.FearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUnknownNull() {
+                return this.IsNull(this.tableTable.UnknownColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUnknownNull() {
+                this[this.tableTable.UnknownColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -900,46 +1236,101 @@ namespace HistoryClient.AppDataTableAdapters {
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Date & Time", "Date & Time");
             tableMapping.ColumnMappings.Add("Situation", "Situation");
-            tableMapping.ColumnMappings.Add("Emotion", "Emotion");
+            tableMapping.ColumnMappings.Add("Happy", "Happy");
+            tableMapping.ColumnMappings.Add("Sad", "Sad");
+            tableMapping.ColumnMappings.Add("Angry", "Angry");
+            tableMapping.ColumnMappings.Add("Confused", "Confused");
+            tableMapping.ColumnMappings.Add("Disgusted", "Disgusted");
+            tableMapping.ColumnMappings.Add("Suprised", "Suprised");
+            tableMapping.ColumnMappings.Add("Calm", "Calm");
+            tableMapping.ColumnMappings.Add("Fear", "Fear");
+            tableMapping.ColumnMappings.Add("Unknown", "Unknown");
             tableMapping.ColumnMappings.Add("Photo", "Photo");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Table] WHERE (([Id] = @Original_Id) AND ((@p3 = 1 AND [Date & Time] IS NULL) OR ([Date & Time] = @p2)) AND ((@IsNull_Situation = 1 AND [Situation] IS NULL) OR ([Situation] = @Original_Situation)) AND ((@IsNull_Emotion = 1 AND [Emotion] IS NULL) OR ([Emotion] = @Original_Emotion)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Table] WHERE (([Id] = @Original_Id) AND ((@p3 = 1 AND [Date & Time] IS NULL) OR ([Date & Time] = @p2)) AND ((@IsNull_Situation = 1 AND [Situation] IS NULL) OR ([Situation] = @Original_Situation)) AND ((@IsNull_Happy = 1 AND [Happy] IS NULL) OR ([Happy] = @Original_Happy)) AND ((@IsNull_Sad = 1 AND [Sad] IS NULL) OR ([Sad] = @Original_Sad)) AND ((@IsNull_Angry = 1 AND [Angry] IS NULL) OR ([Angry] = @Original_Angry)) AND ((@IsNull_Confused = 1 AND [Confused] IS NULL) OR ([Confused] = @Original_Confused)) AND ((@IsNull_Disgusted = 1 AND [Disgusted] IS NULL) OR ([Disgusted] = @Original_Disgusted)) AND ((@IsNull_Suprised = 1 AND [Suprised] IS NULL) OR ([Suprised] = @Original_Suprised)) AND ((@IsNull_Calm = 1 AND [Calm] IS NULL) OR ([Calm] = @Original_Calm)) AND ((@IsNull_Fear = 1 AND [Fear] IS NULL) OR ([Fear] = @Original_Fear)) AND ((@IsNull_Unknown = 1 AND [Unknown] IS NULL) OR ([Unknown] = @Original_Unknown)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date & Time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p2", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date & Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Situation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Situation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Situation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Situation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Emotion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emotion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Emotion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emotion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Happy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Happy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Happy", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Happy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sad", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sad", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sad", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Angry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Angry", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Confused", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Confused", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Confused", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Confused", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Disgusted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Disgusted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Disgusted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Disgusted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Suprised", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suprised", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Suprised", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suprised", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Calm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Calm", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Calm", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Calm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fear", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fear", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fear", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Unknown", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unknown", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Unknown", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unknown", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Table] ([Date & Time], [Situation], [Emotion], [Photo]) VALUES" +
-                " (@p1, @Situation, @Emotion, @Photo);\r\nSELECT Id, [Date & Time], Situation, Emot" +
-                "ion, Photo FROM [Table] WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Table] ([Date & Time], [Situation], [Happy], [Sad], [Angry], [Confused], [Disgusted], [Suprised], [Calm], [Fear], [Unknown], [Photo]) VALUES (@p1, @Situation, @Happy, @Sad, @Angry, @Confused, @Disgusted, @Suprised, @Calm, @Fear, @Unknown, @Photo);
+SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Suprised, Calm, Fear, Unknown, Photo FROM [Table] WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date & Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Situation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Situation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Emotion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emotion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Happy", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Happy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sad", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Angry", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angry", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Confused", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Confused", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Disgusted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Disgusted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Suprised", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suprised", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calm", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Calm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fear", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Unknown", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unknown", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Table] SET [Date & Time] = @p1, [Situation] = @Situation, [Emotion] = @Emotion, [Photo] = @Photo WHERE (([Id] = @Original_Id) AND ((@p3 = 1 AND [Date & Time] IS NULL) OR ([Date & Time] = @p2)) AND ((@IsNull_Situation = 1 AND [Situation] IS NULL) OR ([Situation] = @Original_Situation)) AND ((@IsNull_Emotion = 1 AND [Emotion] IS NULL) OR ([Emotion] = @Original_Emotion)));
-SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Table] SET [Date & Time] = @p1, [Situation] = @Situation, [Happy] = @Happy, [Sad] = @Sad, [Angry] = @Angry, [Confused] = @Confused, [Disgusted] = @Disgusted, [Suprised] = @Suprised, [Calm] = @Calm, [Fear] = @Fear, [Unknown] = @Unknown, [Photo] = @Photo WHERE (([Id] = @Original_Id) AND ((@p3 = 1 AND [Date & Time] IS NULL) OR ([Date & Time] = @p2)) AND ((@IsNull_Situation = 1 AND [Situation] IS NULL) OR ([Situation] = @Original_Situation)) AND ((@IsNull_Happy = 1 AND [Happy] IS NULL) OR ([Happy] = @Original_Happy)) AND ((@IsNull_Sad = 1 AND [Sad] IS NULL) OR ([Sad] = @Original_Sad)) AND ((@IsNull_Angry = 1 AND [Angry] IS NULL) OR ([Angry] = @Original_Angry)) AND ((@IsNull_Confused = 1 AND [Confused] IS NULL) OR ([Confused] = @Original_Confused)) AND ((@IsNull_Disgusted = 1 AND [Disgusted] IS NULL) OR ([Disgusted] = @Original_Disgusted)) AND ((@IsNull_Suprised = 1 AND [Suprised] IS NULL) OR ([Suprised] = @Original_Suprised)) AND ((@IsNull_Calm = 1 AND [Calm] IS NULL) OR ([Calm] = @Original_Calm)) AND ((@IsNull_Fear = 1 AND [Fear] IS NULL) OR ([Fear] = @Original_Fear)) AND ((@IsNull_Unknown = 1 AND [Unknown] IS NULL) OR ([Unknown] = @Original_Unknown)));
+SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Suprised, Calm, Fear, Unknown, Photo FROM [Table] WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p1", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date & Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Situation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Situation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Emotion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emotion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Happy", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Happy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sad", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Angry", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angry", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Confused", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Confused", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Disgusted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Disgusted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Suprised", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suprised", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Calm", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Calm", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fear", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Unknown", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unknown", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo", global::System.Data.SqlDbType.Image, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date & Time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p2", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date & Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Situation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Situation", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Situation", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Situation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Emotion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emotion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Emotion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Emotion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Happy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Happy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Happy", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Happy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Sad", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sad", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sad", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sad", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Angry", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angry", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Angry", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Angry", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Confused", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Confused", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Confused", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Confused", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Disgusted", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Disgusted", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Disgusted", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Disgusted", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Suprised", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suprised", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Suprised", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suprised", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Calm", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Calm", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Calm", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Calm", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fear", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fear", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fear", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Unknown", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unknown", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Unknown", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unknown", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -956,7 +1347,8 @@ SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, [Date & Time], Situation, Emotion, Photo FROM dbo.[Table]";
+            this._commandCollection[0].CommandText = "SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Supr" +
+                "ised, Calm, Fear, Unknown, Photo FROM dbo.[Table]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1017,7 +1409,7 @@ SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, global::System.Nullable<global::System.DateTime> p2, string Original_Situation, global::System.Nullable<int> Original_Emotion) {
+        public virtual int Delete(int Original_Id, global::System.Nullable<global::System.DateTime> p2, string Original_Situation, global::System.Nullable<bool> Original_Happy, global::System.Nullable<bool> Original_Sad, global::System.Nullable<bool> Original_Angry, global::System.Nullable<bool> Original_Confused, global::System.Nullable<bool> Original_Disgusted, global::System.Nullable<bool> Original_Suprised, global::System.Nullable<bool> Original_Calm, global::System.Nullable<bool> Original_Fear, global::System.Nullable<bool> Original_Unknown) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
             if ((p2.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -1035,13 +1427,77 @@ SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Situation));
             }
-            if ((Original_Emotion.HasValue == true)) {
+            if ((Original_Happy.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Emotion.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_Happy.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Sad.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_Sad.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Angry.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((bool)(Original_Angry.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Confused.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_Confused.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Disgusted.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_Disgusted.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Suprised.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_Suprised.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Calm.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((bool)(Original_Calm.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fear.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((bool)(Original_Fear.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Unknown.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((bool)(Original_Unknown.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1063,7 +1519,7 @@ SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> p1, string Situation, global::System.Nullable<int> Emotion, byte[] Photo) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> p1, string Situation, global::System.Nullable<bool> Happy, global::System.Nullable<bool> Sad, global::System.Nullable<bool> Angry, global::System.Nullable<bool> Confused, global::System.Nullable<bool> Disgusted, global::System.Nullable<bool> Suprised, global::System.Nullable<bool> Calm, global::System.Nullable<bool> Fear, global::System.Nullable<bool> Unknown, byte[] Photo) {
             if ((p1.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(p1.Value));
             }
@@ -1076,17 +1532,65 @@ SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Situation));
             }
-            if ((Emotion.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Emotion.Value));
+            if ((Happy.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Happy.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Photo == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((Sad.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Sad.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((byte[])(Photo));
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Angry.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Angry.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Confused.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Confused.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Disgusted.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Disgusted.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Suprised.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Suprised.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Calm.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(Calm.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Fear.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(Fear.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Unknown.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((bool)(Unknown.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Photo == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((byte[])(Photo));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1108,7 +1612,32 @@ SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> p1, string Situation, global::System.Nullable<int> Emotion, byte[] Photo, int Original_Id, global::System.Nullable<global::System.DateTime> p2, string Original_Situation, global::System.Nullable<int> Original_Emotion, int Id) {
+        public virtual int Update(
+                    global::System.Nullable<global::System.DateTime> p1, 
+                    string Situation, 
+                    global::System.Nullable<bool> Happy, 
+                    global::System.Nullable<bool> Sad, 
+                    global::System.Nullable<bool> Angry, 
+                    global::System.Nullable<bool> Confused, 
+                    global::System.Nullable<bool> Disgusted, 
+                    global::System.Nullable<bool> Suprised, 
+                    global::System.Nullable<bool> Calm, 
+                    global::System.Nullable<bool> Fear, 
+                    global::System.Nullable<bool> Unknown, 
+                    byte[] Photo, 
+                    int Original_Id, 
+                    global::System.Nullable<global::System.DateTime> p2, 
+                    string Original_Situation, 
+                    global::System.Nullable<bool> Original_Happy, 
+                    global::System.Nullable<bool> Original_Sad, 
+                    global::System.Nullable<bool> Original_Angry, 
+                    global::System.Nullable<bool> Original_Confused, 
+                    global::System.Nullable<bool> Original_Disgusted, 
+                    global::System.Nullable<bool> Original_Suprised, 
+                    global::System.Nullable<bool> Original_Calm, 
+                    global::System.Nullable<bool> Original_Fear, 
+                    global::System.Nullable<bool> Original_Unknown, 
+                    int Id) {
             if ((p1.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(p1.Value));
             }
@@ -1121,44 +1650,156 @@ SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Situation));
             }
-            if ((Emotion.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Emotion.Value));
+            if ((Happy.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(Happy.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Photo == null)) {
+            if ((Sad.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(Sad.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((byte[])(Photo));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
-            if ((p2.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(p2.Value));
+            if ((Angry.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(Angry.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Confused.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Confused.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Disgusted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Disgusted.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_Situation == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+            if ((Suprised.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Suprised.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Calm.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(Calm.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Situation));
-            }
-            if ((Original_Emotion.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Emotion.Value));
+            if ((Fear.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Fear.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Unknown.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(Unknown.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Id));
+            if ((Photo == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((byte[])(Photo));
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Id));
+            if ((p2.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(p2.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Situation == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Situation));
+            }
+            if ((Original_Happy.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((bool)(Original_Happy.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Sad.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((bool)(Original_Sad.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Angry.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((bool)(Original_Angry.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Confused.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((bool)(Original_Confused.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Disgusted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((bool)(Original_Disgusted.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Suprised.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((bool)(Original_Suprised.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Calm.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((bool)(Original_Calm.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Fear.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((bool)(Original_Fear.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Unknown.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((bool)(Original_Unknown.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1179,8 +1820,32 @@ SELECT Id, [Date & Time], Situation, Emotion, Photo FROM [Table] WHERE (Id = @Id
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> p1, string Situation, global::System.Nullable<int> Emotion, byte[] Photo, int Original_Id, global::System.Nullable<global::System.DateTime> p2, string Original_Situation, global::System.Nullable<int> Original_Emotion) {
-            return this.Update(p1, Situation, Emotion, Photo, Original_Id, p2, Original_Situation, Original_Emotion, Original_Id);
+        public virtual int Update(
+                    global::System.Nullable<global::System.DateTime> p1, 
+                    string Situation, 
+                    global::System.Nullable<bool> Happy, 
+                    global::System.Nullable<bool> Sad, 
+                    global::System.Nullable<bool> Angry, 
+                    global::System.Nullable<bool> Confused, 
+                    global::System.Nullable<bool> Disgusted, 
+                    global::System.Nullable<bool> Suprised, 
+                    global::System.Nullable<bool> Calm, 
+                    global::System.Nullable<bool> Fear, 
+                    global::System.Nullable<bool> Unknown, 
+                    byte[] Photo, 
+                    int Original_Id, 
+                    global::System.Nullable<global::System.DateTime> p2, 
+                    string Original_Situation, 
+                    global::System.Nullable<bool> Original_Happy, 
+                    global::System.Nullable<bool> Original_Sad, 
+                    global::System.Nullable<bool> Original_Angry, 
+                    global::System.Nullable<bool> Original_Confused, 
+                    global::System.Nullable<bool> Original_Disgusted, 
+                    global::System.Nullable<bool> Original_Suprised, 
+                    global::System.Nullable<bool> Original_Calm, 
+                    global::System.Nullable<bool> Original_Fear, 
+                    global::System.Nullable<bool> Original_Unknown) {
+            return this.Update(p1, Situation, Happy, Sad, Angry, Confused, Disgusted, Suprised, Calm, Fear, Unknown, Photo, Original_Id, p2, Original_Situation, Original_Happy, Original_Sad, Original_Angry, Original_Confused, Original_Disgusted, Original_Suprised, Original_Calm, Original_Fear, Original_Unknown, Original_Id);
         }
     }
     
