@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//namespace Client
 namespace HistoryClient
 {
     static class Program
@@ -16,7 +17,7 @@ namespace HistoryClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HistoryForm());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -66,6 +66,7 @@
             this.unknownBox = new System.Windows.Forms.CheckBox();
             this.dateLabel = new System.Windows.Forms.Label();
             this.situationLabel = new System.Windows.Forms.Label();
+            this.deleteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appData)).BeginInit();
@@ -424,11 +425,23 @@
             this.situationLabel.TabIndex = 7;
             this.situationLabel.Text = "Situation";
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.deleteButton.Location = new System.Drawing.Point(703, 349);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(102, 38);
+            this.deleteButton.TabIndex = 8;
+            this.deleteButton.Text = "Clear History";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // HistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 428);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.situationLabel);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.groupBox1);
@@ -483,6 +496,7 @@
         private System.Windows.Forms.CheckBox sadBox;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label situationLabel;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 
