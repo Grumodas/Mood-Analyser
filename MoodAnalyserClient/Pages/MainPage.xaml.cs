@@ -29,7 +29,7 @@ namespace MoodAnalyserClient
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AddMOodPage));
+            this.Frame.Navigate(typeof(AddMoodPage));
         }
     }
 }
