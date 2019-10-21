@@ -52,6 +52,11 @@ namespace HistoryClient
             await ed.UploadToS3(path, fileName);
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //browse button
         private void Button1_Click_1(object sender, EventArgs e)
         {

@@ -17,7 +17,7 @@ namespace AWSLambda1
     public class Function
     {
 
-        public static async Task<ArrayList> FunctionHandler(String photo)
+        public static async Task<String> FunctionHandler(String photo)
         {
             //REIK ISIRASYT SAVO BUCKET'A I THINK
             String bucket = "moodanalysis";
@@ -52,7 +52,7 @@ namespace AWSLambda1
             }
 
 
-            return result;
+            return "test";
         }
     }
 }
