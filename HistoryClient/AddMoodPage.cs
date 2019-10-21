@@ -34,9 +34,10 @@ namespace HistoryClient
         }
 
         //confirm button
-        private void Button1_Click(object sender, EventArgs e)
+        private async void Button1_Click(object sender, EventArgs e)
         {
             String eventName = enterEventText.Text;
+            //enterEventText.Text = fileName;
 
             //var client = new AmazonS3Client("AKIAJWYT6DR3ZK454E6Q", " 8lMlWinKEsnOF3H5ipRIxfE4a+J0aIu0B1C2hr7f", Amazon.RegionEndpoint.EUWest2);
 
@@ -47,8 +48,8 @@ namespace HistoryClient
             //    FilePath = path,
             //    ContentType = "text/plain"
             //};
-            EmotDetector ed = new EmotDetector("AKIAJWYT6DR3ZK454E6Q", " 8lMlWinKEsnOF3H5ipRIxfE4a+J0aIu0B1C2hr7f");
-            ed.UploadToS3(path, fileName);
+            EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
+            await ed.UploadToS3(path, fileName);
         }
 
         //browse button
