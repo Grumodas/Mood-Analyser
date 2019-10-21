@@ -56,10 +56,10 @@ namespace AWSLambda1.Tests
                 };
 
                 // Use test constructor for the function with the service clients created for the test
-                var function = new Function(s3Client, rekognitionClient, Function.DEFAULT_MIN_CONFIDENCE);
+                //var function = new Function(s3Client, rekognitionClient, Function.DEFAULT_MIN_CONFIDENCE);
 
                 var context = new TestLambdaContext();
-                await function.FunctionHandler(s3Event, context);
+                //await function.FunctionHandler(s3Event, context);
 
                 var getTagsResponse = await s3Client.GetObjectTaggingAsync(new GetObjectTaggingRequest
                 {
