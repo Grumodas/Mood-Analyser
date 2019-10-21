@@ -45,6 +45,7 @@
             this.newRecordButton.TabIndex = 0;
             this.newRecordButton.Text = "New Record";
             this.newRecordButton.UseVisualStyleBackColor = true;
+            this.newRecordButton.Click += new System.EventHandler(this.NewRecordButton_Click);
             // 
             // buttonHistory
             // 

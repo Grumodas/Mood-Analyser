@@ -34,6 +34,10 @@ namespace HistoryClient
             //this.tableTableAdapter.Fill(this.appData.Table);
         }
 
-
+        private void NewRecordButton_Click(object sender, EventArgs e)
+        {
+            AddMoodPage addMoodPage = new AddMoodPage();
+            addMoodPage.ShowDialog();
+        }
     }
 }

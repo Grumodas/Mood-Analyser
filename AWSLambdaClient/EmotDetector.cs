@@ -45,13 +45,13 @@ namespace AWSLambdaClient
         }
 
         // Putting the file to S3
-        private async Task UploadToS3(string filePath, string fileName)
+        public async Task UploadToS3(string filePath, string fileName)
         {
-            var client = new AmazonS3Client(accessKey, privateKey, Amazon.RegionEndpoint.EUWest1);
+            var client = new AmazonS3Client(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
 
             var putRequest = new PutObjectRequest
             {
-                BucketName = "rimantasbucet2",
+                BucketName = "moodanalysis",
                 Key = fileName,
                 FilePath = filePath,
                 ContentType = "text/plain"
