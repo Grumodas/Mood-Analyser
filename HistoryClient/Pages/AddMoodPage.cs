@@ -71,7 +71,7 @@ namespace HistoryClient
             {
                 path = dialog.FileName; // get name of file
                 fileName = Path.GetFileName(path);
-                filepathButton.Text = path;
+                filepathButton.Text = fileName;
             }
         }
 
