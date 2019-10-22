@@ -55,6 +55,11 @@ namespace HistoryClient
             MessageBox.Show(message);
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //browse button
         private void Button1_Click_1(object sender, EventArgs e)
         {

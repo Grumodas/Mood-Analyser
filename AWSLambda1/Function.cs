@@ -21,8 +21,7 @@ namespace AWSLambda1
         {
             //REIK ISIRASYT SAVO BUCKET'A I THINK
             String bucket = "moodanalysis";
-            //ArrayList result = new ArrayList();
-            string result = "";
+            ArrayList result = new ArrayList();
 
             AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
 

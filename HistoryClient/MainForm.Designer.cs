@@ -88,8 +88,9 @@
             this.Controls.Add(this.Icon);
             this.Controls.Add(this.buttonHistory);
             this.Controls.Add(this.newRecordButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Mood Analyzer";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Icon)).EndInit();
             this.ResumeLayout(false);

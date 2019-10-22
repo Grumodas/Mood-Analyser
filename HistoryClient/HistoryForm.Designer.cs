@@ -35,14 +35,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryForm));
             this.historyLabel = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.appData = new HistoryClient.AppData();
-            this.tableTableAdapter = new HistoryClient.AppDataTableAdapters.TableTableAdapter();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.happyBox = new System.Windows.Forms.CheckBox();
             this.Photo = new System.Windows.Forms.DataGridViewImageColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,14 +51,20 @@
             this.Calm = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Fear = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Unknown = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.sadBox = new System.Windows.Forms.CheckBox();
-            this.angryBox = new System.Windows.Forms.CheckBox();
-            this.confusedBox = new System.Windows.Forms.CheckBox();
-            this.disgustedBox = new System.Windows.Forms.CheckBox();
-            this.suprisedBox = new System.Windows.Forms.CheckBox();
-            this.calmBox = new System.Windows.Forms.CheckBox();
-            this.fearBox = new System.Windows.Forms.CheckBox();
+            this.tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appData = new HistoryClient.AppData();
+            this.tableTableAdapter = new HistoryClient.AppDataTableAdapters.TableTableAdapter();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.unknownBox = new System.Windows.Forms.CheckBox();
+            this.fearBox = new System.Windows.Forms.CheckBox();
+            this.calmBox = new System.Windows.Forms.CheckBox();
+            this.suprisedBox = new System.Windows.Forms.CheckBox();
+            this.disgustedBox = new System.Windows.Forms.CheckBox();
+            this.confusedBox = new System.Windows.Forms.CheckBox();
+            this.angryBox = new System.Windows.Forms.CheckBox();
+            this.sadBox = new System.Windows.Forms.CheckBox();
+            this.happyBox = new System.Windows.Forms.CheckBox();
             this.dateLabel = new System.Windows.Forms.Label();
             this.situationLabel = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -122,65 +123,6 @@
             this.dataGridView.Size = new System.Drawing.Size(330, 330);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
-            // 
-            // tableBindingSource
-            // 
-            this.tableBindingSource.DataMember = "Table";
-            this.tableBindingSource.DataSource = this.appData;
-            // 
-            // appData
-            // 
-            this.appData.DataSetName = "AppData";
-            this.appData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableTableAdapter
-            // 
-            this.tableTableAdapter.ClearBeforeFill = true;
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.tableBindingSource, "Photo", true));
-            this.pictureBox.Location = new System.Drawing.Point(361, 80);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(330, 330);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 4;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.unknownBox);
-            this.groupBox1.Controls.Add(this.fearBox);
-            this.groupBox1.Controls.Add(this.calmBox);
-            this.groupBox1.Controls.Add(this.suprisedBox);
-            this.groupBox1.Controls.Add(this.disgustedBox);
-            this.groupBox1.Controls.Add(this.confusedBox);
-            this.groupBox1.Controls.Add(this.angryBox);
-            this.groupBox1.Controls.Add(this.sadBox);
-            this.groupBox1.Controls.Add(this.happyBox);
-            this.groupBox1.Location = new System.Drawing.Point(697, 80);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(108, 262);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Mood";
-            // 
-            // happyBox
-            // 
-            this.happyBox.AutoCheck = false;
-            this.happyBox.AutoSize = true;
-            this.happyBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckAlign", this.tableBindingSource, "Happy", true));
-            this.happyBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Happy", true));
-            this.happyBox.Location = new System.Drawing.Point(6, 21);
-            this.happyBox.Name = "happyBox";
-            this.happyBox.Size = new System.Drawing.Size(71, 21);
-            this.happyBox.TabIndex = 0;
-            this.happyBox.Text = "Happy";
-            this.happyBox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.happyBox.UseVisualStyleBackColor = true;
-            this.happyBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Photo
             // 
@@ -310,77 +252,61 @@
             this.Unknown.Visible = false;
             this.Unknown.Width = 55;
             // 
-            // sadBox
+            // tableBindingSource
             // 
-            this.sadBox.AutoCheck = false;
-            this.sadBox.AutoSize = true;
-            this.sadBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Sad", true));
-            this.sadBox.Location = new System.Drawing.Point(6, 48);
-            this.sadBox.Name = "sadBox";
-            this.sadBox.Size = new System.Drawing.Size(55, 21);
-            this.sadBox.TabIndex = 1;
-            this.sadBox.Text = "Sad";
-            this.sadBox.UseVisualStyleBackColor = true;
+            this.tableBindingSource.DataMember = "Table";
+            this.tableBindingSource.DataSource = this.appData;
             // 
-            // angryBox
+            // appData
             // 
-            this.angryBox.AutoCheck = false;
-            this.angryBox.AutoSize = true;
-            this.angryBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Angry", true));
-            this.angryBox.Location = new System.Drawing.Point(6, 75);
-            this.angryBox.Name = "angryBox";
-            this.angryBox.Size = new System.Drawing.Size(67, 21);
-            this.angryBox.TabIndex = 2;
-            this.angryBox.Text = "Angry";
-            this.angryBox.UseVisualStyleBackColor = true;
+            this.appData.DataSetName = "AppData";
+            this.appData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // confusedBox
+            // tableTableAdapter
             // 
-            this.confusedBox.AutoCheck = false;
-            this.confusedBox.AutoSize = true;
-            this.confusedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Confused", true));
-            this.confusedBox.Location = new System.Drawing.Point(6, 102);
-            this.confusedBox.Name = "confusedBox";
-            this.confusedBox.Size = new System.Drawing.Size(90, 21);
-            this.confusedBox.TabIndex = 3;
-            this.confusedBox.Text = "Confused";
-            this.confusedBox.UseVisualStyleBackColor = true;
+            this.tableTableAdapter.ClearBeforeFill = true;
             // 
-            // disgustedBox
+            // pictureBox
             // 
-            this.disgustedBox.AutoCheck = false;
-            this.disgustedBox.AutoSize = true;
-            this.disgustedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Disgusted", true));
-            this.disgustedBox.Location = new System.Drawing.Point(6, 129);
-            this.disgustedBox.Name = "disgustedBox";
-            this.disgustedBox.Size = new System.Drawing.Size(93, 21);
-            this.disgustedBox.TabIndex = 4;
-            this.disgustedBox.Text = "Disgusted";
-            this.disgustedBox.UseVisualStyleBackColor = true;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.tableBindingSource, "Photo", true));
+            this.pictureBox.Location = new System.Drawing.Point(361, 80);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(330, 330);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.TabIndex = 4;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
-            // suprisedBox
+            // groupBox1
             // 
-            this.suprisedBox.AutoCheck = false;
-            this.suprisedBox.AutoSize = true;
-            this.suprisedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Suprised", true));
-            this.suprisedBox.Location = new System.Drawing.Point(6, 156);
-            this.suprisedBox.Name = "suprisedBox";
-            this.suprisedBox.Size = new System.Drawing.Size(86, 21);
-            this.suprisedBox.TabIndex = 5;
-            this.suprisedBox.Text = "Suprised";
-            this.suprisedBox.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.unknownBox);
+            this.groupBox1.Controls.Add(this.fearBox);
+            this.groupBox1.Controls.Add(this.calmBox);
+            this.groupBox1.Controls.Add(this.suprisedBox);
+            this.groupBox1.Controls.Add(this.disgustedBox);
+            this.groupBox1.Controls.Add(this.confusedBox);
+            this.groupBox1.Controls.Add(this.angryBox);
+            this.groupBox1.Controls.Add(this.sadBox);
+            this.groupBox1.Controls.Add(this.happyBox);
+            this.groupBox1.Location = new System.Drawing.Point(697, 80);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(108, 262);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Mood";
             // 
-            // calmBox
+            // unknownBox
             // 
-            this.calmBox.AutoCheck = false;
-            this.calmBox.AutoSize = true;
-            this.calmBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Calm", true));
-            this.calmBox.Location = new System.Drawing.Point(6, 183);
-            this.calmBox.Name = "calmBox";
-            this.calmBox.Size = new System.Drawing.Size(61, 21);
-            this.calmBox.TabIndex = 6;
-            this.calmBox.Text = "Calm";
-            this.calmBox.UseVisualStyleBackColor = true;
+            this.unknownBox.AutoCheck = false;
+            this.unknownBox.AutoSize = true;
+            this.unknownBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Unknown", true));
+            this.unknownBox.Location = new System.Drawing.Point(6, 237);
+            this.unknownBox.Name = "unknownBox";
+            this.unknownBox.Size = new System.Drawing.Size(88, 21);
+            this.unknownBox.TabIndex = 8;
+            this.unknownBox.Text = "Unknown";
+            this.unknownBox.UseVisualStyleBackColor = true;
             // 
             // fearBox
             // 
@@ -394,17 +320,92 @@
             this.fearBox.Text = "Fear";
             this.fearBox.UseVisualStyleBackColor = true;
             // 
-            // unknownBox
+            // calmBox
             // 
-            this.unknownBox.AutoCheck = false;
-            this.unknownBox.AutoSize = true;
-            this.unknownBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Unknown", true));
-            this.unknownBox.Location = new System.Drawing.Point(6, 237);
-            this.unknownBox.Name = "unknownBox";
-            this.unknownBox.Size = new System.Drawing.Size(88, 21);
-            this.unknownBox.TabIndex = 8;
-            this.unknownBox.Text = "Unknown";
-            this.unknownBox.UseVisualStyleBackColor = true;
+            this.calmBox.AutoCheck = false;
+            this.calmBox.AutoSize = true;
+            this.calmBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Calm", true));
+            this.calmBox.Location = new System.Drawing.Point(6, 183);
+            this.calmBox.Name = "calmBox";
+            this.calmBox.Size = new System.Drawing.Size(61, 21);
+            this.calmBox.TabIndex = 6;
+            this.calmBox.Text = "Calm";
+            this.calmBox.UseVisualStyleBackColor = true;
+            // 
+            // suprisedBox
+            // 
+            this.suprisedBox.AutoCheck = false;
+            this.suprisedBox.AutoSize = true;
+            this.suprisedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Suprised", true));
+            this.suprisedBox.Location = new System.Drawing.Point(6, 156);
+            this.suprisedBox.Name = "suprisedBox";
+            this.suprisedBox.Size = new System.Drawing.Size(86, 21);
+            this.suprisedBox.TabIndex = 5;
+            this.suprisedBox.Text = "Suprised";
+            this.suprisedBox.UseVisualStyleBackColor = true;
+            // 
+            // disgustedBox
+            // 
+            this.disgustedBox.AutoCheck = false;
+            this.disgustedBox.AutoSize = true;
+            this.disgustedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Disgusted", true));
+            this.disgustedBox.Location = new System.Drawing.Point(6, 129);
+            this.disgustedBox.Name = "disgustedBox";
+            this.disgustedBox.Size = new System.Drawing.Size(93, 21);
+            this.disgustedBox.TabIndex = 4;
+            this.disgustedBox.Text = "Disgusted";
+            this.disgustedBox.UseVisualStyleBackColor = true;
+            // 
+            // confusedBox
+            // 
+            this.confusedBox.AutoCheck = false;
+            this.confusedBox.AutoSize = true;
+            this.confusedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Confused", true));
+            this.confusedBox.Location = new System.Drawing.Point(6, 102);
+            this.confusedBox.Name = "confusedBox";
+            this.confusedBox.Size = new System.Drawing.Size(90, 21);
+            this.confusedBox.TabIndex = 3;
+            this.confusedBox.Text = "Confused";
+            this.confusedBox.UseVisualStyleBackColor = true;
+            // 
+            // angryBox
+            // 
+            this.angryBox.AutoCheck = false;
+            this.angryBox.AutoSize = true;
+            this.angryBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Angry", true));
+            this.angryBox.Location = new System.Drawing.Point(6, 75);
+            this.angryBox.Name = "angryBox";
+            this.angryBox.Size = new System.Drawing.Size(67, 21);
+            this.angryBox.TabIndex = 2;
+            this.angryBox.Text = "Angry";
+            this.angryBox.UseVisualStyleBackColor = true;
+            // 
+            // sadBox
+            // 
+            this.sadBox.AutoCheck = false;
+            this.sadBox.AutoSize = true;
+            this.sadBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Sad", true));
+            this.sadBox.Location = new System.Drawing.Point(6, 48);
+            this.sadBox.Name = "sadBox";
+            this.sadBox.Size = new System.Drawing.Size(55, 21);
+            this.sadBox.TabIndex = 1;
+            this.sadBox.Text = "Sad";
+            this.sadBox.UseVisualStyleBackColor = true;
+            // 
+            // happyBox
+            // 
+            this.happyBox.AutoCheck = false;
+            this.happyBox.AutoSize = true;
+            this.happyBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckAlign", this.tableBindingSource, "Happy", true));
+            this.happyBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Happy", true));
+            this.happyBox.Location = new System.Drawing.Point(6, 21);
+            this.happyBox.Name = "happyBox";
+            this.happyBox.Size = new System.Drawing.Size(71, 21);
+            this.happyBox.TabIndex = 0;
+            this.happyBox.Text = "Happy";
+            this.happyBox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.happyBox.UseVisualStyleBackColor = true;
+            this.happyBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // dateLabel
             // 
@@ -448,9 +449,11 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.historyLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HistoryForm";
-            this.Text = "Form1";
+            this.Text = "History";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
