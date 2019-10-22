@@ -54,5 +54,10 @@ namespace HistoryClient
         {
             this.Close();
         }
+
+        private void AngryBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

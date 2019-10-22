@@ -21,7 +21,8 @@ namespace AWSLambda1
         {
             //REIK ISIRASYT SAVO BUCKET'A I THINK
             String bucket = "moodanalysis";
-            ArrayList result = new ArrayList();
+            //ArrayList result = new ArrayList();
+            string result = "";
 
             AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
 
@@ -46,11 +47,16 @@ namespace AWSLambda1
                 // GRAB THE EMOTION
                 foreach (Emotion emot in face.Emotions)
                 {
-                    if (emot.Confidence > 30)
+                    if (emot.Confidence > 20)
                     {
-                        result += (emot.Type) + ":";
-                        result += (emot.Confidence) + Environment.NewLine;
+                        if (result != "")
+                        {
+                            result += ",";
+                        }
+
+                        result += emot.Type;
                     }
+ 
                 }
             }
             //return false;

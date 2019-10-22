@@ -50,9 +50,30 @@ namespace HistoryClient
             //};
             EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
             //await ed.UploadToS3(path, fileName);
-            string message = await ed.WhatEmot(path, fileName) + "";
+            string emotions = await ed.WhatEmot(path, fileName) + "";
             //message = message.Replace('\n', );
-            MessageBox.Show(message);
+            emotions = emotions.Replace("\"", "");
+            //MessageBox.Show(emotions);
+
+            //creating enum
+            Emotion emos = new Emotion();
+            int i = 0;
+            string[] emotionArray = emotions.Split(',');
+            foreach (var emotion in emotionArray)
+            {
+                if (i == 0)
+                {
+                    emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                    i++;
+                } else
+                {
+                    emos = emos | (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                }
+
+            }
+
+            string binaryEmotions = Convert.ToString((int)emos, 2);
+            MessageBox.Show(emotions + binaryEmotions);
         }
 
         private void label1_Click(object sender, EventArgs e)

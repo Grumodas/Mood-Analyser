@@ -79,9 +79,10 @@
             // 
             this.historyLabel.AutoSize = true;
             this.historyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.historyLabel.Location = new System.Drawing.Point(341, 20);
+            this.historyLabel.Location = new System.Drawing.Point(256, 16);
+            this.historyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.historyLabel.Name = "historyLabel";
-            this.historyLabel.Size = new System.Drawing.Size(152, 46);
+            this.historyLabel.Size = new System.Drawing.Size(123, 37);
             this.historyLabel.TabIndex = 0;
             this.historyLabel.Text = "History";
             this.historyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,14 +114,15 @@
             this.Fear,
             this.Unknown});
             this.dataGridView.DataSource = this.tableBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(25, 80);
+            this.dataGridView.Location = new System.Drawing.Point(19, 65);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(330, 330);
+            this.dataGridView.Size = new System.Drawing.Size(248, 268);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
@@ -270,9 +272,10 @@
             // 
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.tableBindingSource, "Photo", true));
-            this.pictureBox.Location = new System.Drawing.Point(361, 80);
+            this.pictureBox.Location = new System.Drawing.Point(271, 65);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(330, 330);
+            this.pictureBox.Size = new System.Drawing.Size(248, 269);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 4;
             this.pictureBox.TabStop = false;
@@ -289,9 +292,11 @@
             this.groupBox1.Controls.Add(this.angryBox);
             this.groupBox1.Controls.Add(this.sadBox);
             this.groupBox1.Controls.Add(this.happyBox);
-            this.groupBox1.Location = new System.Drawing.Point(697, 80);
+            this.groupBox1.Location = new System.Drawing.Point(523, 65);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(108, 262);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(81, 213);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mood";
@@ -301,9 +306,10 @@
             this.unknownBox.AutoCheck = false;
             this.unknownBox.AutoSize = true;
             this.unknownBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Unknown", true));
-            this.unknownBox.Location = new System.Drawing.Point(6, 237);
+            this.unknownBox.Location = new System.Drawing.Point(4, 193);
+            this.unknownBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.unknownBox.Name = "unknownBox";
-            this.unknownBox.Size = new System.Drawing.Size(88, 21);
+            this.unknownBox.Size = new System.Drawing.Size(72, 17);
             this.unknownBox.TabIndex = 8;
             this.unknownBox.Text = "Unknown";
             this.unknownBox.UseVisualStyleBackColor = true;
@@ -313,9 +319,10 @@
             this.fearBox.AutoCheck = false;
             this.fearBox.AutoSize = true;
             this.fearBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Fear", true));
-            this.fearBox.Location = new System.Drawing.Point(6, 210);
+            this.fearBox.Location = new System.Drawing.Point(4, 171);
+            this.fearBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fearBox.Name = "fearBox";
-            this.fearBox.Size = new System.Drawing.Size(59, 21);
+            this.fearBox.Size = new System.Drawing.Size(47, 17);
             this.fearBox.TabIndex = 7;
             this.fearBox.Text = "Fear";
             this.fearBox.UseVisualStyleBackColor = true;
@@ -325,9 +332,10 @@
             this.calmBox.AutoCheck = false;
             this.calmBox.AutoSize = true;
             this.calmBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Calm", true));
-            this.calmBox.Location = new System.Drawing.Point(6, 183);
+            this.calmBox.Location = new System.Drawing.Point(4, 149);
+            this.calmBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.calmBox.Name = "calmBox";
-            this.calmBox.Size = new System.Drawing.Size(61, 21);
+            this.calmBox.Size = new System.Drawing.Size(49, 17);
             this.calmBox.TabIndex = 6;
             this.calmBox.Text = "Calm";
             this.calmBox.UseVisualStyleBackColor = true;
@@ -337,9 +345,10 @@
             this.suprisedBox.AutoCheck = false;
             this.suprisedBox.AutoSize = true;
             this.suprisedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Suprised", true));
-            this.suprisedBox.Location = new System.Drawing.Point(6, 156);
+            this.suprisedBox.Location = new System.Drawing.Point(4, 127);
+            this.suprisedBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.suprisedBox.Name = "suprisedBox";
-            this.suprisedBox.Size = new System.Drawing.Size(86, 21);
+            this.suprisedBox.Size = new System.Drawing.Size(67, 17);
             this.suprisedBox.TabIndex = 5;
             this.suprisedBox.Text = "Suprised";
             this.suprisedBox.UseVisualStyleBackColor = true;
@@ -349,9 +358,10 @@
             this.disgustedBox.AutoCheck = false;
             this.disgustedBox.AutoSize = true;
             this.disgustedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Disgusted", true));
-            this.disgustedBox.Location = new System.Drawing.Point(6, 129);
+            this.disgustedBox.Location = new System.Drawing.Point(4, 105);
+            this.disgustedBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.disgustedBox.Name = "disgustedBox";
-            this.disgustedBox.Size = new System.Drawing.Size(93, 21);
+            this.disgustedBox.Size = new System.Drawing.Size(73, 17);
             this.disgustedBox.TabIndex = 4;
             this.disgustedBox.Text = "Disgusted";
             this.disgustedBox.UseVisualStyleBackColor = true;
@@ -361,9 +371,10 @@
             this.confusedBox.AutoCheck = false;
             this.confusedBox.AutoSize = true;
             this.confusedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Confused", true));
-            this.confusedBox.Location = new System.Drawing.Point(6, 102);
+            this.confusedBox.Location = new System.Drawing.Point(4, 83);
+            this.confusedBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.confusedBox.Name = "confusedBox";
-            this.confusedBox.Size = new System.Drawing.Size(90, 21);
+            this.confusedBox.Size = new System.Drawing.Size(71, 17);
             this.confusedBox.TabIndex = 3;
             this.confusedBox.Text = "Confused";
             this.confusedBox.UseVisualStyleBackColor = true;
@@ -373,21 +384,24 @@
             this.angryBox.AutoCheck = false;
             this.angryBox.AutoSize = true;
             this.angryBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Angry", true));
-            this.angryBox.Location = new System.Drawing.Point(6, 75);
+            this.angryBox.Location = new System.Drawing.Point(4, 61);
+            this.angryBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.angryBox.Name = "angryBox";
-            this.angryBox.Size = new System.Drawing.Size(67, 21);
+            this.angryBox.Size = new System.Drawing.Size(53, 17);
             this.angryBox.TabIndex = 2;
             this.angryBox.Text = "Angry";
             this.angryBox.UseVisualStyleBackColor = true;
+            this.angryBox.CheckedChanged += new System.EventHandler(this.AngryBox_CheckedChanged);
             // 
             // sadBox
             // 
             this.sadBox.AutoCheck = false;
             this.sadBox.AutoSize = true;
             this.sadBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Sad", true));
-            this.sadBox.Location = new System.Drawing.Point(6, 48);
+            this.sadBox.Location = new System.Drawing.Point(4, 39);
+            this.sadBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sadBox.Name = "sadBox";
-            this.sadBox.Size = new System.Drawing.Size(55, 21);
+            this.sadBox.Size = new System.Drawing.Size(45, 17);
             this.sadBox.TabIndex = 1;
             this.sadBox.Text = "Sad";
             this.sadBox.UseVisualStyleBackColor = true;
@@ -398,9 +412,10 @@
             this.happyBox.AutoSize = true;
             this.happyBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckAlign", this.tableBindingSource, "Happy", true));
             this.happyBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Happy", true));
-            this.happyBox.Location = new System.Drawing.Point(6, 21);
+            this.happyBox.Location = new System.Drawing.Point(4, 17);
+            this.happyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.happyBox.Name = "happyBox";
-            this.happyBox.Size = new System.Drawing.Size(71, 21);
+            this.happyBox.Size = new System.Drawing.Size(57, 17);
             this.happyBox.TabIndex = 0;
             this.happyBox.Text = "Happy";
             this.happyBox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -410,9 +425,10 @@
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(25, 57);
+            this.dateLabel.Location = new System.Drawing.Point(19, 46);
+            this.dateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(73, 17);
+            this.dateLabel.Size = new System.Drawing.Size(56, 13);
             this.dateLabel.TabIndex = 6;
             this.dateLabel.Text = "Date Time";
             this.dateLabel.Click += new System.EventHandler(this.label1_Click);
@@ -420,18 +436,20 @@
             // situationLabel
             // 
             this.situationLabel.AutoSize = true;
-            this.situationLabel.Location = new System.Drawing.Point(153, 57);
+            this.situationLabel.Location = new System.Drawing.Point(115, 46);
+            this.situationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.situationLabel.Name = "situationLabel";
-            this.situationLabel.Size = new System.Drawing.Size(63, 17);
+            this.situationLabel.Size = new System.Drawing.Size(48, 13);
             this.situationLabel.TabIndex = 7;
             this.situationLabel.Text = "Situation";
             // 
             // deleteButton
             // 
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.deleteButton.Location = new System.Drawing.Point(703, 349);
+            this.deleteButton.Location = new System.Drawing.Point(527, 284);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(102, 38);
+            this.deleteButton.Size = new System.Drawing.Size(76, 31);
             this.deleteButton.TabIndex = 8;
             this.deleteButton.Text = "Clear History";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -439,9 +457,9 @@
             // 
             // HistoryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 428);
+            this.ClientSize = new System.Drawing.Size(613, 348);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.situationLabel);
             this.Controls.Add(this.dateLabel);
@@ -451,7 +469,7 @@
             this.Controls.Add(this.historyLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "HistoryForm";
             this.Text = "History";
             this.Load += new System.EventHandler(this.Form1_Load);
