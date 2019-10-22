@@ -49,7 +49,10 @@ namespace HistoryClient
             //    ContentType = "text/plain"
             //};
             EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
-            await ed.UploadToS3(path, fileName);
+            //await ed.UploadToS3(path, fileName);
+            string message = await ed.WhatEmot(path, fileName) + "";
+            //message = message.Replace('\n', );
+            MessageBox.Show(message);
         }
 
         //browse button

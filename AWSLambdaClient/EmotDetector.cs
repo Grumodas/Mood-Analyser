@@ -19,28 +19,32 @@ namespace AWSLambdaClient
             this.accessKey = accessKey;
             this.privateKey = privateKey;
         }
-        public async Task<Object> WhatEmot(string filePath, string fileName)
+        public async Task<string> WhatEmot(string filePath, string fileName)
         {
             // (not sure to the detail what deos what here) 
             Object emotResult = new ArrayList();
 
             await UploadToS3(filePath, fileName);
 
-            AmazonLambdaClient amazonLambdaClient = new AmazonLambdaClient(accessKey, privateKey, Amazon.RegionEndpoint.EUWest1);
+            AmazonLambdaClient amazonLambdaClient = new AmazonLambdaClient(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
             // Calling our Lambda function
             InvokeRequest ir = new InvokeRequest();
             ir.InvocationType = InvocationType.RequestResponse;
-            ir.FunctionName = "AWSLambda1";
+            ir.FunctionName = "MyAWS";
             // Selecting which file from S3 should our function use
             ir.Payload = "\"" + fileName + "\"";
 
             // Getting the result. result is of type InvokeResponse
-            InvokeResponse result = await amazonLambdaClient.InvokeAsync(ir);
+            var result = await amazonLambdaClient.InvokeAsync(ir);
             // Picking up the result value
-            emotResult = result.Payload;
+            string response = Encoding.ASCII.GetString(result.Payload.ToArray());
 
-            return emotResult;
-
+            //if (bool.TryParse(response, out bool retVal))
+            //{
+            //    return retVal;
+            //}
+            //return false;
+            return response;
 
         }
 
