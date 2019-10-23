@@ -49,13 +49,22 @@ namespace HistoryClient
         {
 
         }
+        
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+
+            this.tableTableAdapter.DeleteQuery();
+            this.tableTableAdapter.Update(this.appData.Table);
             this.Close();
         }
 
         private void AngryBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }

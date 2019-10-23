@@ -115,7 +115,7 @@
             this.Unknown});
             this.dataGridView.DataSource = this.tableBindingSource;
             this.dataGridView.Location = new System.Drawing.Point(19, 65);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
@@ -258,6 +258,7 @@
             // 
             this.tableBindingSource.DataMember = "Table";
             this.tableBindingSource.DataSource = this.appData;
+            this.tableBindingSource.CurrentChanged += new System.EventHandler(this.tableBindingSource_CurrentChanged);
             // 
             // appData
             // 
@@ -273,7 +274,7 @@
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.tableBindingSource, "Photo", true));
             this.pictureBox.Location = new System.Drawing.Point(271, 65);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(248, 269);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -293,9 +294,9 @@
             this.groupBox1.Controls.Add(this.sadBox);
             this.groupBox1.Controls.Add(this.happyBox);
             this.groupBox1.Location = new System.Drawing.Point(523, 65);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(81, 213);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
@@ -307,7 +308,7 @@
             this.unknownBox.AutoSize = true;
             this.unknownBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Unknown", true));
             this.unknownBox.Location = new System.Drawing.Point(4, 193);
-            this.unknownBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.unknownBox.Margin = new System.Windows.Forms.Padding(2);
             this.unknownBox.Name = "unknownBox";
             this.unknownBox.Size = new System.Drawing.Size(72, 17);
             this.unknownBox.TabIndex = 8;
@@ -320,7 +321,7 @@
             this.fearBox.AutoSize = true;
             this.fearBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Fear", true));
             this.fearBox.Location = new System.Drawing.Point(4, 171);
-            this.fearBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fearBox.Margin = new System.Windows.Forms.Padding(2);
             this.fearBox.Name = "fearBox";
             this.fearBox.Size = new System.Drawing.Size(47, 17);
             this.fearBox.TabIndex = 7;
@@ -333,7 +334,7 @@
             this.calmBox.AutoSize = true;
             this.calmBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Calm", true));
             this.calmBox.Location = new System.Drawing.Point(4, 149);
-            this.calmBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.calmBox.Margin = new System.Windows.Forms.Padding(2);
             this.calmBox.Name = "calmBox";
             this.calmBox.Size = new System.Drawing.Size(49, 17);
             this.calmBox.TabIndex = 6;
@@ -346,7 +347,7 @@
             this.suprisedBox.AutoSize = true;
             this.suprisedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Suprised", true));
             this.suprisedBox.Location = new System.Drawing.Point(4, 127);
-            this.suprisedBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.suprisedBox.Margin = new System.Windows.Forms.Padding(2);
             this.suprisedBox.Name = "suprisedBox";
             this.suprisedBox.Size = new System.Drawing.Size(67, 17);
             this.suprisedBox.TabIndex = 5;
@@ -359,7 +360,7 @@
             this.disgustedBox.AutoSize = true;
             this.disgustedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Disgusted", true));
             this.disgustedBox.Location = new System.Drawing.Point(4, 105);
-            this.disgustedBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.disgustedBox.Margin = new System.Windows.Forms.Padding(2);
             this.disgustedBox.Name = "disgustedBox";
             this.disgustedBox.Size = new System.Drawing.Size(73, 17);
             this.disgustedBox.TabIndex = 4;
@@ -372,7 +373,7 @@
             this.confusedBox.AutoSize = true;
             this.confusedBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Confused", true));
             this.confusedBox.Location = new System.Drawing.Point(4, 83);
-            this.confusedBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.confusedBox.Margin = new System.Windows.Forms.Padding(2);
             this.confusedBox.Name = "confusedBox";
             this.confusedBox.Size = new System.Drawing.Size(71, 17);
             this.confusedBox.TabIndex = 3;
@@ -385,7 +386,7 @@
             this.angryBox.AutoSize = true;
             this.angryBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Angry", true));
             this.angryBox.Location = new System.Drawing.Point(4, 61);
-            this.angryBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.angryBox.Margin = new System.Windows.Forms.Padding(2);
             this.angryBox.Name = "angryBox";
             this.angryBox.Size = new System.Drawing.Size(53, 17);
             this.angryBox.TabIndex = 2;
@@ -399,7 +400,7 @@
             this.sadBox.AutoSize = true;
             this.sadBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Sad", true));
             this.sadBox.Location = new System.Drawing.Point(4, 39);
-            this.sadBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sadBox.Margin = new System.Windows.Forms.Padding(2);
             this.sadBox.Name = "sadBox";
             this.sadBox.Size = new System.Drawing.Size(45, 17);
             this.sadBox.TabIndex = 1;
@@ -413,7 +414,7 @@
             this.happyBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckAlign", this.tableBindingSource, "Happy", true));
             this.happyBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.tableBindingSource, "Happy", true));
             this.happyBox.Location = new System.Drawing.Point(4, 17);
-            this.happyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.happyBox.Margin = new System.Windows.Forms.Padding(2);
             this.happyBox.Name = "happyBox";
             this.happyBox.Size = new System.Drawing.Size(57, 17);
             this.happyBox.TabIndex = 0;
@@ -447,7 +448,7 @@
             // 
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.deleteButton.Location = new System.Drawing.Point(527, 284);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(76, 31);
             this.deleteButton.TabIndex = 8;
@@ -469,7 +470,7 @@
             this.Controls.Add(this.historyLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HistoryForm";
             this.Text = "History";
             this.Load += new System.EventHandler(this.Form1_Load);

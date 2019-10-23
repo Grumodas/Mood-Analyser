@@ -76,6 +76,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppData.cs">
+      <DependentUpon>AppData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddMoodPage.cs">
       <SubType>Form</SubType>
     </Compile>

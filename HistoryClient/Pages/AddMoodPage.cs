@@ -16,6 +16,7 @@ namespace HistoryClient
 {
     public partial class AddMoodPage : Form
     {
+        //this.tableTableAdapter.Fill(this.appData.Table);
         string path, fileName;
         private readonly string accessKey, secretKey;
         public AddMoodPage()
@@ -32,6 +33,19 @@ namespace HistoryClient
         {
 
         }
+
+        Boolean happyByte = true;
+        Boolean sadByte = true;
+        Boolean angryByte = true;
+        Boolean confusedByte = true;
+        Boolean disgustedByte = true;
+        Boolean suprisedByte = true;
+        Boolean calmByte = true;
+        Boolean fearByte = true;
+        Boolean unknownByte = true;
+        DateTime dateTime = DateTime.Now;
+        String situation = "Geriau vakar";
+        Byte[] image = null;
 
         //confirm button
         private async void Button1_Click(object sender, EventArgs e)
@@ -74,6 +88,11 @@ namespace HistoryClient
 
             string binaryEmotions = Convert.ToString((int)emos, 2);
             MessageBox.Show(emotions + binaryEmotions);
+
+            //this.tableTableAdapter.Insert();
+            this.tableTableAdapter.Insert(dateTime, situation, happyByte, sadByte, angryByte, confusedByte, disgustedByte, suprisedByte, calmByte, fearByte, unknownByte, image);
+            this.tableTableAdapter.Update(this.appData.Table);
+
         }
 
         private void label1_Click(object sender, EventArgs e)

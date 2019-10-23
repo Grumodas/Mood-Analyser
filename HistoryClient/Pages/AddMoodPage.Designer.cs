@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMoodPage));
             this.enterEventText = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -35,6 +36,11 @@
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.filepathButton = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.appData = new HistoryClient.AppData();
+            this.tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableTableAdapter = new HistoryClient.AppDataTableAdapters.TableTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.appData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // enterEventText
@@ -104,6 +110,20 @@
             this.label1.Text = "Enter situation below";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // appData
+            // 
+            this.appData.DataSetName = "AppData";
+            this.appData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tableBindingSource
+            // 
+            this.tableBindingSource.DataMember = "Table";
+            this.tableBindingSource.DataSource = this.appData;
+            // 
+            // tableTableAdapter
+            // 
+            this.tableTableAdapter.ClearBeforeFill = true;
+            // 
             // AddMoodPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,6 +139,8 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddMoodPage";
             this.Text = "New record";
+            ((System.ComponentModel.ISupportInitialize)(this.appData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +154,8 @@
         private System.Windows.Forms.Button browseFilesButton;
         private System.Windows.Forms.TextBox filepathButton;
         private System.Windows.Forms.Label label1;
+        private AppData appData;
+        private System.Windows.Forms.BindingSource tableBindingSource;
+        private AppDataTableAdapters.TableTableAdapter tableTableAdapter;
     }
 }
