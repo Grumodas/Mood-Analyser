@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMoodPage));
-            this.enterEventText = new System.Windows.Forms.TextBox();
+            this.eventText = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.confirmButton = new System.Windows.Forms.Button();
             this.browseFilesButton = new System.Windows.Forms.Button();
@@ -43,17 +43,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // enterEventText
+            // eventText
             // 
-            this.enterEventText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enterEventText.Location = new System.Drawing.Point(75, 48);
-            this.enterEventText.Margin = new System.Windows.Forms.Padding(2);
-            this.enterEventText.Multiline = true;
-            this.enterEventText.Name = "enterEventText";
-            this.enterEventText.Size = new System.Drawing.Size(301, 29);
-            this.enterEventText.TabIndex = 0;
-            this.enterEventText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.enterEventText.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            this.eventText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventText.Location = new System.Drawing.Point(100, 59);
+            this.eventText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eventText.Multiline = true;
+            this.eventText.Name = "eventText";
+            this.eventText.Size = new System.Drawing.Size(400, 35);
+            this.eventText.TabIndex = 0;
+            this.eventText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.eventText.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // openFileDialog1
             // 
@@ -63,10 +63,10 @@
             // confirmButton
             // 
             this.confirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.confirmButton.Location = new System.Drawing.Point(162, 150);
-            this.confirmButton.Margin = new System.Windows.Forms.Padding(2);
+            this.confirmButton.Location = new System.Drawing.Point(216, 185);
+            this.confirmButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(131, 41);
+            this.confirmButton.Size = new System.Drawing.Size(175, 50);
             this.confirmButton.TabIndex = 1;
             this.confirmButton.Text = "Analyze";
             this.confirmButton.UseVisualStyleBackColor = true;
@@ -75,10 +75,10 @@
             // browseFilesButton
             // 
             this.browseFilesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.browseFilesButton.Location = new System.Drawing.Point(281, 102);
-            this.browseFilesButton.Margin = new System.Windows.Forms.Padding(2);
+            this.browseFilesButton.Location = new System.Drawing.Point(375, 126);
+            this.browseFilesButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.browseFilesButton.Name = "browseFilesButton";
-            this.browseFilesButton.Size = new System.Drawing.Size(95, 29);
+            this.browseFilesButton.Size = new System.Drawing.Size(127, 36);
             this.browseFilesButton.TabIndex = 2;
             this.browseFilesButton.Text = "Browse";
             this.browseFilesButton.UseVisualStyleBackColor = true;
@@ -87,12 +87,12 @@
             // filepathButton
             // 
             this.filepathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.filepathButton.Location = new System.Drawing.Point(75, 103);
-            this.filepathButton.Margin = new System.Windows.Forms.Padding(2);
+            this.filepathButton.Location = new System.Drawing.Point(100, 127);
+            this.filepathButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filepathButton.Multiline = true;
             this.filepathButton.Name = "filepathButton";
             this.filepathButton.ReadOnly = true;
-            this.filepathButton.Size = new System.Drawing.Size(202, 29);
+            this.filepathButton.Size = new System.Drawing.Size(268, 35);
             this.filepathButton.TabIndex = 3;
             this.filepathButton.Text = "File\'s location";
             this.filepathButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -102,10 +102,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.label1.Location = new System.Drawing.Point(139, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(185, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 20);
+            this.label1.Size = new System.Drawing.Size(212, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Enter situation below";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -126,17 +125,17 @@
             // 
             // AddMoodPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 206);
+            this.ClientSize = new System.Drawing.Size(581, 254);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.filepathButton);
             this.Controls.Add(this.browseFilesButton);
             this.Controls.Add(this.confirmButton);
-            this.Controls.Add(this.enterEventText);
+            this.Controls.Add(this.eventText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddMoodPage";
             this.Text = "New record";
             ((System.ComponentModel.ISupportInitialize)(this.appData)).EndInit();
@@ -148,7 +147,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox enterEventText;
+        private System.Windows.Forms.TextBox eventText;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.Button browseFilesButton;

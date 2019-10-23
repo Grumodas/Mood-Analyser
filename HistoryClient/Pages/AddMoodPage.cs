@@ -16,7 +16,6 @@ namespace HistoryClient
 {
     public partial class AddMoodPage : Form
     {
-        //this.tableTableAdapter.Fill(this.appData.Table);
         string path, fileName;
         private readonly string accessKey, secretKey;
         public AddMoodPage()
@@ -34,23 +33,11 @@ namespace HistoryClient
 
         }
 
-        Boolean happyByte = true;
-        Boolean sadByte = true;
-        Boolean angryByte = true;
-        Boolean confusedByte = true;
-        Boolean disgustedByte = true;
-        Boolean suprisedByte = true;
-        Boolean calmByte = true;
-        Boolean fearByte = true;
-        Boolean unknownByte = true;
-        DateTime dateTime = DateTime.Now;
-        String situation = "Geriau vakar";
-        Byte[] image = null;
-
         //confirm button
+        string fileDir;
         private async void Button1_Click(object sender, EventArgs e)
         {
-            String eventName = enterEventText.Text;
+            String eventName = eventText.Text;
             //enterEventText.Text = fileName;
 
             //var client = new AmazonS3Client("AKIAJWYT6DR3ZK454E6Q", " 8lMlWinKEsnOF3H5ipRIxfE4a+J0aIu0B1C2hr7f", Amazon.RegionEndpoint.EUWest2);
@@ -73,7 +60,8 @@ namespace HistoryClient
             Emotion emos = new Emotion();
             int i = 0;
             string[] emotionArray = emotions.Split(',');
-            foreach (var emotion in emotionArray)
+            //foreach uzkomentintas nes man kazkas bug'ina su juo
+            /*foreach (var emotion in emotionArray)
             {
                 if (i == 0)
                 {
@@ -84,13 +72,26 @@ namespace HistoryClient
                     emos = emos | (Emotion)Enum.Parse(typeof(Emotion), emotion);
                 }
 
-            }
+            }*/
 
             string binaryEmotions = Convert.ToString((int)emos, 2);
             MessageBox.Show(emotions + binaryEmotions);
 
-            //this.tableTableAdapter.Insert();
-            this.tableTableAdapter.Insert(dateTime, situation, happyByte, sadByte, angryByte, confusedByte, disgustedByte, suprisedByte, calmByte, fearByte, unknownByte, image);
+            Byte[] ImageToByteArray(System.Drawing.Image imageIn)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    imageIn.Save(ms, imageIn.RawFormat);
+                    return ms.ToArray();
+                }
+            }
+           
+            //Image img = Image.FromFile(filepathButton.Text);
+
+            Byte[] image = null;
+            image = File.ReadAllBytes(fileDir);
+
+            this.tableTableAdapter.Insert(DateTime.Now, eventText.Text, false, true, true, true, true, true, true, true, true, image);
             this.tableTableAdapter.Update(this.appData.Table);
 
         }
@@ -111,6 +112,7 @@ namespace HistoryClient
             {
                 path = dialog.FileName; // get name of file
                 fileName = Path.GetFileName(path);
+                fileDir = path;
                 filepathButton.Text = fileName;
             }
         }
