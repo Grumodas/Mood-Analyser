@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,76 +34,79 @@ namespace HistoryClient
 
         }
 
-        //confirm button
+        //CONFIRM (analyse) button
         string fileDir;
         private async void Button1_Click(object sender, EventArgs e)
         {
-            String eventName = eventText.Text;
-            //enterEventText.Text = fileName;
+            string eventNamePattern = @"\w*[a-zA-Z]\w*";
 
-            //var client = new AmazonS3Client("AKIAJWYT6DR3ZK454E6Q", " 8lMlWinKEsnOF3H5ipRIxfE4a+J0aIu0B1C2hr7f", Amazon.RegionEndpoint.EUWest2);
+            string eventName = eventText.Text;
 
-            //var putResquest = new PutObjectRequest
-            //{
-            //    BucketName = "moodanalysis",
-            //    Key = fileName,
-            //    FilePath = path,
-            //    ContentType = "text/plain"
-            //};
-            EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
-            //await ed.UploadToS3(path, fileName);
-            string emotions = await ed.WhatEmot(path, fileName) + "";
-            //message = message.Replace('\n', );
-            emotions = emotions.Replace("\"", "");
-            //MessageBox.Show(emotions);
+            bool isEventNameValid = Regex.IsMatch(eventText.Text, eventNamePattern);
 
-            //creating enum
-            Emotion emos = new Emotion();
-            int i = 0;
-            string[] emotionArray = emotions.Split(',');
-            //foreach uzkomentintas nes man kazkas bug'ina su juo
-            foreach (var emotion in emotionArray)
+            if (!isEventNameValid)  
             {
-                if (i == 0)
+                MessageBox.Show("Please enter a valid event name");
+            } else
+            {
+                EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
+                //await ed.UploadToS3(path, fileName);
+                string emotions = await ed.WhatEmot(path, fileName) + "";
+                //message = message.Replace('\n', );
+                emotions = emotions.Replace("\"", "");
+                //MessageBox.Show(emotions);
+
+                //creating enum
+                Emotion emos = new Emotion();
+                int i = 0;
+                string[] emotionArray = emotions.Split(',');
+                //foreach uzkomentintas nes man kazkas bug'ina su juo
+                foreach (var emotion in emotionArray)
                 {
-                    emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
-                    i++;
-                } else
-                {
-                    emos = emos | (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                    if (i == 0)
+                    {
+                        emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                        i++;
+                    }
+                    else
+                    {
+                        emos = emos | (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                    }
+
                 }
 
-            }
+                string binaryEmotions = Convert.ToString((int)emos, 2);
+                MessageBox.Show("Emotions detected: " + emotions);
 
-            string binaryEmotions = Convert.ToString((int)emos, 2);
-            MessageBox.Show(emotions + binaryEmotions);
-
-            Byte[] ImageToByteArray(System.Drawing.Image imageIn)
-            {
-                using (var ms = new MemoryStream())
+                Byte[] ImageToByteArray(System.Drawing.Image imageIn)
                 {
-                    imageIn.Save(ms, imageIn.RawFormat);
-                    return ms.ToArray();
+                    using (var ms = new MemoryStream())
+                    {
+                        imageIn.Save(ms, imageIn.RawFormat);
+                        return ms.ToArray();
+                    }
                 }
+
+                //Image img = Image.FromFile(filepathButton.Text);
+
+                Byte[] image = null;
+                image = File.ReadAllBytes(fileDir);
+                PhotoInfo photoInfo = new PhotoInfo();
+                this.tableTableAdapter.Insert(photoInfo, emos.HasFlag(Emotion.HAPPY),
+                                                                            emos.HasFlag(Emotion.SAD),
+                                                                            emos.HasFlag(Emotion.ANGRY),
+                                                                            emos.HasFlag(Emotion.CONFUSED),
+                                                                            emos.HasFlag(Emotion.DISGUSTED),
+                                                                            emos.HasFlag(Emotion.SURPRISED),
+                                                                            emos.HasFlag(Emotion.CALM),
+                                                                            emos.HasFlag(Emotion.FEAR),
+                                                                            emos.HasFlag(Emotion.UNKNOWN),
+                                                                            image);
+                //this.tableTableAdapter.Insert(photoInfo, image);
+                this.tableTableAdapter.Update(this.appData.Table);
+
+
             }
-           
-            //Image img = Image.FromFile(filepathButton.Text);
-
-            Byte[] image = null;
-            image = File.ReadAllBytes(fileDir);
-
-            this.tableTableAdapter.Insert(DateTime.Now, eventText.Text, emos.HasFlag(Emotion.HAPPY), 
-                                                                        emos.HasFlag(Emotion.SAD),
-                                                                        emos.HasFlag(Emotion.ANGRY),
-                                                                        emos.HasFlag(Emotion.CONFUSED),
-                                                                        emos.HasFlag(Emotion.DISGUSTED),
-                                                                        emos.HasFlag(Emotion.SURPRISED),
-                                                                        emos.HasFlag(Emotion.CALM),
-                                                                        emos.HasFlag(Emotion.FEAR),
-                                                                        emos.HasFlag(Emotion.UNKNOWN),
-                                                                        image);
-            this.tableTableAdapter.Update(this.appData.Table);
-
         }
 
         private void label1_Click(object sender, EventArgs e)

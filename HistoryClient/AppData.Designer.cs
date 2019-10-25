@@ -10,6 +10,8 @@
 
 #pragma warning disable 1591
 
+using System;
+
 namespace HistoryClient {
     
     
@@ -1110,8 +1112,8 @@ namespace HistoryClient {
     }
 }
 namespace HistoryClient.AppDataTableAdapters {
-    
-    
+
+
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
     ///</summary>
@@ -1122,23 +1124,23 @@ namespace HistoryClient.AppDataTableAdapters {
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class TableTableAdapter : global::System.ComponentModel.Component {
-        
+
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
+
         private global::System.Data.SqlClient.SqlConnection _connection;
-        
+
         private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
+
         private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
+
         private bool _clearBeforeFill;
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public TableTableAdapter() {
             this.ClearBeforeFill = true;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
@@ -1149,7 +1151,7 @@ namespace HistoryClient.AppDataTableAdapters {
                 return this._adapter;
             }
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal global::System.Data.SqlClient.SqlConnection Connection {
@@ -1177,7 +1179,7 @@ namespace HistoryClient.AppDataTableAdapters {
                 }
             }
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal global::System.Data.SqlClient.SqlTransaction Transaction {
@@ -1189,21 +1191,21 @@ namespace HistoryClient.AppDataTableAdapters {
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     this.CommandCollection[i].Transaction = this._transaction;
                 }
-                if (((this.Adapter != null) 
+                if (((this.Adapter != null)
                             && (this.Adapter.DeleteCommand != null))) {
                     this.Adapter.DeleteCommand.Transaction = this._transaction;
                 }
-                if (((this.Adapter != null) 
+                if (((this.Adapter != null)
                             && (this.Adapter.InsertCommand != null))) {
                     this.Adapter.InsertCommand.Transaction = this._transaction;
                 }
-                if (((this.Adapter != null) 
+                if (((this.Adapter != null)
                             && (this.Adapter.UpdateCommand != null))) {
                     this.Adapter.UpdateCommand.Transaction = this._transaction;
                 }
             }
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
@@ -1214,7 +1216,7 @@ namespace HistoryClient.AppDataTableAdapters {
                 return this._commandCollection;
             }
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool ClearBeforeFill {
@@ -1225,7 +1227,7 @@ namespace HistoryClient.AppDataTableAdapters {
                 this._clearBeforeFill = value;
             }
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitAdapter() {
@@ -1333,14 +1335,14 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Unknown", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Unknown", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
             this._connection.ConnectionString = global::HistoryClient.Properties.Settings.Default.DatabaseConnectionString;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
@@ -1360,7 +1362,7 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
 SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Suprised, Calm, Fear, Unknown, Photo FROM [Table] WHERE (Id = SCOPE_IDENTITY())";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
@@ -1373,7 +1375,7 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
@@ -1384,21 +1386,21 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(AppData.TableDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(AppData dataSet) {
             return this.Adapter.Update(dataSet, "Table");
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
@@ -1406,14 +1408,14 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
             return this.Adapter.Update(new global::System.Data.DataRow[] {
                         dataRow});
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
@@ -1509,7 +1511,7 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open)
                         != global::System.Data.ConnectionState.Open)) {
                 this.Adapter.DeleteCommand.Connection.Open();
             }
@@ -1523,100 +1525,201 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
                 }
             }
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> p1, string Situation, global::System.Nullable<bool> Happy, global::System.Nullable<bool> Sad, global::System.Nullable<bool> Angry, global::System.Nullable<bool> Confused, global::System.Nullable<bool> Disgusted, global::System.Nullable<bool> Suprised, global::System.Nullable<bool> Calm, global::System.Nullable<bool> Fear, global::System.Nullable<bool> Unknown, byte[] Photo) {
-            if ((p1.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(p1.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((Situation == null)) {
+        public virtual int Insert(PhotoInfo pi,
+            global::System.Nullable<bool> Happy,
+            global::System.Nullable<bool> Sad,
+            global::System.Nullable<bool> Angry,
+            global::System.Nullable<bool> Confused,
+            global::System.Nullable<bool> Disgusted,
+            global::System.Nullable<bool> Suprised,
+            global::System.Nullable<bool> Calm,
+            global::System.Nullable<bool> Fear,
+            global::System.Nullable<bool> Unknown,
+            byte[] Photo)
+        {
+        //PhotoInfo photoInfo = null) {
+
+        https://github.com/Grumodas/Mood-Analyser.git
+            this.Adapter.InsertCommand.Parameters[0].Value = (System.DateTime)DateTime.Now;//pi.getDateTime();// (System.DateTime)pi.info.date;
+
+            if ((pi.info.eventName == null))
+            {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Situation));
+            else
+            {
+                this.Adapter.InsertCommand.Parameters[1].Value = pi.info.eventName;
             }
-            if ((Happy.HasValue == true)) {
+            if ((Happy.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Happy.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Sad.HasValue == true)) {
+            if ((Sad.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Sad.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Angry.HasValue == true)) {
+            if ((Angry.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Angry.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Confused.HasValue == true)) {
+            if ((Confused.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Confused.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Disgusted.HasValue == true)) {
+            if ((Disgusted.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Disgusted.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Suprised.HasValue == true)) {
+            if ((Suprised.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Suprised.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Calm.HasValue == true)) {
+            if ((Calm.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(Calm.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Fear.HasValue == true)) {
+            if ((Fear.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(Fear.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Unknown.HasValue == true)) {
+            if ((Unknown.HasValue == true))
+            {
                 this.Adapter.InsertCommand.Parameters[10].Value = ((bool)(Unknown.Value));
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Photo == null)) {
+            if ((Photo == null))
+            {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
-            else {
+            else
+            {
                 this.Adapter.InsertCommand.Parameters[11].Value = ((byte[])(Photo));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open)
+                        != global::System.Data.ConnectionState.Open))
+            {
                 this.Adapter.InsertCommand.Connection.Open();
             }
-            try {
+            try
+            {
                 int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
                 return returnValue;
             }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+            finally
+            {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
+                {
                     this.Adapter.InsertCommand.Connection.Close();
                 }
             }
         }
-        
+
+        //public virtual int Insert(PhotoInfo photoInfo, byte[] Photo)
+        //{
+        //    //https://github.com/Grumodas/Mood-Analyser.git
+
+        //    string Situation = photoInfo.info.eventName;
+        //    DateTime currentDate = DateTime.Now;
+        //    Emotion emotions = photoInfo.info.emotion;
+
+        //    string binaryEmotions = Convert.ToString((int)emotions, 2);
+        //    int howManyEmotions = binaryEmotions.Length;
+        //    int emotionsAsNumber = Convert.ToInt32(binaryEmotions);
+
+        //    this.Adapter.InsertCommand.Parameters[0].Value = (System.DateTime)currentDate;
+        //    //this.Adapter.InsertCommand.Parameters[1].Value = Situation;
+        //    this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+
+        //    int i = 2;
+        //    for (; i < howManyEmotions; i++)
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[i].Value = global::System.DBNull.Value;// (binaryEmotions[i] == '1'? true : false);
+        //    }
+
+        //    for (; i <= 10; i++)
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[i].Value = global::System.DBNull.Value;
+        //    }
+
+        //    if (howManyEmotions == 0)
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[10].Value = true;
+        //    }
+
+        //    if ((Photo == null))
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[11].Value = ((byte[])(Photo));
+        //    }
+
+
+        //    global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+        //    if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open)
+        //                != global::System.Data.ConnectionState.Open))
+        //    {
+        //        this.Adapter.InsertCommand.Connection.Open();
+        //    }
+
+        //    try
+        //    {
+        //        int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+        //        return returnValue;
+        //    }
+        //    finally
+        //    {
+        //        if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
+        //        {
+        //            this.Adapter.InsertCommand.Connection.Close();
+        //        }
+        //    }
+
+        //}
+
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]

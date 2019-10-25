@@ -20,27 +20,33 @@ public enum Emotion
 
 public struct Info
 {
-    String eventName;
-    Emotion emotion;
+    public String eventName { get; set; }
+    //public Emotion emotion;
     //Photo photo???
-    DateTime date;
+    public DateTime date { get; set; }
 
-    public Info(String eventName, Emotion emotion)
+    public Info(String eventName)
     {
         this.eventName = eventName;
-        this.emotion = emotion;
+        //this.emotion = emotion;
         this.date = DateTime.Now;
     }
 }
 
 namespace HistoryClient
 {
-    class PhotoInfo
+    public class PhotoInfo
     {
-        private Info info;
-        PhotoInfo(String eventName, Emotion emotion)
+        
+        public Info info { get; set; }
+        public PhotoInfo(String eventName = "")
         {
-            Info info = new Info(eventName, emotion);
+            Info info = new Info(eventName);
+        }
+        
+        public DateTime getDateTime()
+        {
+            return this.info.date;
         }
     }
 }
