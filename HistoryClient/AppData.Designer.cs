@@ -1695,7 +1695,11 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
 
             int howManyEmotions;
             List<bool> emotionsList = new List<bool>();
-            foreach (var bit in binaryEmotions)
+            char[] arr = binaryEmotions.ToCharArray();
+            Array.Reverse(arr);
+            string rev = new string(arr);
+
+            foreach (var bit in rev)
             {
                 if (bit == '1')
                 {
@@ -1723,28 +1727,24 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
 
-            int i = 2;
-            for (; i < howManyEmotions; i++)
+            for (int i = 2; i <= 10; i++)
             {
-                if (emotionsList[i - 2])
+                if (i - 2 < howManyEmotions)
                 {
-                    this.Adapter.InsertCommand.Parameters[i].Value = true;
-                }
-                else
+                    this.Adapter.InsertCommand.Parameters[i].Value = emotionsList[i - 2];
+                } else
                 {
-                    this.Adapter.InsertCommand.Parameters[i].Value = global::System.DBNull.Value;
+                    this.Adapter.InsertCommand.Parameters[i].Value = false;
                 }
-            }
-            //set all the remaining emotions to false (null)
-            for (; i <= 10; i++)
-            {
-                this.Adapter.InsertCommand.Parameters[i].Value = global::System.DBNull.Value;
             }
 
             //setting unknown flag
             if (howManyEmotions == 0)
             {
                 this.Adapter.InsertCommand.Parameters[10].Value = true;
+            } else
+            {
+                this.Adapter.InsertCommand.Parameters[10].Value = false;
             }
 
             if ((Photo == null))

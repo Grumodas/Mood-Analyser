@@ -94,7 +94,7 @@
             this.filepathButton.ReadOnly = true;
             this.filepathButton.Size = new System.Drawing.Size(268, 35);
             this.filepathButton.TabIndex = 3;
-            this.filepathButton.Text = "File\'s location";
+            this.filepathButton.Text = "Select File";
             this.filepathButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.filepathButton.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
             // 
