@@ -44,18 +44,24 @@ namespace AWSLambda1
 
             foreach (FaceDetail face in detectFacesResponse.FaceDetails)
             {
-                // GRAB THE EMOTION
-                foreach (Emotion emot in face.Emotions)
-                {
-                    if (emot.Confidence > 20)
-                    {
-                        if (result != "")
-                        {
-                            result += ",";
-                        }
 
-                        result += emot.Type;
-                    }
+                IEnumerable<Emotion> emotQuery =
+                    from faceEmotion in face.Emotions
+                    where faceEmotion.Confidence > 20
+                    select faceEmotion;
+                // GRAB THE EMOTION
+                foreach (Emotion emot in emotQuery)
+                {
+                    //if (emot.Confidence > 20)
+                    //{
+                    //    if (result != "")
+                    //    {
+                    //        result += ",";
+                    //    }
+
+                    //    result += emot.Type;
+                    //}
+                    result += emot.Type + ",";
  
                 }
             }
