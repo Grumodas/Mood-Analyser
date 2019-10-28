@@ -80,6 +80,7 @@
     <Compile Include="AppData.cs">
       <DependentUpon>AppData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="StringChanger.cs" />
     <Compile Include="Pages\AddMoodPage.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -62,7 +62,7 @@ namespace AWSLambda1
                     //    result += emot.Type;
                     //}
                     result += emot.Type + ",";
-
+ 
                 }
             }
             //return false;
