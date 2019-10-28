@@ -22,14 +22,17 @@ public struct Info
 {
     public String eventName { get; set; }
     public Emotion emotion;
-    //Photo photo???
     public DateTime date { get; set; }
+    public List<Info> InfoList;
+    public static int index = 0;
 
     public Info(String eventName, Emotion emotion)
     {
         this.eventName = eventName;
         this.emotion = emotion;
         this.date = DateTime.Now;
+        InfoList = new List<Info>();
+        this[index++] = this;
     }
 
     public Info(String eventName)
@@ -37,8 +40,25 @@ public struct Info
         this.eventName = eventName;
         this.date = DateTime.Now;
         this.emotion = Emotion.UNKNOWN;
+        InfoList = new List<Info>();
+        this[index++] = this;
     }
 
+
+    public Info this[int index]
+    {
+        get
+        {
+            return InfoList[index];
+        }
+        set
+        {
+            if (index < InfoList.Count)
+            {
+                InfoList[index] = value;
+            }
+        }
+    }
     
 }
 
