@@ -40,7 +40,7 @@ namespace HistoryClient
         {
             string eventNamePattern = @"\w*[a-zA-Z]\w*";
 
-            string eventName = eventText.Text;
+            string eventName = StringChanger.ChangeFirstLetterCase(eventText.Text);
 
             bool isEventNameValid = Regex.IsMatch(eventText.Text, eventNamePattern);
 
