@@ -11,6 +11,9 @@
 #pragma warning disable 1591
 
 using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Web.UI.MobileControls;
 
 namespace HistoryClient {
     
@@ -1526,167 +1529,127 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
             }
         }
 
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(PhotoInfo pi,
-            global::System.Nullable<bool> Happy,
-            global::System.Nullable<bool> Sad,
-            global::System.Nullable<bool> Angry,
-            global::System.Nullable<bool> Confused,
-            global::System.Nullable<bool> Disgusted,
-            global::System.Nullable<bool> Suprised,
-            global::System.Nullable<bool> Calm,
-            global::System.Nullable<bool> Fear,
-            global::System.Nullable<bool> Unknown,
-            byte[] Photo)
-        {
-        //PhotoInfo photoInfo = null) {
-
-        https://github.com/Grumodas/Mood-Analyser.git
-            this.Adapter.InsertCommand.Parameters[0].Value = (System.DateTime)DateTime.Now;//pi.getDateTime();// (System.DateTime)pi.info.date;
-
-            if ((pi.info.eventName == null))
-            {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[1].Value = pi.info.eventName;
-            }
-            if ((Happy.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Happy.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Sad.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Sad.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((Angry.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Angry.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Confused.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Confused.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Disgusted.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Disgusted.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Suprised.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Suprised.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Calm.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(Calm.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((Fear.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(Fear.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Unknown.HasValue == true))
-            {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((bool)(Unknown.Value));
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Photo == null))
-            {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else
-            {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((byte[])(Photo));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open)
-                        != global::System.Data.ConnectionState.Open))
-            {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try
-            {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally
-            {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
-                {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-
-        //public virtual int Insert(PhotoInfo photoInfo, byte[] Photo)
+        //[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        //[global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        //[global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        //[global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        //public virtual int Insert(PhotoInfo pi,
+        //    global::System.Nullable<bool> Happy,
+        //    global::System.Nullable<bool> Sad,
+        //    global::System.Nullable<bool> Angry,
+        //    global::System.Nullable<bool> Confused,
+        //    global::System.Nullable<bool> Disgusted,
+        //    global::System.Nullable<bool> Suprised,
+        //    global::System.Nullable<bool> Calm,
+        //    global::System.Nullable<bool> Fear,
+        //    //global::System.Nullable<bool> Unknown,
+        //    byte[] Photo)
         //{
-        //    //https://github.com/Grumodas/Mood-Analyser.git
+        ////PhotoInfo photoInfo = null) {
+        //https://github.com/Grumodas/Mood-Analyser.git
+        //    bool isEmotionsUnknown = true;
+        //    Info info = pi.info;
+        //    string situation = pi.info.eventName;
 
-        //    string Situation = photoInfo.info.eventName;
-        //    DateTime currentDate = DateTime.Now;
-        //    Emotion emotions = photoInfo.info.emotion;
-
-        //    string binaryEmotions = Convert.ToString((int)emotions, 2);
-        //    int howManyEmotions = binaryEmotions.Length;
-        //    int emotionsAsNumber = Convert.ToInt32(binaryEmotions);
-
-        //    this.Adapter.InsertCommand.Parameters[0].Value = (System.DateTime)currentDate;
-        //    //this.Adapter.InsertCommand.Parameters[1].Value = Situation;
-        //    this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-
-        //    int i = 2;
-        //    for (; i < howManyEmotions; i++)
+        //    this.Adapter.InsertCommand.Parameters[0].Value = (System.DateTime)DateTime.Now;//pi.getDateTime();// (System.DateTime)pi.info.date;
+        //    if ((situation == null))
         //    {
-        //        this.Adapter.InsertCommand.Parameters[i].Value = global::System.DBNull.Value;// (binaryEmotions[i] == '1'? true : false);
+        //        this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[1].Value = (string)situation;
         //    }
 
-        //    for (; i <= 10; i++)
-        //    {
-        //        this.Adapter.InsertCommand.Parameters[i].Value = global::System.DBNull.Value;
-        //    }
 
-        //    if (howManyEmotions == 0)
-        //    {
-        //        this.Adapter.InsertCommand.Parameters[10].Value = true;
-        //    }
 
+
+        //    if ((Happy.HasValue == true))
+        //    {
+        //        isEmotionsUnknown = true;
+        //        this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(Happy.Value));
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+        //    }
+        //    if ((Sad.HasValue == true))
+        //    {
+        //        isEmotionsUnknown = true;
+        //        this.Adapter.InsertCommand.Parameters[3].Value = ((bool)(Sad.Value));
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+        //    }
+        //    if ((Angry.HasValue == true))
+        //    {
+        //        isEmotionsUnknown = true;
+        //        this.Adapter.InsertCommand.Parameters[4].Value = ((bool)(Angry.Value));
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+        //    }
+        //    if ((Confused.HasValue == true))
+        //    {
+        //        isEmotionsUnknown = true;
+        //        this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Confused.Value));
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+        //    }
+        //    if ((Disgusted.HasValue == true))
+        //    {
+        //        isEmotionsUnknown = true;
+        //        this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Disgusted.Value));
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+        //    }
+        //    if ((Suprised.HasValue == true))
+        //    {
+        //        isEmotionsUnknown = true;
+        //        this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Suprised.Value));
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+        //    }
+        //    if ((Calm.HasValue == true))
+        //    {
+        //        isEmotionsUnknown = true;
+        //        this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(Calm.Value));
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+        //    }
+        //    if ((Fear.HasValue == true))
+        //    {
+        //        isEmotionsUnknown = true;
+        //        this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(Fear.Value));
+        //    }
+        //    else
+        //    {
+        //        this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+        //    }
+        //    //if ((Unknown.HasValue == true))
+        //    //{
+        //        if (isEmotionsUnknown)
+        //        {
+        //            this.Adapter.InsertCommand.Parameters[10].Value = ((bool)true);
+        //        } else
+        //        {
+        //            this.Adapter.InsertCommand.Parameters[10].Value = ((bool)false);// global::System.DBNull.Value;
+        //        }
+        //    //}
+        //    //else
+        //    //{
+        //    //    this.Adapter.InsertCommand.Parameters[10].Value = ((bool)false);// global::System.DBNull.Value;
+        //    //}
         //    if ((Photo == null))
         //    {
         //        this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
@@ -1695,15 +1658,12 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
         //    {
         //        this.Adapter.InsertCommand.Parameters[11].Value = ((byte[])(Photo));
         //    }
-
-
         //    global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
         //    if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open)
         //                != global::System.Data.ConnectionState.Open))
         //    {
         //        this.Adapter.InsertCommand.Connection.Open();
         //    }
-
         //    try
         //    {
         //        int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
@@ -1716,8 +1676,108 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
         //            this.Adapter.InsertCommand.Connection.Close();
         //        }
         //    }
-
         //}
+
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(Info info, byte[] Photo)
+        {
+            //https://github.com/Grumodas/Mood-Analyser.git
+
+            string Situation = info.eventName;
+            DateTime currentDate = DateTime.Now;// photoInfo.info.date;
+            Emotion emotions = info.emotion;
+
+            string binaryEmotions = Convert.ToString((int)emotions, 2);
+
+            int howManyEmotions;
+            List<bool> emotionsList = new List<bool>();
+            foreach (var bit in binaryEmotions)
+            {
+                if (bit == '1')
+                {
+                    emotionsList.Add(true);
+                } else
+                {
+                    emotionsList.Add(false);
+                }
+            }
+            howManyEmotions = emotionsList.Count;
+
+            if (currentDate != null)
+            {
+                this.Adapter.InsertCommand.Parameters[0].Value = currentDate;
+            } else
+            {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+
+            if (Situation != null)
+            {
+                this.Adapter.InsertCommand.Parameters[1].Value = Situation;//"test";
+            } else
+            {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+
+            int i = 2;
+            for (; i < howManyEmotions; i++)
+            {
+                if (emotionsList[i - 2])
+                {
+                    this.Adapter.InsertCommand.Parameters[i].Value = true;
+                }
+                else
+                {
+                    this.Adapter.InsertCommand.Parameters[i].Value = global::System.DBNull.Value;
+                }
+            }
+            //set all the remaining emotions to false (null)
+            for (; i <= 10; i++)
+            {
+                this.Adapter.InsertCommand.Parameters[i].Value = global::System.DBNull.Value;
+            }
+
+            //setting unknown flag
+            if (howManyEmotions == 0)
+            {
+                this.Adapter.InsertCommand.Parameters[10].Value = true;
+            }
+
+            if ((Photo == null))
+            {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else
+            {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((byte[])(Photo));
+            }
+
+
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open)
+                        != global::System.Data.ConnectionState.Open))
+            {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+
+            try
+            {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally
+            {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed))
+                {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+
+        }
 
 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

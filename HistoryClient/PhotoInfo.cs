@@ -21,16 +21,25 @@ public enum Emotion
 public struct Info
 {
     public String eventName { get; set; }
-    //public Emotion emotion;
+    public Emotion emotion;
     //Photo photo???
     public DateTime date { get; set; }
+
+    public Info(String eventName, Emotion emotion)
+    {
+        this.eventName = eventName;
+        this.emotion = emotion;
+        this.date = DateTime.Now;
+    }
 
     public Info(String eventName)
     {
         this.eventName = eventName;
-        //this.emotion = emotion;
         this.date = DateTime.Now;
+        this.emotion = Emotion.UNKNOWN;
     }
+
+    
 }
 
 namespace HistoryClient
@@ -39,11 +48,16 @@ namespace HistoryClient
     {
         
         public Info info { get; set; }
+        public PhotoInfo(String eventName = "", Emotion emos = Emotion.UNKNOWN)
+        {
+            //Info info = new Info(eventName, emos);
+        }
+
         public PhotoInfo(String eventName = "")
         {
             Info info = new Info(eventName);
         }
-        
+
         public DateTime getDateTime()
         {
             return this.info.date;

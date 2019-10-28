@@ -78,31 +78,32 @@ namespace HistoryClient
                 string binaryEmotions = Convert.ToString((int)emos, 2);
                 MessageBox.Show("Emotions detected: " + emotions);
 
-                Byte[] ImageToByteArray(System.Drawing.Image imageIn)
-                {
-                    using (var ms = new MemoryStream())
-                    {
-                        imageIn.Save(ms, imageIn.RawFormat);
-                        return ms.ToArray();
-                    }
-                }
+                //Byte[] ImageToByteArray(System.Drawing.Image imageIn)
+                //{
+                //    using (var ms = new MemoryStream())
+                //    {
+                //        imageIn.Save(ms, imageIn.RawFormat);
+                //        return ms.ToArray();
+                //    }
+                //}
 
                 //Image img = Image.FromFile(filepathButton.Text);
 
                 Byte[] image = null;
                 image = File.ReadAllBytes(fileDir);
-                PhotoInfo photoInfo = new PhotoInfo();
-                this.tableTableAdapter.Insert(photoInfo, emos.HasFlag(Emotion.HAPPY),
-                                                                            emos.HasFlag(Emotion.SAD),
-                                                                            emos.HasFlag(Emotion.ANGRY),
-                                                                            emos.HasFlag(Emotion.CONFUSED),
-                                                                            emos.HasFlag(Emotion.DISGUSTED),
-                                                                            emos.HasFlag(Emotion.SURPRISED),
-                                                                            emos.HasFlag(Emotion.CALM),
-                                                                            emos.HasFlag(Emotion.FEAR),
-                                                                            emos.HasFlag(Emotion.UNKNOWN),
-                                                                            image);
-                //this.tableTableAdapter.Insert(photoInfo, image);
+                //PhotoInfo photoInfo = new PhotoInfo(eventName, emos);
+                Info info = new Info(eventName, emos);
+                //this.tableTableAdapter.Insert(pi : photoInfo, emos.HasFlag(Emotion.HAPPY),
+                //                                            emos.HasFlag(Emotion.SAD),
+                //                                            emos.HasFlag(Emotion.ANGRY),
+                //                                            emos.HasFlag(Emotion.CONFUSED),
+                //                                            emos.HasFlag(Emotion.DISGUSTED),
+                //                                            emos.HasFlag(Emotion.SURPRISED),
+                //                                            emos.HasFlag(Emotion.CALM),
+                //                                            emos.HasFlag(Emotion.FEAR),
+                //                                            //emos.HasFlag(Emotion.UNKNOWN),
+                //                                            image);
+                this.tableTableAdapter.Insert(info, image);
                 this.tableTableAdapter.Update(this.appData.Table);
 
 
