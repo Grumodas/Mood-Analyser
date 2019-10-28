@@ -81,12 +81,12 @@ namespace HistoryClient
                 image = File.ReadAllBytes(fileDir);
                 //PhotoInfo photoInfo = new PhotoInfo(eventName, emos);
                 Info info = new Info(eventName, emos);
-
+                IEquatable<Info> narrow = info; 
                 if (Info.index > 1)
                 {
                     Info lastInfo = info[Info.index - 2];
 
-                    if (!info.Equals(lastInfo))
+                    if (!narrow.Equals(lastInfo))
                     {
                         this.tableTableAdapter.Insert(info, image);
                         this.tableTableAdapter.Update(this.appData.Table);
