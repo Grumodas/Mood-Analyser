@@ -18,12 +18,12 @@ public enum Emotion
     FEAR = 0b_1000_0000  // 128
 }
 
-public struct Info
+public struct Info : IEquatable<Info>
 {
     public String eventName { get; set; }
     public Emotion emotion;
     public DateTime date { get; set; }
-    public List<Info> InfoList;
+    public static List<Info> InfoList = new List<Info>();
     public static int index = 0;
 
     public Info(String eventName, Emotion emotion)
@@ -31,8 +31,10 @@ public struct Info
         this.eventName = eventName;
         this.emotion = emotion;
         this.date = DateTime.Now;
-        InfoList = new List<Info>();
-        this[index++] = this;
+        //InfoList = new List<Info>();
+        //this[index++] = this;
+        InfoList.Add(this);
+        index++;
     }
 
     public Info(String eventName)
@@ -40,8 +42,10 @@ public struct Info
         this.eventName = eventName;
         this.date = DateTime.Now;
         this.emotion = Emotion.UNKNOWN;
-        InfoList = new List<Info>();
-        this[index++] = this;
+        InfoList.Add(this);
+        index++;
+
+        //this[index++] = this;
     }
 
 
@@ -59,7 +63,12 @@ public struct Info
             }
         }
     }
-    
+
+    public bool Equals(Info other)
+    {
+        return (this.eventName == other.eventName);
+
+    }
 }
 
 namespace HistoryClient

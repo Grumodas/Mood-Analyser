@@ -82,8 +82,24 @@ namespace HistoryClient
                 //PhotoInfo photoInfo = new PhotoInfo(eventName, emos);
                 Info info = new Info(eventName, emos);
 
-                this.tableTableAdapter.Insert(info, image);
-                this.tableTableAdapter.Update(this.appData.Table);
+                if (Info.index > 1)
+                {
+                    Info lastInfo = info[Info.index - 2];
+
+                    if (!info.Equals(lastInfo))
+                    {
+                        this.tableTableAdapter.Insert(info, image);
+                        this.tableTableAdapter.Update(this.appData.Table);
+                    } else
+                    {
+                    MessageBox.Show("Event already uploaded");
+                    }
+                } else
+                {
+                    this.tableTableAdapter.Insert(info, image);
+                    this.tableTableAdapter.Update(this.appData.Table);
+                }
+
             }
         }
 
