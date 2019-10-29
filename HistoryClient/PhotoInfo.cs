@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Emotion;
 
 public enum Emotion
 {
@@ -18,7 +17,7 @@ public enum Emotion
     FEAR = 0b_1000_0000  // 128
 }
 
-public struct Info : IEquatable<Info>
+public struct Info : IEquatable<Info>, IComparable<Info>
 {
     public String eventName { get; set; }
     public Emotion emotion;
@@ -68,6 +67,20 @@ public struct Info : IEquatable<Info>
     {
         return (this.eventName == other.eventName);
 
+    }
+
+    public int CompareTo(Info other)
+    {
+        if (other.date < this.date)
+        {
+            return -1;
+        } else if (other.date == this.date)
+        {
+            return 0;
+        } else
+        {
+            return 1;
+        }
     }
 }
 

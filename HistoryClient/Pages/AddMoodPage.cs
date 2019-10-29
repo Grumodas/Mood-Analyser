@@ -86,14 +86,19 @@ namespace HistoryClient
                 {
                     Info lastInfo = info[Info.index - 2];
 
-                    if (!narrow.Equals(lastInfo))
+                    if (lastInfo.CompareTo(info) > 0)
                     {
-                        this.tableTableAdapter.Insert(info, image);
-                        this.tableTableAdapter.Update(this.appData.Table);
-                    } else
-                    {
-                    MessageBox.Show("Event already uploaded");
+                        MessageBox.Show("everything good");
                     }
+
+                    //if (!narrow.Equals(lastInfo))
+                    //{
+                    //    this.tableTableAdapter.Insert(info, image);
+                    //    this.tableTableAdapter.Update(this.appData.Table);
+                    //} else
+                    //{
+                    //MessageBox.Show("Event already uploaded");
+                    //}
                 } else
                 {
                     this.tableTableAdapter.Insert(info, image);
