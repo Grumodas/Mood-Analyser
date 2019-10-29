@@ -19,9 +19,7 @@ namespace AWSLambda1
 
         public static async Task<string> FunctionHandler(String photo)
         {
-            //REIK ISIRASYT SAVO BUCKET'A I THINK
             String bucket = "moodanalysis";
-            //ArrayList result = new ArrayList();
             string result = "";
 
             AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
@@ -44,28 +42,17 @@ namespace AWSLambda1
 
             foreach (FaceDetail face in detectFacesResponse.FaceDetails)
             {
-
                 IEnumerable<Emotion> emotQuery =
                     from faceEmotion in face.Emotions
                     where faceEmotion.Confidence > 20
                     select faceEmotion;
-                // GRAB THE EMOTION
+
                 foreach (Emotion emot in emotQuery)
                 {
-                    //if (emot.Confidence > 20)
-                    //{
-                    //    if (result != "")
-                    //    {
-                    //        result += ",";
-                    //    }
-
-                    //    result += emot.Type;
-                    //}
                     result += emot.Type + ",";
- 
                 }
             }
-            //return false;
+
             return result;
         }
     }

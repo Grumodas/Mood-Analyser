@@ -26,7 +26,7 @@ public struct Info : IEquatable<Info>
     public static List<Info> InfoList = new List<Info>();
     public static int index = 0;
 
-    public Info(String eventName, Emotion emotion)
+    public Info(String eventName = "", Emotion emotion = Emotion.UNKNOWN)
     {
         this.eventName = eventName;
         this.emotion = emotion;
