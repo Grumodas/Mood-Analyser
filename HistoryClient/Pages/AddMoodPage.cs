@@ -82,20 +82,23 @@ namespace HistoryClient
                 //PhotoInfo photoInfo = new PhotoInfo(eventName, emos);
                 Info info = new Info(eventName, emos);
                 IEquatable<Info> narrow = info; 
-
-                // Checking if the last entry is not duplicated
                 if (Info.index > 1)
                 {
                     Info lastInfo = info[Info.index - 2];
 
-                    if (!narrow.Equals(lastInfo))
+                    if (lastInfo.CompareTo(info) > 0)
                     {
-                        this.tableTableAdapter.Insert(info: info, Photo: image);
-                        this.tableTableAdapter.Update(this.appData.Table);
-                    } else
-                    {
-                    MessageBox.Show("Event already uploaded");
+                        MessageBox.Show("everything good");
                     }
+
+                    //if (!narrow.Equals(lastInfo))
+                    //{
+                    //    this.tableTableAdapter.Insert(info, image);
+                    //    this.tableTableAdapter.Update(this.appData.Table);
+                    //} else
+                    //{
+                    //MessageBox.Show("Event already uploaded");
+                    //}
                 } else
                 {
                     this.tableTableAdapter.Insert(info, image);
