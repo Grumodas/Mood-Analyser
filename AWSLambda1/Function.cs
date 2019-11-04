@@ -19,12 +19,55 @@ namespace AWSLambda1
 
         public static async Task<string> FunctionHandler(String photo)
         {
-            //REIK ISIRASYT SAVO BUCKET'A I THINK
             String bucket = "moodanalysis";
             //ArrayList result = new ArrayList();
             string result = "";
 
             AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
+
+            CompareFacesRequest CFR = new CompareFacesRequest()
+            {
+                //SimilarityThreshold = 50,
+
+                SourceImage = new Image()
+                {
+                    S3Object = new S3Object()
+                    {
+                        Name = "jd_stupid_hair.png",
+                        Bucket = bucket
+                    },
+                },
+
+                TargetImage = new Image()
+                {
+                    S3Object = new S3Object()
+                    {
+                        Name = photo,
+                        Bucket = bucket
+                    },
+                },
+            };
+
+            CompareFacesResponse compareFacesResponse = await rekognitionClient.CompareFacesAsync(CFR);
+            string test = "";
+
+            int index = 0, bestIndex = 0;
+            var bestMatch = compareFacesResponse.FaceMatches[0];
+            float bestMatchResult = compareFacesResponse.FaceMatches[0].Similarity;
+            foreach (var faceMatch in compareFacesResponse.FaceMatches)
+            {
+                test += faceMatch.Similarity + ",";
+
+                if (bestMatchResult < faceMatch.Similarity)
+                {
+                    bestMatch = faceMatch;
+                    bestIndex = index;
+                }
+                index++;
+            }
+
+            //return test + "and the best face is: " + bestMatch.Similarity;
+
 
             DetectFacesRequest detectFacesRequest = new DetectFacesRequest()
             {
@@ -42,9 +85,9 @@ namespace AWSLambda1
 
             DetectFacesResponse detectFacesResponse = await rekognitionClient.DetectFacesAsync(detectFacesRequest);
 
-            foreach (FaceDetail face in detectFacesResponse.FaceDetails)
-            {
-
+            //foreach (FaceDetail face in detectFacesResponse.FaceDetails)
+            //{
+            var face = detectFacesResponse.FaceDetails[bestIndex];
                 IEnumerable<Emotion> emotQuery =
                     from faceEmotion in face.Emotions
                     where faceEmotion.Confidence > 20
@@ -64,9 +107,9 @@ namespace AWSLambda1
                     result += emot.Type + ",";
  
                 }
-            }
+            //}
             //return false;
-            return result;
+            return test + "- - -" + result;
         }
     }
 }
