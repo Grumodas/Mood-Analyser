@@ -33,7 +33,7 @@ namespace AWSLambda1
                 {
                     S3Object = new S3Object()
                     {
-                        Name = "jd_stupid_hair.png",
+                        Name = "jd_smile.jpg",
                         Bucket = bucket
                     },
                 },
@@ -51,9 +51,15 @@ namespace AWSLambda1
             CompareFacesResponse compareFacesResponse = await rekognitionClient.CompareFacesAsync(CFR);
             string test = "";
 
-            int index = 0, bestIndex = 0;
+            if (compareFacesResponse.FaceMatches.Count == 0)
+            {
+                return "";
+            }
+
+            //int index = 0, bestIndex = 0;
             var bestMatch = compareFacesResponse.FaceMatches[0];
             float bestMatchResult = compareFacesResponse.FaceMatches[0].Similarity;
+            BoundingBox bestBoundingBox = compareFacesResponse.FaceMatches[0].Face.BoundingBox;
             foreach (var faceMatch in compareFacesResponse.FaceMatches)
             {
                 test += faceMatch.Similarity + ",";
@@ -61,12 +67,10 @@ namespace AWSLambda1
                 if (bestMatchResult < faceMatch.Similarity)
                 {
                     bestMatch = faceMatch;
-                    bestIndex = index;
+                    bestBoundingBox = faceMatch.Face.BoundingBox;
+                    bestMatchResult = faceMatch.Similarity;
                 }
-                index++;
             }
-
-            //return test + "and the best face is: " + bestMatch.Similarity;
 
 
             DetectFacesRequest detectFacesRequest = new DetectFacesRequest()
@@ -85,31 +89,29 @@ namespace AWSLambda1
 
             DetectFacesResponse detectFacesResponse = await rekognitionClient.DetectFacesAsync(detectFacesRequest);
 
-            //foreach (FaceDetail face in detectFacesResponse.FaceDetails)
-            //{
-            var face = detectFacesResponse.FaceDetails[bestIndex];
-                IEnumerable<Emotion> emotQuery =
-                    from faceEmotion in face.Emotions
-                    where faceEmotion.Confidence > 20
-                    select faceEmotion;
-                // GRAB THE EMOTION
-                foreach (Emotion emot in emotQuery)
+            //int i = 0;
+            foreach (FaceDetail face in detectFacesResponse.FaceDetails)
+            {
+                if (face.BoundingBox.Height == bestBoundingBox.Height &&
+                    face.BoundingBox.Left == bestBoundingBox.Left &&
+                    face.BoundingBox.Top == bestBoundingBox.Top &&
+                    face.BoundingBox.Width == bestBoundingBox.Width)
                 {
-                    //if (emot.Confidence > 20)
-                    //{
-                    //    if (result != "")
-                    //    {
-                    //        result += ",";
-                    //    }
+                    IEnumerable<Emotion> emotQuery =
+                        from faceEmotion in face.Emotions
+                        where faceEmotion.Confidence > 5
+                        select faceEmotion;
 
-                    //    result += emot.Type;
-                    //}
-                    result += emot.Type + ",";
- 
+                    // GRAB THE EMOTION
+                    foreach (Emotion emot in emotQuery)
+                    {
+                        result += emot.Type + ",";
+                    }
                 }
+            }
             //}
-            //return false;
-            return test + "- - -" + result;
+            //return test + "- - -" + result;
+            return result;
         }
     }
 }
