@@ -1739,7 +1739,7 @@ SELECT Id, [Date & Time], Situation, Happy, Sad, Angry, Confused, Disgusted, Sup
             }
 
             //setting unknown flag
-            if (howManyEmotions == 0)
+            if (emotions == Emotion.UNKNOWN)
             {
                 this.Adapter.InsertCommand.Parameters[10].Value = true;
             } else
