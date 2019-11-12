@@ -57,5 +57,20 @@ namespace AWSLambdaClient
 
             PutObjectResponse response = await client.PutObjectAsync(putRequest);
         }
+
+        public async Task uploadReferencePhoto(string filePath)
+        {
+            var client = new AmazonS3Client(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
+
+            var putRequest = new PutObjectRequest
+            {
+                BucketName = "moodanalysis",
+                Key = "referencePhoto.jpg",
+                FilePath = filePath,
+                ContentType = "text/plain"
+            };
+
+            PutObjectResponse response = await client.PutObjectAsync(putRequest);
+        }
     }
 }

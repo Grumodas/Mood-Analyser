@@ -52,7 +52,6 @@ namespace HistoryClient
                 EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
                 //await ed.UploadToS3(path, fileName);
                 string emotions = await ed.WhatEmot(path, fileName) + "";
-                //message = message.Replace('\n', );
                 emotions = emotions.Replace("\"", "");
                 //MessageBox.Show(emotions);
 
@@ -61,16 +60,24 @@ namespace HistoryClient
                 int i = 0;
                 string[] emotionArray = emotions.Split(',');
 
-                foreach (var emotion in emotionArray)
+                if (emotionArray[0] == "")
                 {
-                    if (i == 0)
+                    emos = Emotion.UNKNOWN;
+                    emotions = "UNKNOWN";
+                } else
+                {
+                    foreach (var emotion in emotionArray)
                     {
-                        emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
-                        i++;
-                    }
-                    else
-                    {
-                        emos = emos | (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                        if (i == 0)
+                        {
+                            emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                            i++;
+                        }
+                        else
+                        {
+                            emos = emos | (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                        
+                        }
                     }
                 }
 
@@ -86,19 +93,20 @@ namespace HistoryClient
                 {
                     Info lastInfo = info[Info.index - 2];
 
-                    if (lastInfo.CompareTo(info) > 0)
-                    {
-                        MessageBox.Show("everything good");
-                    }
-
-                    //if (!narrow.Equals(lastInfo))
+                    //if (lastInfo.CompareTo(info) > 0)
                     //{
-                    //    this.tableTableAdapter.Insert(info, image);
-                    //    this.tableTableAdapter.Update(this.appData.Table);
-                    //} else
-                    //{
-                    //MessageBox.Show("Event already uploaded");
+                    //    MessageBox.Show("everything good");
                     //}
+
+                    if (!narrow.Equals(lastInfo))
+                    {
+                        this.tableTableAdapter.Insert(info, image);
+                        this.tableTableAdapter.Update(this.appData.Table);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Event already uploaded");
+                    }
                 } else
                 {
                     this.tableTableAdapter.Insert(info, image);

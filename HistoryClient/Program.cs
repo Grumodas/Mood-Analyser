@@ -17,7 +17,10 @@ namespace HistoryClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            //if the database is empty, allow to choose reference photo
+            Application.Run(new UploadReferencePhoto());
+            //else show regular menu
         }
     }
 }
