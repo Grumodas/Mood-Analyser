@@ -37,6 +37,8 @@ namespace HistoryClient
             ed.uploadReferencePhoto(path);
             this.Hide();
             MainForm mainForm = new MainForm();
+            MessageBox.Show("wow u ok??");
+            MessageBox.Show("lol jk");
             mainForm.ShowDialog();
         }
 

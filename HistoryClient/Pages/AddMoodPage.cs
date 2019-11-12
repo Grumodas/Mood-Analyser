@@ -60,17 +60,24 @@ namespace HistoryClient
                 int i = 0;
                 string[] emotionArray = emotions.Split(',');
 
-                foreach (var emotion in emotionArray)
+                if (emotionArray[0] == "")
                 {
-                    if (i == 0)
+                    emos = Emotion.UNKNOWN;
+                    emotions = "UNKNOWN";
+                } else
+                {
+                    foreach (var emotion in emotionArray)
                     {
-                        emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
-                        i++;
-                    }
-                    else
-                    {
-                        emos = emos | (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                        if (i == 0)
+                        {
+                            emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                            i++;
+                        }
+                        else
+                        {
+                            emos = emos | (Emotion)Enum.Parse(typeof(Emotion), emotion);
                         
+                        }
                     }
                 }
 
