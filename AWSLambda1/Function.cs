@@ -33,7 +33,7 @@ namespace AWSLambda1
                 {
                     S3Object = new S3Object()
                     {
-                        Name = "jd_smile.jpg",
+                        Name = "referencePhoto.jpg",
                         Bucket = bucket
                     },
                 },
