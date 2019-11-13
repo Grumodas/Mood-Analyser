@@ -80,6 +80,13 @@
     <Compile Include="AppData.cs">
       <DependentUpon>AppData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LoadingScreen.cs" />
+    <Compile Include="Pages\LoadingBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\LoadingBox.Designer.cs">
+      <DependentUpon>LoadingBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="StringChanger.cs" />
     <Compile Include="Pages\AddMoodPage.cs">
       <SubType>Form</SubType>
@@ -116,6 +123,9 @@
     <EmbeddedResource Include="Pages\AddMoodPage.resx">
       <DependentUpon>AddMoodPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\LoadingBox.resx">
+      <DependentUpon>LoadingBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\HistoryForm.resx">
       <DependentUpon>HistoryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +143,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="AppData.xsc">
       <DependentUpon>AppData.xsd</DependentUpon>
@@ -168,6 +179,7 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="ico.ico" />
+    <None Include="Resources\Spinner-1s-200px.gif" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

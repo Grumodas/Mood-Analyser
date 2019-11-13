@@ -100,6 +100,11 @@ namespace HistoryClient
             Info info = new Info(eventName);
         }
 
+        public PhotoInfo(Info mockInfo)
+        {
+            info = mockInfo;
+        }
+
         public DateTime getDateTime()
         {
             return this.info.date;

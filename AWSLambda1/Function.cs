@@ -25,6 +25,7 @@ namespace AWSLambda1
 
             AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
 
+            // Recognizes User's face
             CompareFacesRequest CFR = new CompareFacesRequest()
             {
                 //SimilarityThreshold = 50,
@@ -72,7 +73,7 @@ namespace AWSLambda1
                 }
             }
 
-
+            // Detects emotions of faces in photo
             DetectFacesRequest detectFacesRequest = new DetectFacesRequest()
             {
                 Image = new Image()

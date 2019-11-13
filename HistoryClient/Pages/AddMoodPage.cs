@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -49,9 +50,14 @@ namespace HistoryClient
                 MessageBox.Show("Please enter a valid event name");
             } else
             {
+                confirmButton.Enabled = false;
+                LoadingScreen ls = new LoadingScreen();
+                ls.Open();
+
                 EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
                 //await ed.UploadToS3(path, fileName);
                 string emotions = await ed.WhatEmot(path, fileName) + "";
+                
                 emotions = emotions.Replace("\"", "");
                 //MessageBox.Show(emotions);
 
@@ -82,7 +88,8 @@ namespace HistoryClient
                 }
 
                 string binaryEmotions = Convert.ToString((int)emos, 2);
-                MessageBox.Show("Emotions detected: " + emotions);
+                ls.setEmotions(emotions);
+                //MessageBox.Show("Emotions detected: " + emotions);
 
                 Byte[] image = null;
                 image = File.ReadAllBytes(fileDir);
@@ -113,6 +120,8 @@ namespace HistoryClient
                     this.tableTableAdapter.Update(this.appData.Table);
                 }
 
+                ls.WaitForClose();
+                confirmButton.Enabled = true;
             }
         }
 
