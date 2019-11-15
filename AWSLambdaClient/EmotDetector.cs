@@ -58,6 +58,8 @@ namespace AWSLambdaClient
             PutObjectResponse response = await client.PutObjectAsync(putRequest);
         }
 
+
+
         public async Task uploadReferencePhoto(string filePath)
         {
             var client = new AmazonS3Client(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
@@ -72,5 +74,29 @@ namespace AWSLambdaClient
 
             PutObjectResponse response = await client.PutObjectAsync(putRequest);
         }
+
+        public async Task<string> WhatEmotReference(string filePath)
+        {
+            Object emotResult = new ArrayList();
+            // Uploading file to S3
+            await uploadReferencePhoto(filePath);
+
+            // Calling our Lambda function
+            AmazonLambdaClient amazonLambdaClient = new AmazonLambdaClient(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
+            InvokeRequest ir = new InvokeRequest();
+            ir.InvocationType = InvocationType.RequestResponse;
+            ir.FunctionName = "MyAWS";
+
+            // Selecting which file from S3 should our function use
+            ir.Payload = "\"" + "referencePhoto.jpg" + "\"";
+
+            // Getting the result
+            var result = await amazonLambdaClient.InvokeAsync(ir);
+            // Picking up the result value
+            string response = Encoding.ASCII.GetString(result.Payload.ToArray());
+
+            return response;
+        }
+
     }
 }

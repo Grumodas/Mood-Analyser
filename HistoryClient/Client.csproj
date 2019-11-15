@@ -80,6 +80,7 @@
     <Compile Include="AppData.cs">
       <DependentUpon>AppData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\InvalidReferencePictureException.cs" />
     <Compile Include="LoadingScreen.cs" />
     <Compile Include="Pages\LoadingBox.cs">
       <SubType>Form</SubType>
