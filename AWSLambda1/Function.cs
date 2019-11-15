@@ -102,10 +102,11 @@ namespace AWSLambda1
                 {
                     //var emotQuery = FilterEmotions(face, IsLowConfidence);
 
-                    FilterEmotions filter = delegate(FaceDetail facething, ConfidenceFilterDelegate filterthing)
+                    FilterEmotions filter = delegate(FaceDetail faceFilter, ConfidenceFilterDelegate confFilter)
                     {
-                        return face.Emotions.FindAll(n => filterthing(n)).ToList();
+                        return faceFilter.Emotions.FindAll(n => confFilter(n)).ToList();
                     };
+
                     var emotQuery = filter(face, IsHighConfidence);
 
                     //IEnumerable<Emotion> emotQuery =
