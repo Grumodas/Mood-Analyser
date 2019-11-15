@@ -100,7 +100,7 @@ namespace AWSLambda1
                 {
                     IEnumerable<Emotion> emotQuery =
                         from faceEmotion in face.Emotions
-                        where faceEmotion.Confidence > 5
+                        where faceEmotion.Confidence > 20
                         select faceEmotion;
 
                     // GRAB THE EMOTION
