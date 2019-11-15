@@ -16,6 +16,8 @@ namespace AWSLambda1
 {
     public class Function
     {
+        public delegate bool EmotionFilterDelegate(Emotion e);
+        public delegate 
 
         public static async Task<string> FunctionHandler(String photo)
         {
@@ -98,7 +100,8 @@ namespace AWSLambda1
                     face.BoundingBox.Top == bestBoundingBox.Top &&
                     face.BoundingBox.Width == bestBoundingBox.Width)
                 {
-                    var emotQuery = face.Emotions.FindAll(n => n.Confidence > 10).ToList();
+                    //var emotQuery = face.Emotions.FindAll(n => n.Confidence > 10).ToList();
+                    var emotQuery = FilterEmotions(face, IsLowConfidence);
 
                     //IEnumerable<Emotion> emotQuery =
                     //    from faceEmotion in face.Emotions
@@ -118,6 +121,24 @@ namespace AWSLambda1
             //delete the last ,
             result = result.Substring(0, result.Length - 1);
             return result;
+        }
+
+        static public List<Emotion> FilterEmotions(FaceDetail face, EmotionFilterDelegate filter)
+        {
+            return face.Emotions.FindAll(n => filter(n)).ToList();
+        }
+
+        static public bool IsHighConfidence(Emotion e)
+        {
+            return e.Confidence > 50;
+        }
+        static public bool IsMediumConfidence(Emotion e)
+        {
+            return e.Confidence > 20;
+        }
+        static public bool IsLowConfidence(Emotion e)
+        {
+            return e.Confidence > 5;
         }
     }
 }
