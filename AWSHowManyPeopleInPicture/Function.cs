@@ -19,7 +19,6 @@ namespace AWSIsReferencePhotoValid
 
         public static async Task<string> FunctionHandler(String photo)
         {
-            //REIK ISIRASYT SAVO BUCKET'A I THINK
             String bucket = "moodanalysis";
             //ArrayList result = new ArrayList();
             string result = "";
@@ -42,9 +41,9 @@ namespace AWSIsReferencePhotoValid
 
             DetectFacesResponse detectFacesResponse = await rekognitionClient.DetectFacesAsync(detectFacesRequest);
 
-            string count = detectFacesResponse.FaceDetails.Count + "";
+            int count = detectFacesResponse.FaceDetails.Count;
             //return false;
-            return count;
+            return (count == 1) + "";
         }
     }
 }
