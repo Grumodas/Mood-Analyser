@@ -98,16 +98,20 @@ namespace AWSLambda1
                     face.BoundingBox.Top == bestBoundingBox.Top &&
                     face.BoundingBox.Width == bestBoundingBox.Width)
                 {
-                    IEnumerable<Emotion> emotQuery =
-                        from faceEmotion in face.Emotions
-                        where faceEmotion.Confidence > 20
-                        select faceEmotion;
+                    var emotQuery = face.Emotions.FindAll(n => n.Confidence > 10).ToList();
+
+                    //IEnumerable<Emotion> emotQuery =
+                    //    from faceEmotion in face.Emotions
+                    //    where faceEmotion.Confidence > 10
+                    //    select faceEmotion;
 
                     // GRAB THE EMOTION
                     foreach (Emotion emot in emotQuery)
                     {
                         result += emot.Type + ",";
                     }
+
+                    break;
                 }
             }
 
