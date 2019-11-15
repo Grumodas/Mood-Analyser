@@ -32,12 +32,22 @@ namespace HistoryClient.Pages
             text.Text = msg;
         }
 
+        public void HideLoadText()
+        {
+            text2.Visible = false;
+        }
+
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void Text_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Text2_Click(object sender, EventArgs e)
         {
 
         }

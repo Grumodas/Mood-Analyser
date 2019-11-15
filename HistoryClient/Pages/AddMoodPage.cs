@@ -85,7 +85,7 @@ namespace HistoryClient
                         
                         }
                     }
-                }
+                }   
 
                 string binaryEmotions = Convert.ToString((int)emos, 2);
                 ls.setEmotions(emotions);
