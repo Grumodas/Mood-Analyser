@@ -19,7 +19,8 @@ namespace HistoryClient
     public partial class AddMoodPage : Form
     {
         string path, fileName;
-        private readonly string accessKey, secretKey;
+        private readonly string accessKey = "AKIAJD7LAUG64Y5KY3SA", 
+            secretKey = "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";
         public AddMoodPage()
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace HistoryClient
                 LoadingScreen ls = new LoadingScreen();
                 ls.Open();
 
-                EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
+                EmotDetector ed = new EmotDetector();
                 //await ed.UploadToS3(path, fileName);
                 string emotions = await ed.WhatEmot(path, fileName) + "";
                 

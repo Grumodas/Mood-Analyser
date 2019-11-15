@@ -21,7 +21,6 @@ namespace AWSIsReferencePhotoValid
         {
             String bucket = "moodanalysis";
             //ArrayList result = new ArrayList();
-            string result = "";
 
             AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
 

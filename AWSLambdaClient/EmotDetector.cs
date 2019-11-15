@@ -20,6 +20,13 @@ namespace AWSLambdaClient
             this.accessKey = accessKey;
             this.privateKey = privateKey;
         }
+
+        public EmotDetector()
+        {
+            this.accessKey = "AKIAJD7LAUG64Y5KY3SA";
+            this.privateKey = "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG";
+        }
+
         public async Task<string> WhatEmot(string filePath, string fileName)
         {
             Object emotResult = new ArrayList();

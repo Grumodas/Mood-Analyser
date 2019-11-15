@@ -34,7 +34,7 @@ namespace HistoryClient
 
         private async void confirmButton_Click(object sender, EventArgs e)
         {
-            EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
+            EmotDetector ed = new EmotDetector();
             try
             {
                 bool response = await ed.IsReferencePhotoValid(path);
@@ -43,7 +43,7 @@ namespace HistoryClient
                 this.Hide();
                 MainForm mainForm = new MainForm();
                 mainForm.ShowDialog();
-            } catch (InvalidReferencePictureException ex)
+            } catch (InvalidReferencePictureException)
             {
                 MessageBox.Show("Invalid photo! Please use a photo which contains only YOUR face!");
             }
