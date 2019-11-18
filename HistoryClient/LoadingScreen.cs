@@ -10,28 +10,29 @@ namespace HistoryClient
 {
     class LoadingScreen
     {
-        Thread th1;
-        string e = " ";
-        Pages.LoadingBox lb;
-        Info lastInfo;
-        TaskCompletionSource<bool> tcs;
+        private Thread th1;
+        private Pages.LoadingBox lb;
+        private readonly object eLock;
+        //TaskCompletionSource<bool> tcs;
+        private Info lastInfo;
+        private string e = " ";
+        
 
         public LoadingScreen()
         {
             th1 = new Thread(Run);
-            lb = new Pages.LoadingBox();
-            tcs = new TaskCompletionSource<bool>();
-            if (Info.index > 1)
-                lastInfo = Info.InfoList[Info.index - 2];
+            eLock = new object();
+            if (Info.index > 0)
+                lastInfo = Info.InfoList[Info.index - 1];
         }
 
         // Dependency Injection
         public LoadingScreen(Info mockInfo)
         {
             th1 = new Thread(Run);
-            lb = new Pages.LoadingBox();
+            eLock = new object();
             lastInfo = mockInfo;
-            Info.index = 2;
+            Info.index = 1;
         }
 
         public void Open()
@@ -44,86 +45,82 @@ namespace HistoryClient
             th1.Join();
         }
 
+        private void setE(string e)
+        {
+            lock(eLock) {
+                this.e = e;
+            }
+        }
+
         public void setEmotions(string e)
         {
-            this.e = e;
-            tcs.TrySetResult(true);
+            setE(e);
+            //tcs.TrySetResult(true);
+            lb.dots = false;
         }
 
         private void Run()
         {
-            
+            //tcs = new TaskCompletionSource<bool>();
+            lb = new Pages.LoadingBox();
             lb.Show();
 
-            if (Info.index > 1)
+            if (Info.index > 0)
             {
                 if (lastInfo.emotion.HasFlag(Emotion.HAPPY)) {
-                    lb.SetMessage("Last time you were happy. Keep it up!");
-                    lb.Update();
-                    Thread.Sleep(3000);
-                } else if(lastInfo.emotion.HasFlag(Emotion.SAD))
+                    setE("Last time you were happy. Keep it up!");
+                }
+                else if (lastInfo.emotion.HasFlag(Emotion.SAD))
                 {
-                    lb.SetMessage("You were awfully sad earlier. Chear up!");
-                    lb.Update();
-                    Thread.Sleep(3000);
+                    setE("You were awfully sad earlier. Chear up!");
                 }
                 else if (lastInfo.emotion.HasFlag(Emotion.ANGRY))
                 {
-                    lb.SetMessage("In you last photo you were angry. We hope your good now.");
-                    lb.Update();
-                    Thread.Sleep(3000);
+                    setE("In you last photo you were angry. We hope your good now.");
                 }
                 else if (lastInfo.emotion.HasFlag(Emotion.CONFUSED))
                 {
-                    lb.SetMessage("Something had confused you last time? Hope you figured it out!");
-                    lb.Update();
-                    Thread.Sleep(3000);
+                    setE("Something had confused you last time? Hope you figured it out!");
                 }
                 else if (lastInfo.emotion.HasFlag(Emotion.DISGUSTED))
                 {
-                    lb.SetMessage("You were disgusted by something. Stay cool.");
-                    lb.Update();
-                    Thread.Sleep(3000);
+                    setE("You were disgusted by something. Stay cool.");
                 }
                 else if (lastInfo.emotion.HasFlag(Emotion.SURPRISED))
                 {
-                    lb.SetMessage("Something got you earlier? Nice! Right?");
-                    lb.Update();
-                    Thread.Sleep(3000);
+                    setE("Something got you earlier? Nice! Right?");
                 }
                 else if (lastInfo.emotion.HasFlag(Emotion.CALM))
                 {
-                    lb.SetMessage("You were calm in your last photo. We are happy for you.");
-                    lb.Update();
-                    Thread.Sleep(3000);
+                    setE("You were calm in your last photo. We are happy for you.");
                 }
                 else if (lastInfo.emotion.HasFlag(Emotion.FEAR))
                 {
-                    lb.SetMessage("Ghosts haunt your past? Worry not. It'll be all over soon...");
-                    lb.Update();
-                    Thread.Sleep(3000);
+                    setE("Ghosts haunt your past? Worry not. It'll be all over soon...");
                 }
                 else
                 {
-                    lb.SetMessage("What a great day!");
-                    lb.Update();
-                    Thread.Sleep(3000);
+                    setE("What a great day!");
                 }
             }
             else
             {
-                lb.SetMessage("What a great day!");
-                lb.Update();
-                Thread.Sleep(3000);
+                setE("What a great day!");
             }
 
-            var a = tcs.Task.Result;
-            lb.Hide();
-            lb.SetMessage("It seems that today you are " + e.Replace(","," and ").ToLower());
-            lb.HideLoadText();
+            lb.SetMessage(e);
             lb.Update();
 
+            //var a = tcs.Task.Result;
+            lb.RunLoadingDots();
+            
+            lb.SetMessage("It seems that today you are " + e.Replace(",", " and ").ToLower());
+            lb.HideLoadText();
+            lb.Hide();
+            lb.Update();
+            Thread.Sleep(1000);
             lb.ShowDialog();
         }
+
     }
 }
