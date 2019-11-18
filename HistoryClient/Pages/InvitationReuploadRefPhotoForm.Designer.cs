@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvitationReuploadRefPhotoForm));
             this.infoAboutRefPhoto = new System.Windows.Forms.Label();
             this.confirmButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -72,12 +73,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 189);
+            this.ClientSize = new System.Drawing.Size(357, 189);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.infoAboutRefPhoto);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InvitationReuploadRefPhotoForm";
-            this.Text = "InvitationReuploadRefPhotoForm";
+            this.Text = "Can\'t locate you";
             this.ResumeLayout(false);
 
         }
