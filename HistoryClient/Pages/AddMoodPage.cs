@@ -1,6 +1,7 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
 using AWSLambdaClient;
+using HistoryClient.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +19,16 @@ namespace HistoryClient
 {
     public partial class AddMoodPage : Form
     {
+        public delegate void ThreeUnknownsInaRow(object sender, MultipleUnknownPhotosEventArgs e);
+        public event ThreeUnknownsInaRow PossiblyBadReferencePicture;
+
         string path, fileName;
         private readonly string accessKey = "AKIAJD7LAUG64Y5KY3SA", 
             secretKey = "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";
         public AddMoodPage()
         {
             InitializeComponent();
+            PossiblyBadReferencePicture += new ThreeUnknownsInaRow(MultipleUnknownsHandler.InviteReuploadRefPhoto);
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -123,6 +128,28 @@ namespace HistoryClient
 
                 ls.WaitForClose();
                 confirmButton.Enabled = true;
+
+                if (Info.index > 2)
+                {
+                    Info infoCurrent = info[Info.index - 1];
+
+                    if (infoCurrent.emotion == 0 &&
+                        info[Info.index - 2].emotion == 0 &&
+                        info[Info.index - 3].emotion == 0)
+                    {
+                        int counter = 1;
+                        for (int n = Info.index - counter; n >= 0 && info[n].emotion == 0; n--)
+                        {
+                            counter++;
+                        }
+
+                        MultipleUnknownPhotosEventArgs arg = new MultipleUnknownPhotosEventArgs(counter - 1);
+                        PossiblyBadReferencePicture(this, arg);
+                    }
+                    //MessageBox.Show(info[0].eventName + '\n' +
+                    //    info[1].eventName + '\n' +
+                    //    info[2].eventName);
+                }
             }
         }
 

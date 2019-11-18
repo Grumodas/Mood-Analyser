@@ -82,6 +82,14 @@
       <DependentUpon>AppData.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoadingScreen.cs" />
+    <Compile Include="MultipleUnknownPhotosEventArgs.cs" />
+    <Compile Include="MultipleUnknownsHandler.cs" />
+    <Compile Include="Pages\InvitationReuploadRefPhotoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\InvitationReuploadRefPhotoForm.Designer.cs">
+      <DependentUpon>InvitationReuploadRefPhotoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoadingBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +131,9 @@
     </Compile>
     <EmbeddedResource Include="Pages\AddMoodPage.resx">
       <DependentUpon>AddMoodPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\InvitationReuploadRefPhotoForm.resx">
+      <DependentUpon>InvitationReuploadRefPhotoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\LoadingBox.resx">
       <DependentUpon>LoadingBox.cs</DependentUpon>
