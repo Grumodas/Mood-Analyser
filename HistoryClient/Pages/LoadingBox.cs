@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,12 +30,34 @@ namespace HistoryClient.Pages
 
         public void SetMessage(String msg)
         {
-            text.Text = msg;
+            text.Text = (msg + " ");
         }
 
         public void HideLoadText()
         {
             text2.Visible = false;
+            text3.Visible = false;
+            button.Visible = true;
+            dots = false;
+        }
+
+        public bool dots = true;
+        public void RunLoadingDots()
+        {
+            string s = "";
+            while(dots)
+            {
+                if(s == "...")
+                {
+                    s = "";
+                } else
+                {
+                    s += ".";
+                }
+                text3.Text = s;
+                this.Update();
+                Thread.Sleep(1000);
+            }
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -50,6 +73,21 @@ namespace HistoryClient.Pages
         private void Text2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Text2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
