@@ -40,9 +40,15 @@ namespace HistoryClient
                 bool response = await ed.IsReferencePhotoValid(path);
 
                 //if the photo is valid we close this window and proceed to regular menu
-                this.Hide();
-                MainForm mainForm = new MainForm();
-                mainForm.ShowDialog();
+                if (Info.index > 0)
+                {
+                    this.DialogResult = DialogResult.OK;
+                } else
+                {
+                    this.Hide();
+                    MainForm mainForm = new MainForm();
+                    mainForm.ShowDialog();
+                }
             } catch (InvalidReferencePictureException)
             {
                 MessageBox.Show("Invalid photo! Please use a photo which contains only YOUR face!");
