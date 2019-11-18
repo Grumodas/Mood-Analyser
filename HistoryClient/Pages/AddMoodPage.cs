@@ -131,6 +131,11 @@ namespace HistoryClient
 
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //browse button
         private void Button1_Click_1(object sender, EventArgs e)
         {
