@@ -43,6 +43,14 @@ public struct Info : IEquatable<Info>, IComparable<Info>
     }
 
 
+    //ignore this one it's only for one purpose but without it nothing works :)
+    public Info(int i)
+    {
+        this.eventName = "";
+        this.date = DateTime.Now;
+        this.emotion = Emotion.UNKNOWN;
+    }
+
     public Info this[int index]
     {
         get
