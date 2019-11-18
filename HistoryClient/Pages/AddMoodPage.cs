@@ -1,6 +1,7 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
 using AWSLambdaClient;
+using HistoryClient.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,16 @@ namespace HistoryClient
 {
     public partial class AddMoodPage : Form
     {
+        public delegate void ThreeUnknownsInaRow(object sender, MultipleUnknownPhotosEventArgs e);
+        public event ThreeUnknownsInaRow PossiblyBadReferencePicture;
+
         string path, fileName;
-        private readonly string accessKey, secretKey;
+        private readonly string accessKey = "AKIAJD7LAUG64Y5KY3SA", 
+            secretKey = "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";
         public AddMoodPage()
         {
             InitializeComponent();
+            PossiblyBadReferencePicture += new ThreeUnknownsInaRow(MultipleUnknownsHandler.InviteReuploadRefPhoto);
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -54,7 +60,7 @@ namespace HistoryClient
                 LoadingScreen ls = new LoadingScreen();
                 ls.Open();
 
-                EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
+                EmotDetector ed = new EmotDetector();
                 //await ed.UploadToS3(path, fileName);
                 string emotions = await ed.WhatEmot(path, fileName) + "";
                 
@@ -89,11 +95,8 @@ namespace HistoryClient
 
                 string binaryEmotions = Convert.ToString((int)emos, 2);
                 ls.setEmotions(emotions);
-                //MessageBox.Show("Emotions detected: " + emotions);
 
-                Byte[] image = null;
-                image = File.ReadAllBytes(fileDir);
-                //PhotoInfo photoInfo = new PhotoInfo(eventName, emos);
+                Byte[] image = File.ReadAllBytes(fileDir);
                 Info info = new Info(eventName, emos);
                 IEquatable<Info> narrow = info; 
                 if (Info.index > 1)
@@ -122,10 +125,37 @@ namespace HistoryClient
 
                 ls.WaitForClose();
                 confirmButton.Enabled = true;
+
+                if (Info.index > 2)
+                {
+                    Info infoCurrent = info[Info.index - 1];
+
+                    if (infoCurrent.emotion == 0 &&
+                        info[Info.index - 2].emotion == 0 &&
+                        info[Info.index - 3].emotion == 0)
+                    {
+                        int counter = 1;
+                        for (int n = Info.index - counter; n >= 0 && info[n].emotion == 0; n--)
+                        {
+                            counter++;
+                        }
+
+                        MultipleUnknownPhotosEventArgs arg = new MultipleUnknownPhotosEventArgs(counter - 1);
+                        PossiblyBadReferencePicture(this, arg);
+                    }
+                    //MessageBox.Show(info[0].eventName + '\n' +
+                    //    info[1].eventName + '\n' +
+                    //    info[2].eventName);
+                }
             }
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }

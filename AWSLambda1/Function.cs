@@ -16,6 +16,8 @@ namespace AWSLambda1
 {
     public class Function
     {
+        public delegate bool ConfidenceFilterDelegate(Emotion e);
+        public delegate List<Emotion> FilterEmotions(FaceDetail facething, ConfidenceFilterDelegate filterthing);
 
         public static async Task<string> FunctionHandler(String photo)
         {
@@ -98,22 +100,55 @@ namespace AWSLambda1
                     face.BoundingBox.Top == bestBoundingBox.Top &&
                     face.BoundingBox.Width == bestBoundingBox.Width)
                 {
-                    IEnumerable<Emotion> emotQuery =
-                        from faceEmotion in face.Emotions
-                        where faceEmotion.Confidence > 5
-                        select faceEmotion;
+                    //var emotQuery = FilterEmotions(face, IsLowConfidence);
+
+                    FilterEmotions filter = delegate(FaceDetail faceFilter, ConfidenceFilterDelegate confFilter)
+                    {
+                        return faceFilter.Emotions.FindAll(n => confFilter(n)).ToList();
+                    };
+
+                    var emotQuery = filter(face, IsHighConfidence);
+
+                    //IEnumerable<Emotion> emotQuery =
+                    //    from faceEmotion in face.Emotions
+                    //    where faceEmotion.Confidence > 10
+                    //    select faceEmotion;
 
                     // GRAB THE EMOTION
                     foreach (Emotion emot in emotQuery)
                     {
                         result += emot.Type + ",";
                     }
+
+                    break;
                 }
             }
 
             //delete the last ,
-            result = result.Substring(0, result.Length - 1);
+            if (result.Length != 0)
+            {
+                result = result.Substring(0, result.Length - 1);
+            }
+
             return result;
+        }
+
+        //static public List<Emotion> FilterEmotions(FaceDetail face, ConfidenceFilterDelegate filter)
+        //{
+        //    return face.Emotions.FindAll(n => filter(n)).ToList();
+        //}
+
+        static public bool IsHighConfidence(Emotion e)
+        {
+            return e.Confidence > 50;
+        }
+        static public bool IsMediumConfidence(Emotion e)
+        {
+            return e.Confidence > 20;
+        }
+        static public bool IsLowConfidence(Emotion e)
+        {
+            return e.Confidence > 5;
         }
     }
 }

@@ -43,8 +43,6 @@ public struct Info : IEquatable<Info>, IComparable<Info>
         this.emotion = Emotion.UNKNOWN;
         InfoList.Add(this);
         index++;
-
-        //this[index++] = this;
     }
 
 
@@ -80,34 +78,6 @@ public struct Info : IEquatable<Info>, IComparable<Info>
         } else
         {
             return 1;
-        }
-    }
-}
-
-namespace HistoryClient
-{
-    public class PhotoInfo
-    {
-        
-        public Info info { get; set; }
-        public PhotoInfo(String eventName = "", Emotion emos = Emotion.UNKNOWN)
-        {
-            //Info info = new Info(eventName, emos);
-        }
-
-        public PhotoInfo(String eventName = "")
-        {
-            Info info = new Info(eventName);
-        }
-
-        public PhotoInfo(Info mockInfo)
-        {
-            info = mockInfo;
-        }
-
-        public DateTime getDateTime()
-        {
-            return this.info.date;
         }
     }
 }

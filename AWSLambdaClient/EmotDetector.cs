@@ -6,9 +6,15 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using HistoryClient;
 
 namespace AWSLambdaClient
 {
+    class Credentials
+    {
+        public string accessKey = "AKIAJD7LAUG64Y5KY3SA";
+        public string privateKey = "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG";
+    }
     public class EmotDetector
     {
         private readonly string accessKey;
@@ -19,6 +25,14 @@ namespace AWSLambdaClient
             this.accessKey = accessKey;
             this.privateKey = privateKey;
         }
+
+        public EmotDetector()
+        {
+            Lazy<Credentials> credentials = new Lazy<Credentials>();   
+            this.accessKey = credentials.Value.accessKey;
+            this.privateKey = credentials.Value.privateKey;
+        }
+        
         public async Task<string> WhatEmot(string filePath, string fileName)
         {
             Object emotResult = new ArrayList();
@@ -58,6 +72,8 @@ namespace AWSLambdaClient
             PutObjectResponse response = await client.PutObjectAsync(putRequest);
         }
 
+
+
         public async Task uploadReferencePhoto(string filePath)
         {
             var client = new AmazonS3Client(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
@@ -72,5 +88,35 @@ namespace AWSLambdaClient
 
             PutObjectResponse response = await client.PutObjectAsync(putRequest);
         }
+
+        public async Task<bool> IsReferencePhotoValid(string filePath)
+        {
+            Object emotResult = new ArrayList();
+            // Uploading file to S3
+            await uploadReferencePhoto(filePath);
+
+            // Calling our Lambda function
+            AmazonLambdaClient amazonLambdaClient = new AmazonLambdaClient(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
+            InvokeRequest ir = new InvokeRequest();
+            ir.InvocationType = InvocationType.RequestResponse;
+            ir.FunctionName = "IsReferencePhotoValid";
+
+            // Selecting which file from S3 should our function use
+            ir.Payload = "\"" + "referencePhoto.jpg" + "\"";
+
+            // Getting the result
+            var resultAWS = await amazonLambdaClient.InvokeAsync(ir);
+            // Picking up the result value
+            string response = Encoding.ASCII.GetString(resultAWS.Payload.ToArray());
+            response = response.Replace("\"", "");
+            bool result = bool.Parse(response);
+            if (result == false)
+            {
+                throw new InvalidReferencePictureException("test");
+            }
+            
+            return bool.Parse(response);
+        }
+
     }
 }

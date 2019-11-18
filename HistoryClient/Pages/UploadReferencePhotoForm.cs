@@ -1,4 +1,5 @@
 ﻿using AWSLambdaClient;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,15 +32,27 @@ namespace HistoryClient
 
         }
 
-        private void confirmButton_Click(object sender, EventArgs e)
+        private async void confirmButton_Click(object sender, EventArgs e)
         {
-            EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
-            ed.uploadReferencePhoto(path);
-            this.Hide();
-            MainForm mainForm = new MainForm();
-            MessageBox.Show("wow u ok??");
-            MessageBox.Show("lol jk");
-            mainForm.ShowDialog();
+            EmotDetector ed = new EmotDetector();
+            try
+            {
+                bool response = await ed.IsReferencePhotoValid(path);
+
+                //if the photo is valid we close this window and proceed to regular menu
+                if (Info.index > 0)
+                {
+                    this.DialogResult = DialogResult.OK;
+                } else
+                {
+                    this.Hide();
+                    MainForm mainForm = new MainForm();
+                    mainForm.ShowDialog();
+                }
+            } catch (InvalidReferencePictureException)
+            {
+                MessageBox.Show("Invalid photo! Please use a photo which contains only YOUR face!");
+            }
         }
 
         private void browseFilesButton_Click(object sender, EventArgs e)
