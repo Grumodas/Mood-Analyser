@@ -22,13 +22,16 @@ namespace HistoryClient
         public delegate void ThreeUnknownsInaRow(object sender, MultipleUnknownPhotosEventArgs e);
         public event ThreeUnknownsInaRow PossiblyBadReferencePicture;
 
+        public delegate void IsDublicateBoxChecked(object sender, EventArgs e);
+        public event IsDublicateBoxChecked PossiblyDublicateUploads;
+
         string path, fileName;
-        private readonly string accessKey = "AKIAJD7LAUG64Y5KY3SA", 
-            secretKey = "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";
         public AddMoodPage()
         {
             InitializeComponent();
             PossiblyBadReferencePicture += new ThreeUnknownsInaRow(MultipleUnknownsHandler.InviteReuploadRefPhoto);
+            PossiblyDublicateUploads += new IsDublicateBoxChecked(CheckForDublicateEventHandler.CheckIfDublicate);
+            dublicateBox.Checked = false;
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -99,24 +102,10 @@ namespace HistoryClient
                 Byte[] image = File.ReadAllBytes(fileDir);
                 Info info = new Info(eventName, emos);
                 IEquatable<Info> narrow = info; 
-                if (Info.index > 1)
+                if (Info.index > 1 && dublicateBox.Checked)
                 {
-                    Info lastInfo = info[Info.index - 2];
-
-                    //if (lastInfo.CompareTo(info) > 0)
-                    //{
-                    //    MessageBox.Show("everything good");
-                    //}
-
-                    if (!narrow.Equals(lastInfo))
-                    {
-                        this.tableTableAdapter.Insert(info, image);
-                        this.tableTableAdapter.Update(this.appData.Table);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Event already uploaded");
-                    }
+                    EventArgs arg = new EventArgs();
+                    PossiblyDublicateUploads(this, arg);
                 } else
                 {
                     this.tableTableAdapter.Insert(info, image);
@@ -157,7 +146,14 @@ namespace HistoryClient
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            //if (dublicateBox.Checked)
+            //{
+            //    dublicateBox.Text = "Checked";
+            //}
+            //else
+            //{
+            //    dublicateBox.Text = "Unchecked";
+            //}
         }
 
         //browse button
