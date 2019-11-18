@@ -39,5 +39,10 @@ namespace HistoryClient
             AddMoodPage addMoodPage = new AddMoodPage();
             addMoodPage.ShowDialog();
         }
+
+        private void moodAnalyzerLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
