@@ -9,7 +9,7 @@ namespace HistoryClient
 {
     public class MultipleUnknownsHandler
     {
-        public static void InviteReuploadRefPhoto(object sender, MultipleUnknownPhotosEventArgs e)
+        public static void InviteReuploadRefPhoto(MultipleUnknownPhotosEventArgs e)
         {
             var invReuploadRefForm = new InvitationReuploadRefPhotoForm(e.HowManyUnknownInaRow);
             invReuploadRefForm.ShowDialog();

@@ -19,8 +19,9 @@ namespace HistoryClient
 {
     public partial class AddMoodPage : Form
     {
-        public delegate void ThreeUnknownsInaRow(object sender, MultipleUnknownPhotosEventArgs e);
-        public event ThreeUnknownsInaRow PossiblyBadReferencePicture;
+        public delegate void ThreeUnknownsInaRow<EventArgs>(MultipleUnknownPhotosEventArgs e);
+        //public delegate Action<EventArgs> ThreeUnknownsInaRow(MultipleUnknownPhotosEventArgs e);
+        public event ThreeUnknownsInaRow<EventArgs> PossiblyBadReferencePicture;
 
         public delegate void IsDublicateBoxChecked(object sender, EventArgs e);
         public event IsDublicateBoxChecked PossiblyDublicateUploads;
@@ -29,7 +30,7 @@ namespace HistoryClient
         public AddMoodPage()
         {
             InitializeComponent();
-            PossiblyBadReferencePicture += new ThreeUnknownsInaRow(MultipleUnknownsHandler.InviteReuploadRefPhoto);
+            PossiblyBadReferencePicture += new ThreeUnknownsInaRow<EventArgs>(MultipleUnknownsHandler.InviteReuploadRefPhoto);
             PossiblyDublicateUploads += new IsDublicateBoxChecked(CheckForDublicateEventHandler.CheckIfDublicate);
             dublicateBox.Checked = false;
         }
@@ -130,7 +131,7 @@ namespace HistoryClient
                         }
 
                         MultipleUnknownPhotosEventArgs arg = new MultipleUnknownPhotosEventArgs(counter - 1);
-                        PossiblyBadReferencePicture(this, arg);
+                        PossiblyBadReferencePicture(arg);
                     }
                     //MessageBox.Show(info[0].eventName + '\n' +
                     //    info[1].eventName + '\n' +
