@@ -90,11 +90,8 @@ namespace HistoryClient
 
                 string binaryEmotions = Convert.ToString((int)emos, 2);
                 ls.setEmotions(emotions);
-                //MessageBox.Show("Emotions detected: " + emotions);
 
-                Byte[] image = null;
-                image = File.ReadAllBytes(fileDir);
-                //PhotoInfo photoInfo = new PhotoInfo(eventName, emos);
+                Byte[] image = File.ReadAllBytes(fileDir);
                 Info info = new Info(eventName, emos);
                 IEquatable<Info> narrow = info; 
                 if (Info.index > 1)

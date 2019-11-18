@@ -10,6 +10,11 @@ using HistoryClient;
 
 namespace AWSLambdaClient
 {
+    class Credentials
+    {
+        public string accessKey = "AKIAJD7LAUG64Y5KY3SA";
+        public string privateKey = "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG";
+    }
     public class EmotDetector
     {
         private readonly string accessKey;
@@ -23,10 +28,11 @@ namespace AWSLambdaClient
 
         public EmotDetector()
         {
-            this.accessKey = "AKIAJD7LAUG64Y5KY3SA";
-            this.privateKey = "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG";
+            Lazy<Credentials> credentials = new Lazy<Credentials>();   
+            this.accessKey = credentials.Value.accessKey;
+            this.privateKey = credentials.Value.privateKey;
         }
-
+        
         public async Task<string> WhatEmot(string filePath, string fileName)
         {
             Object emotResult = new ArrayList();
