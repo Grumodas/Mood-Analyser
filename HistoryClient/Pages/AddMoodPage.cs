@@ -46,6 +46,24 @@ namespace HistoryClient
 
         //CONFIRM (analyse) button
         string fileDir;
+
+        private void GenError<T>(T val)
+        {
+            MessageBox.Show(val.ToString());
+        }
+
+        public delegate T add<T>(T param1, T param2);
+
+        public static int AddNumber(int val1, int val2)
+        {
+            return val1 + val2;
+        }
+
+        public static string Concate(string str1, string str2)
+        {
+            return str1 + str2;
+        }
+
         private async void Button1_Click(object sender, EventArgs e)
         {
             string eventNamePattern = @"\w*[a-zA-Z]\w*";
@@ -56,7 +74,9 @@ namespace HistoryClient
 
             if (!isEventNameValid)  
             {
-                MessageBox.Show("Please enter a valid event name");
+                add<string> conct = Concate;
+                GenError<string>(conct("Please enter a valid event name, you entered - ", eventText.Text));
+                //MessageBox.Show("Please enter a valid event name");
             } else
             {
                 confirmButton.Enabled = false;
@@ -86,7 +106,9 @@ namespace HistoryClient
                         if (i == 0)
                         {
                             emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
-                            i++;
+                            add<int> sum = AddNumber;
+                            i = sum(i, 1);
+                            //i++;
                         }
                         else
                         {
