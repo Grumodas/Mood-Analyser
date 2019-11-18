@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UploadReferencePhoto));
             this.filepathButton = new System.Windows.Forms.TextBox();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.confirmButton = new System.Windows.Forms.Button();
@@ -92,8 +93,10 @@
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.browseFilesButton);
             this.Controls.Add(this.filepathButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UploadReferencePhoto";
-            this.Text = "UploadReferencePhoto";
+            this.Text = "We want to recognize";
             this.ResumeLayout(false);
             this.PerformLayout();
 
