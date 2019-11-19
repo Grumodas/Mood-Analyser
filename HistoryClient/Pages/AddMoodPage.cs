@@ -22,7 +22,7 @@ namespace HistoryClient
         public delegate void ThreeUnknownsInaRow<EventArgs>(MultipleUnknownPhotosEventArgs e);
         //public delegate Action<EventArgs> ThreeUnknownsInaRow(MultipleUnknownPhotosEventArgs e);
         public event ThreeUnknownsInaRow<EventArgs> PossiblyBadReferencePicture;
-
+        
         public delegate void IsDublicateBoxChecked(object sender, EventArgs e);
         public event IsDublicateBoxChecked PossiblyDublicateUploads;
 
@@ -41,7 +41,7 @@ namespace HistoryClient
             }
             else
             {
-                this.BackColor = Color.FromArgb(146, 183, 254);
+                this.BackColor = Color.Cyan;
             }
         }
 
@@ -189,14 +189,11 @@ namespace HistoryClient
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            //if (dublicateBox.Checked)
-            //{
-            //    dublicateBox.Text = "Checked";
-            //}
-            //else
-            //{
-            //    dublicateBox.Text = "Unchecked";
-            //}
+            if (dublicateBox.Checked == true)
+            {
+                MessageBox.Show("This feature will check if your previous photo or event name are \n" +
+                    "the same and will prevent you from uploading the picture to prevent accidental dublicates");
+            }
         }
 
         //browse button
@@ -213,11 +210,6 @@ namespace HistoryClient
                 fileDir = path;
                 filepathButton.Text = fileName;
             }
-        }
-
-        private void AddMoodPage_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void TextBox1_TextChanged_1(object sender, EventArgs e)
