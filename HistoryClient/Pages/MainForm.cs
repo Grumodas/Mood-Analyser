@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -68,6 +69,10 @@ namespace HistoryClient
         }
 
         private void MoodAnalyzerLabel_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Icon_Click(object sender, EventArgs e)
         {
 
         }

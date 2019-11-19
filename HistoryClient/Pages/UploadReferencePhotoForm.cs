@@ -3,6 +3,7 @@ using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -38,6 +39,11 @@ namespace HistoryClient
         }
 
         private void filepathButton_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UploadReferencePhoto_Load(object sender, EventArgs e)
         {
 
         }

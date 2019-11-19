@@ -69,6 +69,7 @@
             this.Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Icon.TabIndex = 2;
             this.Icon.TabStop = false;
+            this.Icon.Click += new System.EventHandler(this.Icon_Click);
             // 
             // moodAnalyzerLabel
             // 

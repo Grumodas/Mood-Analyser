@@ -97,6 +97,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UploadReferencePhoto";
             this.Text = "We want to recognize you";
+            this.Load += new System.EventHandler(this.UploadReferencePhoto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
