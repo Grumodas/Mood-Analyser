@@ -64,5 +64,10 @@ namespace HistoryClient
                 
             }
         }
+
+        private void MoodAnalyzerLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
