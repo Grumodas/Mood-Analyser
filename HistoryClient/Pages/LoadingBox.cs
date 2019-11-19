@@ -56,7 +56,7 @@ namespace HistoryClient.Pages
                 }
                 text3.Text = s;
                 this.Update();
-                Thread.Sleep(250);
+                Thread.Sleep(1000);
             }
         }
 

@@ -100,9 +100,10 @@
     <Compile Include="AppData.cs">
       <DependentUpon>AppData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EventHandlers\CheckForDublicateEventHandler.cs" />
     <Compile Include="LoadingScreen.cs" />
     <Compile Include="MultipleUnknownPhotosEventArgs.cs" />
-    <Compile Include="MultipleUnknownsHandler.cs" />
+    <Compile Include="EventHandlers\MultipleUnknownsHandler.cs" />
     <Compile Include="Pages\InvitationReuploadRefPhotoForm.cs">
       <SubType>Form</SubType>
     </Compile>

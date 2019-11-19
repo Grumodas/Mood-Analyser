@@ -19,16 +19,20 @@ namespace HistoryClient
 {
     public partial class AddMoodPage : Form
     {
-        public delegate void ThreeUnknownsInaRow(object sender, MultipleUnknownPhotosEventArgs e);
-        public event ThreeUnknownsInaRow PossiblyBadReferencePicture;
+        public delegate void ThreeUnknownsInaRow<EventArgs>(MultipleUnknownPhotosEventArgs e);
+        //public delegate Action<EventArgs> ThreeUnknownsInaRow(MultipleUnknownPhotosEventArgs e);
+        public event ThreeUnknownsInaRow<EventArgs> PossiblyBadReferencePicture;
+
+        public delegate void IsDublicateBoxChecked(object sender, EventArgs e);
+        public event IsDublicateBoxChecked PossiblyDublicateUploads;
 
         string path, fileName;
-        private readonly string accessKey = "AKIAJD7LAUG64Y5KY3SA", 
-            secretKey = "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";
         public AddMoodPage()
         {
             InitializeComponent();
-            PossiblyBadReferencePicture += new ThreeUnknownsInaRow(MultipleUnknownsHandler.InviteReuploadRefPhoto);
+            PossiblyBadReferencePicture += new ThreeUnknownsInaRow<EventArgs>(MultipleUnknownsHandler.InviteReuploadRefPhoto);
+            PossiblyDublicateUploads += new IsDublicateBoxChecked(CheckForDublicateEventHandler.CheckIfDublicate);
+            dublicateBox.Checked = false;
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -43,6 +47,24 @@ namespace HistoryClient
 
         //CONFIRM (analyse) button
         string fileDir;
+
+        private void GenError<T>(T val)
+        {
+            MessageBox.Show(val.ToString());
+        }
+
+        public delegate T add<T>(T param1, T param2);
+
+        public static int AddNumber(int val1, int val2)
+        {
+            return val1 + val2;
+        }
+
+        public static string Concate(string str1, string str2)
+        {
+            return str1 + str2;
+        }
+
         private async void Button1_Click(object sender, EventArgs e)
         {
             string value = System.Configuration.ConfigurationManager.AppSettings["eventName"];
@@ -63,7 +85,9 @@ namespace HistoryClient
 
             if (!isEventNameValid)  
             {
-                MessageBox.Show("Please enter a valid event name");
+                add<string> conct = Concate;
+                GenError<string>(conct("Please enter a valid event name, you entered - ", eventText.Text));
+                //MessageBox.Show("Please enter a valid event name");
             } else
             {
                 confirmButton.Enabled = false;
@@ -93,7 +117,9 @@ namespace HistoryClient
                         if (i == 0)
                         {
                             emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
-                            i++;
+                            add<int> sum = AddNumber;
+                            i = sum(i, 1);
+                            //i++;
                         }
                         else
                         {
@@ -109,24 +135,10 @@ namespace HistoryClient
                 Byte[] image = File.ReadAllBytes(fileDir);
                 Info info = new Info(eventName, emos);
                 IEquatable<Info> narrow = info; 
-                if (Info.index > 1)
+                if (Info.index > 1 && dublicateBox.Checked)
                 {
-                    Info lastInfo = info[Info.index - 2];
-
-                    //if (lastInfo.CompareTo(info) > 0)
-                    //{
-                    //    MessageBox.Show("everything good");
-                    //}
-
-                    if (!narrow.Equals(lastInfo))
-                    {
-                        this.tableTableAdapter.Insert(info, image);
-                        this.tableTableAdapter.Update(this.appData.Table);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Event already uploaded");
-                    }
+                    EventArgs arg = new EventArgs();
+                    PossiblyDublicateUploads(this, arg);
                 } else
                 {
                     this.tableTableAdapter.Insert(info, image);
@@ -151,7 +163,7 @@ namespace HistoryClient
                         }
 
                         MultipleUnknownPhotosEventArgs arg = new MultipleUnknownPhotosEventArgs(counter - 1);
-                        PossiblyBadReferencePicture(this, arg);
+                        PossiblyBadReferencePicture(arg);
                     }
                     //MessageBox.Show(info[0].eventName + '\n' +
                     //    info[1].eventName + '\n' +
@@ -167,7 +179,14 @@ namespace HistoryClient
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            //if (dublicateBox.Checked)
+            //{
+            //    dublicateBox.Text = "Checked";
+            //}
+            //else
+            //{
+            //    dublicateBox.Text = "Unchecked";
+            //}
         }
 
         //browse button

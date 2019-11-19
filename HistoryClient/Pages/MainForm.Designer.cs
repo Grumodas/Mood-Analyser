@@ -78,7 +78,8 @@
             this.moodAnalyzerLabel.Name = "moodAnalyzerLabel";
             this.moodAnalyzerLabel.Size = new System.Drawing.Size(268, 32);
             this.moodAnalyzerLabel.TabIndex = 3;
-            this.moodAnalyzerLabel.Text = "Mood Analyzer 1.0";
+            this.moodAnalyzerLabel.Text = "Mood Analyzer 2.0";
+            this.moodAnalyzerLabel.Click += new System.EventHandler(this.moodAnalyzerLabel_Click);
             // 
             // button1
             // 
@@ -102,6 +103,7 @@
             this.Controls.Add(this.buttonHistory);
             this.Controls.Add(this.newRecordButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Mood Analyzer";
             this.Load += new System.EventHandler(this.MainForm_Load);

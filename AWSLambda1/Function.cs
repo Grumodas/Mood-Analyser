@@ -17,7 +17,7 @@ namespace AWSLambda1
     public class Function
     {
         public delegate bool ConfidenceFilterDelegate(Emotion e);
-        public delegate List<Emotion> FilterEmotions(FaceDetail facething, ConfidenceFilterDelegate filterthing);
+        public delegate List<Emotion> FilterEmotions(FaceDetail faceDetails, ConfidenceFilterDelegate filterForConfidence);
 
         public static async Task<string> FunctionHandler(String photo)
         {
@@ -52,7 +52,7 @@ namespace AWSLambda1
             };
 
             CompareFacesResponse compareFacesResponse = await rekognitionClient.CompareFacesAsync(CFR);
-            string test = "";
+            string howManyFaces = "";
 
             if (compareFacesResponse.FaceMatches.Count == 0)
             {
@@ -65,7 +65,7 @@ namespace AWSLambda1
             BoundingBox bestBoundingBox = compareFacesResponse.FaceMatches[0].Face.BoundingBox;
             foreach (var faceMatch in compareFacesResponse.FaceMatches)
             {
-                test += faceMatch.Similarity + ",";
+                howManyFaces += faceMatch.Similarity + ",";
 
                 if (bestMatchResult < faceMatch.Similarity)
                 {
@@ -107,7 +107,7 @@ namespace AWSLambda1
                         return faceFilter.Emotions.FindAll(n => confFilter(n)).ToList();
                     };
 
-                    var emotQuery = filter(face, IsHighConfidence);
+                    var emotQuery = filter(face, IsLowConfidence);
 
                     //IEnumerable<Emotion> emotQuery =
                     //    from faceEmotion in face.Emotions
@@ -148,7 +148,7 @@ namespace AWSLambda1
         }
         static public bool IsLowConfidence(Emotion e)
         {
-            return e.Confidence > 5;
+            return e.Confidence > 2;
         }
     }
 }
