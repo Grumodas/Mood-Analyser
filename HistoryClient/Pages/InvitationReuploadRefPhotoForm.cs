@@ -19,6 +19,16 @@ namespace HistoryClient.Pages
         public InvitationReuploadRefPhotoForm()
         {
             InitializeComponent();
+
+            bool dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                this.BackColor = Color.Cyan;
+            }
         }
 
         public InvitationReuploadRefPhotoForm(int howManyUnknownsInaRow)
@@ -31,7 +41,17 @@ namespace HistoryClient.Pages
                                     + '\n'
                                     + "Would you like to reupload"
                                     + " your reference picture?";
-                //"hello test " + howManyUnknownsInaRow;
+            //"hello test " + howManyUnknownsInaRow;
+
+            bool dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                this.BackColor = Color.Cyan;
+            }
 
         }
 

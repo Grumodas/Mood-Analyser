@@ -12,6 +12,16 @@ namespace HistoryClient
         public HistoryForm()
         {
             InitializeComponent();
+
+            bool dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                this.BackColor = Color.Cyan;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

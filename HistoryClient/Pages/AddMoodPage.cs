@@ -33,6 +33,16 @@ namespace HistoryClient
             PossiblyBadReferencePicture += new ThreeUnknownsInaRow<EventArgs>(MultipleUnknownsHandler.InviteReuploadRefPhoto);
             PossiblyDublicateUploads += new IsDublicateBoxChecked(CheckForDublicateEventHandler.CheckIfDublicate);
             dublicateBox.Checked = false;
+
+            bool dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                this.BackColor = Color.Cyan;
+            }
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)

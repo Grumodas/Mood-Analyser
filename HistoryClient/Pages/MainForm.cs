@@ -16,6 +16,16 @@ namespace HistoryClient
         public MainForm()
         {
             InitializeComponent();
+
+            dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                this.BackColor = Color.Cyan;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -26,15 +36,7 @@ namespace HistoryClient
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            dm = Properties.Settings.Default.DarkMode;
-            if (dm)
-            {
-                this.BackColor = Color.DarkSlateGray;
-            }
-            else
-            {
-                this.BackColor = Color.Cyan;
-            }
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)

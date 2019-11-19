@@ -20,6 +20,16 @@ namespace HistoryClient
         public UploadReferencePhoto()
         {
             InitializeComponent();
+
+            bool dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                this.BackColor = Color.Cyan;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
