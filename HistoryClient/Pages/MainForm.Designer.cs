@@ -33,6 +33,7 @@
             this.buttonHistory = new System.Windows.Forms.Button();
             this.Icon = new System.Windows.Forms.PictureBox();
             this.moodAnalyzerLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Icon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,11 +80,23 @@
             this.moodAnalyzerLabel.TabIndex = 3;
             this.moodAnalyzerLabel.Text = "Mood Analyzer 1.0";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(495, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 52);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Dark Mode";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 253);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.moodAnalyzerLabel);
             this.Controls.Add(this.Icon);
             this.Controls.Add(this.buttonHistory);
@@ -104,5 +117,6 @@
         private System.Windows.Forms.Button buttonHistory;
         private System.Windows.Forms.PictureBox Icon;
         private System.Windows.Forms.Label moodAnalyzerLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
