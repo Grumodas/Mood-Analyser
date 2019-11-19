@@ -48,6 +48,22 @@ namespace HistoryClient
 
         }
 
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            bool dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.Cyan;
+                Properties.Settings.Default.DarkMode = false;
+            }
+            else
+            {
+                this.BackColor = Color.DarkSlateGray;
+                Properties.Settings.Default.DarkMode = true;
+
+            }
+        }
+
         private async void confirmButton_Click(object sender, EventArgs e)
         {
             EmotDetector ed = new EmotDetector();
