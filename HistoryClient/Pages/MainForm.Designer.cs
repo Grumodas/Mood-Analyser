@@ -68,6 +68,7 @@
             this.Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Icon.TabIndex = 2;
             this.Icon.TabStop = false;
+            this.Icon.Click += new System.EventHandler(this.Icon_Click);
             // 
             // moodAnalyzerLabel
             // 
@@ -90,7 +91,6 @@
             this.Controls.Add(this.buttonHistory);
             this.Controls.Add(this.newRecordButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Mood Analyzer";
             this.Load += new System.EventHandler(this.MainForm_Load);
