@@ -67,7 +67,17 @@ namespace HistoryClient
 
         private async void Button1_Click(object sender, EventArgs e)
         {
-            string eventNamePattern = @"\w*[a-zA-Z]\w*";
+            string value = System.Configuration.ConfigurationManager.AppSettings["eventName"];
+            string eventNamePattern;
+            //MessageBox.Show("val is: " + value + " much");
+            if (value == "text")
+            {
+                eventNamePattern = @"\w*[a-zA-Z]\w*";
+            }
+            else
+            {
+                eventNamePattern = "(.*?)";
+            }
 
             string eventName = StringChanger.ChangeFirstLetterCase(eventText.Text);
 

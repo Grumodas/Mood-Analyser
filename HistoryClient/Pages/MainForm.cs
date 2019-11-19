@@ -13,6 +13,7 @@ namespace HistoryClient
 {
     public partial class MainForm : Form
     {
+        bool dm;
         public MainForm()
         {
             InitializeComponent();
@@ -26,7 +27,15 @@ namespace HistoryClient
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                this.BackColor = Color.Cyan;
+            }
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -41,7 +50,23 @@ namespace HistoryClient
             addMoodPage.ShowDialog();
         }
 
-        private void moodAnalyzerLabel_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.Cyan;
+                Properties.Settings.Default.DarkMode = false;
+            }
+            else
+            {
+                this.BackColor = Color.DarkSlateGray;
+                Properties.Settings.Default.DarkMode = true;
+                
+            }
+        }
+
+        private void MoodAnalyzerLabel_Click(object sender, EventArgs e)
         {
         }
 
