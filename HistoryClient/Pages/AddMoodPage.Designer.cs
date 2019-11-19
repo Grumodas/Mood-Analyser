@@ -154,6 +154,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddMoodPage";
             this.Text = "New record";
+            this.Load += new System.EventHandler(this.AddMoodPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.appData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
             this.ResumeLayout(false);

@@ -106,7 +106,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainForm";
             this.Text = "Mood Analyzer";
-            //this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Icon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -25,7 +25,7 @@ namespace HistoryClient
             }
             else
             {
-                this.BackColor = Color.Cyan;
+                this.BackColor = Color.FromArgb(146, 183, 254);
             }
         }
 
@@ -73,6 +73,11 @@ namespace HistoryClient
         }
 
         private void Icon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load_1(object sender, EventArgs e)
         {
 
         }

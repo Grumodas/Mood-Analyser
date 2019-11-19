@@ -81,6 +81,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InvitationReuploadRefPhotoForm";
             this.Text = "Can\'t locate you";
+            this.Load += new System.EventHandler(this.InvitationReuploadRefPhotoForm_Load);
             this.ResumeLayout(false);
 
         }

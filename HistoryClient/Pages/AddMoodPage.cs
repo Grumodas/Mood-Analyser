@@ -41,7 +41,7 @@ namespace HistoryClient
             }
             else
             {
-                this.BackColor = Color.Cyan;
+                this.BackColor = Color.FromArgb(146, 183, 254);
             }
         }
 
@@ -213,6 +213,11 @@ namespace HistoryClient
                 fileDir = path;
                 filepathButton.Text = fileName;
             }
+        }
+
+        private void AddMoodPage_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void TextBox1_TextChanged_1(object sender, EventArgs e)

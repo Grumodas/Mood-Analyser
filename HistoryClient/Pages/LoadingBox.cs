@@ -24,7 +24,7 @@ namespace HistoryClient.Pages
             }
             else
             {
-                this.BackColor = Color.Cyan;
+                this.BackColor = Color.FromArgb(146, 183, 254);
             }
         }
 

@@ -27,7 +27,7 @@ namespace HistoryClient.Pages
             }
             else
             {
-                this.BackColor = Color.Cyan;
+                this.BackColor = Color.FromArgb(146, 183, 254);
             }
         }
 
@@ -70,6 +70,11 @@ namespace HistoryClient.Pages
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void InvitationReuploadRefPhotoForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         //public void reuploadRefPhoto(object sender, MultipleUnknownPhotosEventArgs e)
