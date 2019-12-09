@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "HistoryClient\Cli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSIsReferencePhotoValid", "AWSHowManyPeopleInPicture\AWSIsReferencePhotoValid.csproj", "{39A34675-984C-4268-A993-9302F3A8BAE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStorage", "DataStorage\DataStorage.csproj", "{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,26 @@ Global
 		{39A34675-984C-4268-A993-9302F3A8BAE9}.Release|x64.Build.0 = Release|Any CPU
 		{39A34675-984C-4268-A993-9302F3A8BAE9}.Release|x86.ActiveCfg = Release|Any CPU
 		{39A34675-984C-4268-A993-9302F3A8BAE9}.Release|x86.Build.0 = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|ARM.Build.0 = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|x64.Build.0 = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Debug|x86.Build.0 = Debug|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|ARM.ActiveCfg = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|ARM.Build.0 = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|ARM64.Build.0 = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|x64.ActiveCfg = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|x64.Build.0 = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
