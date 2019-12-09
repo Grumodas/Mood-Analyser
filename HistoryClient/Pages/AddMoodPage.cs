@@ -151,8 +151,13 @@ namespace HistoryClient
                     PossiblyDublicateUploads(this, arg);
                 } else
                 {
-                    this.tableTableAdapter.Insert(info, image);
-                    this.tableTableAdapter.Update(this.appData.Table);
+                    //this.tableTableAdapter.Insert(info, image);
+                    //this.tableTableAdapter.Update(this.appData.Table);
+                    using (var context = new Database1Entities())
+                    {
+                        context.Photoinfoes.Add(new Photoinfo(info, image));
+                        context.SaveChanges();
+                    }
                 }
 
                 ls.WaitForClose();
