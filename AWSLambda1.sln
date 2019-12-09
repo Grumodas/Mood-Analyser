@@ -10,8 +10,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSLambdaClient", "AWSLambdaClient\AWSLambdaClient.csproj", "{5B21850A-B9EE-4FA9-B029-2B84312146A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "HistoryClient\Client.csproj", "{70D2B02A-729E-48B6-BF45-886C5CBA2599}"
+	ProjectSection(ProjectDependencies) = postProject
+		{556C15E2-4E7E-4823-93E4-B04A73A72223} = {556C15E2-4E7E-4823-93E4-B04A73A72223}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSIsReferencePhotoValid", "AWSHowManyPeopleInPicture\AWSIsReferencePhotoValid.csproj", "{39A34675-984C-4268-A993-9302F3A8BAE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleService", "MiddleService\MiddleService.csproj", "{556C15E2-4E7E-4823-93E4-B04A73A72223}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +132,26 @@ Global
 		{39A34675-984C-4268-A993-9302F3A8BAE9}.Release|x64.Build.0 = Release|Any CPU
 		{39A34675-984C-4268-A993-9302F3A8BAE9}.Release|x86.ActiveCfg = Release|Any CPU
 		{39A34675-984C-4268-A993-9302F3A8BAE9}.Release|x86.Build.0 = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|ARM.Build.0 = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|x64.Build.0 = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Debug|x86.Build.0 = Debug|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|ARM.ActiveCfg = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|ARM.Build.0 = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|ARM64.Build.0 = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|x64.ActiveCfg = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|x64.Build.0 = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|x86.ActiveCfg = Release|Any CPU
+		{556C15E2-4E7E-4823-93E4-B04A73A72223}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

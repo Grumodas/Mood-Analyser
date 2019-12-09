@@ -66,10 +66,14 @@ namespace HistoryClient
 
         private async void confirmButton_Click(object sender, EventArgs e)
         {
+            //aws -> MiddleService
             EmotDetector ed = new EmotDetector();
+            //SimpleService.SimpleSoapClient webClient = new SimpleService.SimpleSoapClient();
             try
             {
+                //aws -> MiddleService
                 bool response = await ed.IsReferencePhotoValid(path);
+                //var response = webClient.isRefPhotoValid(path);
 
                 //if the photo is valid we close this window and proceed to regular menu
                 if (Info.index > 0)

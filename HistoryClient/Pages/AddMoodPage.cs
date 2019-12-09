@@ -100,14 +100,25 @@ namespace HistoryClient
                 //MessageBox.Show("Please enter a valid event name");
             } else
             {
+                MessageBox.Show("Before");
+                //just fooling with threads
+                ///SimpleService.SimpleSoapClient webClient = new SimpleService.SimpleSoapClient();
+                //Task<string> tn = webClient.foolin(10);
+
+
+
                 confirmButton.Enabled = false;
                 LoadingScreen ls = new LoadingScreen();
                 ls.Open();
 
-                EmotDetector ed = new EmotDetector();
-                //await ed.UploadToS3(path, fileName);
-                string emotions = await ed.WhatEmot(path, fileName) + "";
-                
+                // aws -> MiddleService
+                //EmotDetector ed = new EmotDetector();
+                //string emotions = await ed.WhatEmot(path, fileName);
+                SimpleService.SimpleSoapClient webClient = new SimpleService.SimpleSoapClient();
+                await webClient.getEmotions(path, fileName);
+               
+                //string emotions = await emotionsTask;
+                MessageBox.Show(emotions + "...sure");
                 emotions = emotions.Replace("\"", "");
                 //MessageBox.Show(emotions);
 
@@ -122,7 +133,7 @@ namespace HistoryClient
                     emotions = "UNKNOWN";
                 } else
                 {
-                    foreach (var emotion in emotionArray)
+                    foreach (string emotion in emotionArray)
                     {
                         if (i == 0)
                         {
@@ -140,6 +151,7 @@ namespace HistoryClient
                 }   
 
                 string binaryEmotions = Convert.ToString((int)emos, 2);
+                // Send found emotions to loading screen
                 ls.setEmotions(emotions);
 
                 Byte[] image = File.ReadAllBytes(fileDir);
