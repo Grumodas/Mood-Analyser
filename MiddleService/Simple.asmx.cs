@@ -27,7 +27,7 @@ namespace MiddleService
         }
 
         [WebMethod]
-        public Task<string> Foolin(int a)
+        public string Foolin(int a)
         {
             for(int i = 0; i < a; i++)
             {
@@ -53,7 +53,5 @@ namespace MiddleService
             bool response = await ed.IsReferencePhotoValid(path);
             return response;
         }
-
-
     }
 }

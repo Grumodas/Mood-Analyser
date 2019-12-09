@@ -195,7 +195,7 @@
     <None Include="AppData.xss">
       <DependentUpon>AppData.xsd</DependentUpon>
     </None>
-    <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.foolinResponse.datasource">
+    <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.FoolinResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.getEmotionsResponse.datasource">

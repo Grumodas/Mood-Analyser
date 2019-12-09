@@ -12,26 +12,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="foolin">
+      <s:element name="Foolin">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="a" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="foolinResponse">
+      <s:element name="FoolinResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="foolinResult" type="tns:TaskOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="FoolinResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="TaskOfString">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Task" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="Task" />
       <s:element name="getEmotions">
         <s:complexType>
           <s:sequence>
@@ -47,6 +41,12 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="TaskOfString">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Task" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Task" />
       <s:element name="isRefPhotoValid">
         <s:complexType>
           <s:sequence>
@@ -74,11 +74,11 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
-  <wsdl:message name="foolinSoapIn">
-    <wsdl:part name="parameters" element="tns:foolin" />
+  <wsdl:message name="FoolinSoapIn">
+    <wsdl:part name="parameters" element="tns:Foolin" />
   </wsdl:message>
-  <wsdl:message name="foolinSoapOut">
-    <wsdl:part name="parameters" element="tns:foolinResponse" />
+  <wsdl:message name="FoolinSoapOut">
+    <wsdl:part name="parameters" element="tns:FoolinResponse" />
   </wsdl:message>
   <wsdl:message name="getEmotionsSoapIn">
     <wsdl:part name="parameters" element="tns:getEmotions" />
@@ -97,9 +97,9 @@
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="foolin">
-      <wsdl:input message="tns:foolinSoapIn" />
-      <wsdl:output message="tns:foolinSoapOut" />
+    <wsdl:operation name="Foolin">
+      <wsdl:input message="tns:FoolinSoapIn" />
+      <wsdl:output message="tns:FoolinSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getEmotions">
       <wsdl:input message="tns:getEmotionsSoapIn" />
@@ -121,8 +121,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="foolin">
-      <soap:operation soapAction="http://tempuri.org/foolin" style="document" />
+    <wsdl:operation name="Foolin">
+      <soap:operation soapAction="http://tempuri.org/Foolin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -160,8 +160,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="foolin">
-      <soap12:operation soapAction="http://tempuri.org/foolin" style="document" />
+    <wsdl:operation name="Foolin">
+      <soap12:operation soapAction="http://tempuri.org/Foolin" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

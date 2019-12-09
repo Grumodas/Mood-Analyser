@@ -69,12 +69,12 @@ namespace HistoryClient.SimpleService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
         System.Threading.Tasks.Task<HistoryClient.SimpleService.HelloWorldResponse> HelloWorldAsync(HistoryClient.SimpleService.HelloWorldRequest request);
         
-        // CODEGEN: Generating message contract since element name foolinResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/foolin", ReplyAction="*")]
-        HistoryClient.SimpleService.foolinResponse foolin(HistoryClient.SimpleService.foolinRequest request);
+        // CODEGEN: Generating message contract since element name FoolinResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Foolin", ReplyAction="*")]
+        HistoryClient.SimpleService.FoolinResponse Foolin(HistoryClient.SimpleService.FoolinRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/foolin", ReplyAction="*")]
-        System.Threading.Tasks.Task<HistoryClient.SimpleService.foolinResponse> foolinAsync(HistoryClient.SimpleService.foolinRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Foolin", ReplyAction="*")]
+        System.Threading.Tasks.Task<HistoryClient.SimpleService.FoolinResponse> FoolinAsync(HistoryClient.SimpleService.FoolinRequest request);
         
         // CODEGEN: Generating message contract since element name path from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getEmotions", ReplyAction="*")]
@@ -156,15 +156,15 @@ namespace HistoryClient.SimpleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class foolinRequest {
+    public partial class FoolinRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="foolin", Namespace="http://tempuri.org/", Order=0)]
-        public HistoryClient.SimpleService.foolinRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Foolin", Namespace="http://tempuri.org/", Order=0)]
+        public HistoryClient.SimpleService.FoolinRequestBody Body;
         
-        public foolinRequest() {
+        public FoolinRequest() {
         }
         
-        public foolinRequest(HistoryClient.SimpleService.foolinRequestBody Body) {
+        public FoolinRequest(HistoryClient.SimpleService.FoolinRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -173,15 +173,15 @@ namespace HistoryClient.SimpleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class foolinRequestBody {
+    public partial class FoolinRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public int a;
         
-        public foolinRequestBody() {
+        public FoolinRequestBody() {
         }
         
-        public foolinRequestBody(int a) {
+        public FoolinRequestBody(int a) {
             this.a = a;
         }
     }
@@ -190,15 +190,15 @@ namespace HistoryClient.SimpleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class foolinResponse {
+    public partial class FoolinResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="foolinResponse", Namespace="http://tempuri.org/", Order=0)]
-        public HistoryClient.SimpleService.foolinResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="FoolinResponse", Namespace="http://tempuri.org/", Order=0)]
+        public HistoryClient.SimpleService.FoolinResponseBody Body;
         
-        public foolinResponse() {
+        public FoolinResponse() {
         }
         
-        public foolinResponse(HistoryClient.SimpleService.foolinResponseBody Body) {
+        public FoolinResponse(HistoryClient.SimpleService.FoolinResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -207,16 +207,16 @@ namespace HistoryClient.SimpleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class foolinResponseBody {
+    public partial class FoolinResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public HistoryClient.SimpleService.TaskOfString foolinResult;
+        public string FoolinResult;
         
-        public foolinResponseBody() {
+        public FoolinResponseBody() {
         }
         
-        public foolinResponseBody(HistoryClient.SimpleService.TaskOfString foolinResult) {
-            this.foolinResult = foolinResult;
+        public FoolinResponseBody(string FoolinResult) {
+            this.FoolinResult = FoolinResult;
         }
     }
     
@@ -411,28 +411,28 @@ namespace HistoryClient.SimpleService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        HistoryClient.SimpleService.foolinResponse HistoryClient.SimpleService.SimpleSoap.foolin(HistoryClient.SimpleService.foolinRequest request) {
-            return base.Channel.foolin(request);
+        HistoryClient.SimpleService.FoolinResponse HistoryClient.SimpleService.SimpleSoap.Foolin(HistoryClient.SimpleService.FoolinRequest request) {
+            return base.Channel.Foolin(request);
         }
         
-        public HistoryClient.SimpleService.TaskOfString foolin(int a) {
-            HistoryClient.SimpleService.foolinRequest inValue = new HistoryClient.SimpleService.foolinRequest();
-            inValue.Body = new HistoryClient.SimpleService.foolinRequestBody();
+        public string Foolin(int a) {
+            HistoryClient.SimpleService.FoolinRequest inValue = new HistoryClient.SimpleService.FoolinRequest();
+            inValue.Body = new HistoryClient.SimpleService.FoolinRequestBody();
             inValue.Body.a = a;
-            HistoryClient.SimpleService.foolinResponse retVal = ((HistoryClient.SimpleService.SimpleSoap)(this)).foolin(inValue);
-            return retVal.Body.foolinResult;
+            HistoryClient.SimpleService.FoolinResponse retVal = ((HistoryClient.SimpleService.SimpleSoap)(this)).Foolin(inValue);
+            return retVal.Body.FoolinResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<HistoryClient.SimpleService.foolinResponse> HistoryClient.SimpleService.SimpleSoap.foolinAsync(HistoryClient.SimpleService.foolinRequest request) {
-            return base.Channel.foolinAsync(request);
+        System.Threading.Tasks.Task<HistoryClient.SimpleService.FoolinResponse> HistoryClient.SimpleService.SimpleSoap.FoolinAsync(HistoryClient.SimpleService.FoolinRequest request) {
+            return base.Channel.FoolinAsync(request);
         }
         
-        public System.Threading.Tasks.Task<HistoryClient.SimpleService.foolinResponse> foolinAsync(int a) {
-            HistoryClient.SimpleService.foolinRequest inValue = new HistoryClient.SimpleService.foolinRequest();
-            inValue.Body = new HistoryClient.SimpleService.foolinRequestBody();
+        public System.Threading.Tasks.Task<HistoryClient.SimpleService.FoolinResponse> FoolinAsync(int a) {
+            HistoryClient.SimpleService.FoolinRequest inValue = new HistoryClient.SimpleService.FoolinRequest();
+            inValue.Body = new HistoryClient.SimpleService.FoolinRequestBody();
             inValue.Body.a = a;
-            return ((HistoryClient.SimpleService.SimpleSoap)(this)).foolinAsync(inValue);
+            return ((HistoryClient.SimpleService.SimpleSoap)(this)).FoolinAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

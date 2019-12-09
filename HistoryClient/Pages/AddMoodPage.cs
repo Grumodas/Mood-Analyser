@@ -102,8 +102,8 @@ namespace HistoryClient
             {
                 MessageBox.Show("Before");
                 //just fooling with threads
-                ///SimpleService.SimpleSoapClient webClient = new SimpleService.SimpleSoapClient();
-                //Task<string> tn = webClient.foolin(10);
+                SimpleService.SimpleSoapClient webClient = new SimpleService.SimpleSoapClient();
+                string s = webClient.Foolin(10);
 
 
 
@@ -115,7 +115,7 @@ namespace HistoryClient
                 //EmotDetector ed = new EmotDetector();
                 //string emotions = await ed.WhatEmot(path, fileName);
                 SimpleService.SimpleSoapClient webClient = new SimpleService.SimpleSoapClient();
-                await webClient.getEmotions(path, fileName);
+                Task<string> st = await webClient.getEmotions(path, fileName);
                
                 //string emotions = await emotionsTask;
                 MessageBox.Show(emotions + "...sure");
