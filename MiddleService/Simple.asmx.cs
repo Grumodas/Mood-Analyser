@@ -26,7 +26,7 @@ namespace MiddleService
         }
 
         [WebMethod]
-        public string Foolin(int a)
+        public string Mocking(int a)
         {
             for(int i = 0; i < a; i++)
             {

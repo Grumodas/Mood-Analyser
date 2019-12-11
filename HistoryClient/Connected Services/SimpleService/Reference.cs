@@ -22,12 +22,12 @@ namespace HistoryClient.SimpleService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HelloWorld", ReplyAction="*")]
         System.Threading.Tasks.Task<HistoryClient.SimpleService.HelloWorldResponse> HelloWorldAsync(HistoryClient.SimpleService.HelloWorldRequest request);
         
-        // CODEGEN: Generating message contract since element name FoolinResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Foolin", ReplyAction="*")]
-        HistoryClient.SimpleService.FoolinResponse Foolin(HistoryClient.SimpleService.FoolinRequest request);
+        // CODEGEN: Generating message contract since element name MockingResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Mocking", ReplyAction="*")]
+        HistoryClient.SimpleService.MockingResponse Mocking(HistoryClient.SimpleService.MockingRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Foolin", ReplyAction="*")]
-        System.Threading.Tasks.Task<HistoryClient.SimpleService.FoolinResponse> FoolinAsync(HistoryClient.SimpleService.FoolinRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Mocking", ReplyAction="*")]
+        System.Threading.Tasks.Task<HistoryClient.SimpleService.MockingResponse> MockingAsync(HistoryClient.SimpleService.MockingRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -95,15 +95,15 @@ namespace HistoryClient.SimpleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class FoolinRequest {
+    public partial class MockingRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Foolin", Namespace="http://tempuri.org/", Order=0)]
-        public HistoryClient.SimpleService.FoolinRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Mocking", Namespace="http://tempuri.org/", Order=0)]
+        public HistoryClient.SimpleService.MockingRequestBody Body;
         
-        public FoolinRequest() {
+        public MockingRequest() {
         }
         
-        public FoolinRequest(HistoryClient.SimpleService.FoolinRequestBody Body) {
+        public MockingRequest(HistoryClient.SimpleService.MockingRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -112,15 +112,15 @@ namespace HistoryClient.SimpleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class FoolinRequestBody {
+    public partial class MockingRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public int a;
         
-        public FoolinRequestBody() {
+        public MockingRequestBody() {
         }
         
-        public FoolinRequestBody(int a) {
+        public MockingRequestBody(int a) {
             this.a = a;
         }
     }
@@ -129,15 +129,15 @@ namespace HistoryClient.SimpleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class FoolinResponse {
+    public partial class MockingResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="FoolinResponse", Namespace="http://tempuri.org/", Order=0)]
-        public HistoryClient.SimpleService.FoolinResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="MockingResponse", Namespace="http://tempuri.org/", Order=0)]
+        public HistoryClient.SimpleService.MockingResponseBody Body;
         
-        public FoolinResponse() {
+        public MockingResponse() {
         }
         
-        public FoolinResponse(HistoryClient.SimpleService.FoolinResponseBody Body) {
+        public MockingResponse(HistoryClient.SimpleService.MockingResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -146,16 +146,16 @@ namespace HistoryClient.SimpleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class FoolinResponseBody {
+    public partial class MockingResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string FoolinResult;
+        public string MockingResult;
         
-        public FoolinResponseBody() {
+        public MockingResponseBody() {
         }
         
-        public FoolinResponseBody(string FoolinResult) {
-            this.FoolinResult = FoolinResult;
+        public MockingResponseBody(string MockingResult) {
+            this.MockingResult = MockingResult;
         }
     }
     
@@ -210,28 +210,28 @@ namespace HistoryClient.SimpleService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        HistoryClient.SimpleService.FoolinResponse HistoryClient.SimpleService.SimpleSoap.Foolin(HistoryClient.SimpleService.FoolinRequest request) {
-            return base.Channel.Foolin(request);
+        HistoryClient.SimpleService.MockingResponse HistoryClient.SimpleService.SimpleSoap.Mocking(HistoryClient.SimpleService.MockingRequest request) {
+            return base.Channel.Mocking(request);
         }
         
-        public string Foolin(int a) {
-            HistoryClient.SimpleService.FoolinRequest inValue = new HistoryClient.SimpleService.FoolinRequest();
-            inValue.Body = new HistoryClient.SimpleService.FoolinRequestBody();
+        public string Mocking(int a) {
+            HistoryClient.SimpleService.MockingRequest inValue = new HistoryClient.SimpleService.MockingRequest();
+            inValue.Body = new HistoryClient.SimpleService.MockingRequestBody();
             inValue.Body.a = a;
-            HistoryClient.SimpleService.FoolinResponse retVal = ((HistoryClient.SimpleService.SimpleSoap)(this)).Foolin(inValue);
-            return retVal.Body.FoolinResult;
+            HistoryClient.SimpleService.MockingResponse retVal = ((HistoryClient.SimpleService.SimpleSoap)(this)).Mocking(inValue);
+            return retVal.Body.MockingResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<HistoryClient.SimpleService.FoolinResponse> HistoryClient.SimpleService.SimpleSoap.FoolinAsync(HistoryClient.SimpleService.FoolinRequest request) {
-            return base.Channel.FoolinAsync(request);
+        System.Threading.Tasks.Task<HistoryClient.SimpleService.MockingResponse> HistoryClient.SimpleService.SimpleSoap.MockingAsync(HistoryClient.SimpleService.MockingRequest request) {
+            return base.Channel.MockingAsync(request);
         }
         
-        public System.Threading.Tasks.Task<HistoryClient.SimpleService.FoolinResponse> FoolinAsync(int a) {
-            HistoryClient.SimpleService.FoolinRequest inValue = new HistoryClient.SimpleService.FoolinRequest();
-            inValue.Body = new HistoryClient.SimpleService.FoolinRequestBody();
+        public System.Threading.Tasks.Task<HistoryClient.SimpleService.MockingResponse> MockingAsync(int a) {
+            HistoryClient.SimpleService.MockingRequest inValue = new HistoryClient.SimpleService.MockingRequest();
+            inValue.Body = new HistoryClient.SimpleService.MockingRequestBody();
             inValue.Body.a = a;
-            return ((HistoryClient.SimpleService.SimpleSoap)(this)).FoolinAsync(inValue);
+            return ((HistoryClient.SimpleService.SimpleSoap)(this)).MockingAsync(inValue);
         }
     }
 }

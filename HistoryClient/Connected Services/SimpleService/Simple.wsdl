@@ -12,17 +12,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Foolin">
+      <s:element name="Mocking">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="a" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="FoolinResponse">
+      <s:element name="MockingResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="FoolinResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MockingResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -34,20 +34,20 @@
   <wsdl:message name="HelloWorldSoapOut">
     <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
   </wsdl:message>
-  <wsdl:message name="FoolinSoapIn">
-    <wsdl:part name="parameters" element="tns:Foolin" />
+  <wsdl:message name="MockingSoapIn">
+    <wsdl:part name="parameters" element="tns:Mocking" />
   </wsdl:message>
-  <wsdl:message name="FoolinSoapOut">
-    <wsdl:part name="parameters" element="tns:FoolinResponse" />
+  <wsdl:message name="MockingSoapOut">
+    <wsdl:part name="parameters" element="tns:MockingResponse" />
   </wsdl:message>
   <wsdl:portType name="SimpleSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
       <wsdl:output message="tns:HelloWorldSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Foolin">
-      <wsdl:input message="tns:FoolinSoapIn" />
-      <wsdl:output message="tns:FoolinSoapOut" />
+    <wsdl:operation name="Mocking">
+      <wsdl:input message="tns:MockingSoapIn" />
+      <wsdl:output message="tns:MockingSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SimpleSoap" type="tns:SimpleSoap">
@@ -61,8 +61,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Foolin">
-      <soap:operation soapAction="http://tempuri.org/Foolin" style="document" />
+    <wsdl:operation name="Mocking">
+      <soap:operation soapAction="http://tempuri.org/Mocking" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -82,8 +82,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Foolin">
-      <soap12:operation soapAction="http://tempuri.org/Foolin" style="document" />
+    <wsdl:operation name="Mocking">
+      <soap12:operation soapAction="http://tempuri.org/Mocking" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

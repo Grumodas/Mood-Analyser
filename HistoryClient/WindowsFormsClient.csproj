@@ -112,6 +112,11 @@
     <Compile Include="AppData.cs">
       <DependentUpon>AppData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SimpleService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="EntityModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,11 +131,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityModel1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\SimpleService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="EventHandlers\CheckForDublicateEventHandler.cs" />
     <Compile Include="LoadingScreen.cs" />
@@ -227,16 +227,16 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntityModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EntityModel1.edmx.diagram">
-      <DependentUpon>EntityModel1.edmx</DependentUpon>
-    </None>
-    <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.FoolinResponse1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.HelloWorldResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.MockingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\SimpleService\Simple.wsdl" />
+    <None Include="EntityModel1.edmx.diagram">
+      <DependentUpon>EntityModel1.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

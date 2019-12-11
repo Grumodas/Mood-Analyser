@@ -62,12 +62,14 @@ namespace HistoryClient
 
                 return eCopy;
             }
-            /*
+            
             // kreipimasis i musu web serivce pavyzdys
             //Returns "Hello, World"
             SimpleService.SimpleSoapClient client = new SimpleService.SimpleSoapClient();
-            return client.HelloWorld();
-            */
+            string justAHello = client.HelloWorld();
+            string threadName = client.Mocking(5);
+            
+            
         }
 
         public void setEmotions(string e)
