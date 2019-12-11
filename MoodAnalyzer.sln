@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSLambda1.Tests", "AWSLamb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSLambdaClient", "AWSLambdaClient\AWSLambdaClient.csproj", "{5B21850A-B9EE-4FA9-B029-2B84312146A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "HistoryClient\Client.csproj", "{70D2B02A-729E-48B6-BF45-886C5CBA2599}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsClient", "HistoryClient\WindowsFormsClient.csproj", "{70D2B02A-729E-48B6-BF45-886C5CBA2599}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSIsReferencePhotoValid", "AWSHowManyPeopleInPicture\AWSIsReferencePhotoValid.csproj", "{39A34675-984C-4268-A993-9302F3A8BAE9}"
 EndProject
