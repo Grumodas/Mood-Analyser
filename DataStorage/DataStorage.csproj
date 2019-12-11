@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Data\UsersDatabase.cs" />
     <Compile Include="Data\RecordsDatabase.cs" />
+    <Compile Include="Models\UsersDataTable.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Models\RecordsDataTable.cs" />
     <Compile Include="Models\Records.cs" />
