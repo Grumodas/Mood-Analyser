@@ -105,9 +105,8 @@ namespace HistoryClient
                 ls.Open();
 
                 EmotDetector ed = new EmotDetector();
-                //await ed.UploadToS3(path, fileName);
-                string emotions = await ed.WhatEmot(path, fileName) + "";
-                
+                string emotions = await ed.WhatEmot(path, fileName);
+
                 emotions = emotions.Replace("\"", "");
                 //MessageBox.Show(emotions);
 
@@ -122,7 +121,7 @@ namespace HistoryClient
                     emotions = "UNKNOWN";
                 } else
                 {
-                    foreach (var emotion in emotionArray)
+                    foreach (string emotion in emotionArray)
                     {
                         if (i == 0)
                         {
@@ -140,6 +139,7 @@ namespace HistoryClient
                 }   
 
                 string binaryEmotions = Convert.ToString((int)emos, 2);
+                // Send found emotions to loading screen
                 ls.setEmotions(emotions);
 
                 Byte[] image = File.ReadAllBytes(fileDir);

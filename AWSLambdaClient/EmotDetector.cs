@@ -20,6 +20,12 @@ namespace AWSLambdaClient
         private readonly string accessKey;
         private readonly string privateKey;
 
+        // for testing
+        public static string Hi()
+        {
+            return "hi";
+;        }
+
         public EmotDetector(string accessKey, string privateKey)
         {
             this.accessKey = accessKey;
@@ -32,7 +38,7 @@ namespace AWSLambdaClient
             this.accessKey = credentials.Value.accessKey;
             this.privateKey = credentials.Value.privateKey;
         }
-        
+        // ADD TO MIDDLE
         public async Task<string> WhatEmot(string filePath, string fileName)
         {
             Object emotResult = new ArrayList();
@@ -72,8 +78,6 @@ namespace AWSLambdaClient
             PutObjectResponse response = await client.PutObjectAsync(putRequest);
         }
 
-
-
         public async Task uploadReferencePhoto(string filePath)
         {
             var client = new AmazonS3Client(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
@@ -89,6 +93,7 @@ namespace AWSLambdaClient
             PutObjectResponse response = await client.PutObjectAsync(putRequest);
         }
 
+        // ADD TO MIDDLE
         public async Task<bool> IsReferencePhotoValid(string filePath)
         {
             Object emotResult = new ArrayList();
