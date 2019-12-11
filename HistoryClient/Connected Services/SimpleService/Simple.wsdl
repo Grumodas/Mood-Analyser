@@ -26,46 +26,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getEmotions">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="getEmotionsResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getEmotionsResult" type="tns:TaskOfString" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="TaskOfString">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Task" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="Task" />
-      <s:element name="isRefPhotoValid">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="isRefPhotoValidResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="isRefPhotoValidResult" type="tns:TaskOfBoolean" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="TaskOfBoolean">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:Task" />
-        </s:complexContent>
-      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -80,18 +40,6 @@
   <wsdl:message name="FoolinSoapOut">
     <wsdl:part name="parameters" element="tns:FoolinResponse" />
   </wsdl:message>
-  <wsdl:message name="getEmotionsSoapIn">
-    <wsdl:part name="parameters" element="tns:getEmotions" />
-  </wsdl:message>
-  <wsdl:message name="getEmotionsSoapOut">
-    <wsdl:part name="parameters" element="tns:getEmotionsResponse" />
-  </wsdl:message>
-  <wsdl:message name="isRefPhotoValidSoapIn">
-    <wsdl:part name="parameters" element="tns:isRefPhotoValid" />
-  </wsdl:message>
-  <wsdl:message name="isRefPhotoValidSoapOut">
-    <wsdl:part name="parameters" element="tns:isRefPhotoValidResponse" />
-  </wsdl:message>
   <wsdl:portType name="SimpleSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -100,14 +48,6 @@
     <wsdl:operation name="Foolin">
       <wsdl:input message="tns:FoolinSoapIn" />
       <wsdl:output message="tns:FoolinSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="getEmotions">
-      <wsdl:input message="tns:getEmotionsSoapIn" />
-      <wsdl:output message="tns:getEmotionsSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="isRefPhotoValid">
-      <wsdl:input message="tns:isRefPhotoValidSoapIn" />
-      <wsdl:output message="tns:isRefPhotoValidSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SimpleSoap" type="tns:SimpleSoap">
@@ -130,24 +70,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getEmotions">
-      <soap:operation soapAction="http://tempuri.org/getEmotions" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="isRefPhotoValid">
-      <soap:operation soapAction="http://tempuri.org/isRefPhotoValid" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="SimpleSoap12" type="tns:SimpleSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -162,24 +84,6 @@
     </wsdl:operation>
     <wsdl:operation name="Foolin">
       <soap12:operation soapAction="http://tempuri.org/Foolin" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getEmotions">
-      <soap12:operation soapAction="http://tempuri.org/getEmotions" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="isRefPhotoValid">
-      <soap12:operation soapAction="http://tempuri.org/isRefPhotoValid" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

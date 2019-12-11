@@ -198,19 +198,7 @@
     <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.FoolinResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.getEmotionsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.HelloWorldResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.isRefPhotoValidResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.TaskOfBoolean.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SimpleService\HistoryClient.SimpleService.TaskOfString.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SimpleService\Simple.wsdl" />

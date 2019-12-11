@@ -9,54 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace HistoryClient.SimpleService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Task", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(HistoryClient.SimpleService.TaskOfBoolean))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(HistoryClient.SimpleService.TaskOfString))]
-    public partial class Task : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TaskOfBoolean", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class TaskOfBoolean : HistoryClient.SimpleService.Task {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TaskOfString", Namespace="http://tempuri.org/")]
-    [System.SerializableAttribute()]
-    public partial class TaskOfString : HistoryClient.SimpleService.Task {
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SimpleService.SimpleSoap")]
@@ -75,20 +28,6 @@ namespace HistoryClient.SimpleService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Foolin", ReplyAction="*")]
         System.Threading.Tasks.Task<HistoryClient.SimpleService.FoolinResponse> FoolinAsync(HistoryClient.SimpleService.FoolinRequest request);
-        
-        // CODEGEN: Generating message contract since element name path from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getEmotions", ReplyAction="*")]
-        HistoryClient.SimpleService.getEmotionsResponse getEmotions(HistoryClient.SimpleService.getEmotionsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getEmotions", ReplyAction="*")]
-        System.Threading.Tasks.Task<HistoryClient.SimpleService.getEmotionsResponse> getEmotionsAsync(HistoryClient.SimpleService.getEmotionsRequest request);
-        
-        // CODEGEN: Generating message contract since element name path from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/isRefPhotoValid", ReplyAction="*")]
-        HistoryClient.SimpleService.isRefPhotoValidResponse isRefPhotoValid(HistoryClient.SimpleService.isRefPhotoValidRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/isRefPhotoValid", ReplyAction="*")]
-        System.Threading.Tasks.Task<HistoryClient.SimpleService.isRefPhotoValidResponse> isRefPhotoValidAsync(HistoryClient.SimpleService.isRefPhotoValidRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -220,146 +159,6 @@ namespace HistoryClient.SimpleService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getEmotionsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getEmotions", Namespace="http://tempuri.org/", Order=0)]
-        public HistoryClient.SimpleService.getEmotionsRequestBody Body;
-        
-        public getEmotionsRequest() {
-        }
-        
-        public getEmotionsRequest(HistoryClient.SimpleService.getEmotionsRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class getEmotionsRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string path;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string fileName;
-        
-        public getEmotionsRequestBody() {
-        }
-        
-        public getEmotionsRequestBody(string path, string fileName) {
-            this.path = path;
-            this.fileName = fileName;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getEmotionsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getEmotionsResponse", Namespace="http://tempuri.org/", Order=0)]
-        public HistoryClient.SimpleService.getEmotionsResponseBody Body;
-        
-        public getEmotionsResponse() {
-        }
-        
-        public getEmotionsResponse(HistoryClient.SimpleService.getEmotionsResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class getEmotionsResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public HistoryClient.SimpleService.TaskOfString getEmotionsResult;
-        
-        public getEmotionsResponseBody() {
-        }
-        
-        public getEmotionsResponseBody(HistoryClient.SimpleService.TaskOfString getEmotionsResult) {
-            this.getEmotionsResult = getEmotionsResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class isRefPhotoValidRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="isRefPhotoValid", Namespace="http://tempuri.org/", Order=0)]
-        public HistoryClient.SimpleService.isRefPhotoValidRequestBody Body;
-        
-        public isRefPhotoValidRequest() {
-        }
-        
-        public isRefPhotoValidRequest(HistoryClient.SimpleService.isRefPhotoValidRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class isRefPhotoValidRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string path;
-        
-        public isRefPhotoValidRequestBody() {
-        }
-        
-        public isRefPhotoValidRequestBody(string path) {
-            this.path = path;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class isRefPhotoValidResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="isRefPhotoValidResponse", Namespace="http://tempuri.org/", Order=0)]
-        public HistoryClient.SimpleService.isRefPhotoValidResponseBody Body;
-        
-        public isRefPhotoValidResponse() {
-        }
-        
-        public isRefPhotoValidResponse(HistoryClient.SimpleService.isRefPhotoValidResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class isRefPhotoValidResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public HistoryClient.SimpleService.TaskOfBoolean isRefPhotoValidResult;
-        
-        public isRefPhotoValidResponseBody() {
-        }
-        
-        public isRefPhotoValidResponseBody(HistoryClient.SimpleService.TaskOfBoolean isRefPhotoValidResult) {
-            this.isRefPhotoValidResult = isRefPhotoValidResult;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface SimpleSoapChannel : HistoryClient.SimpleService.SimpleSoap, System.ServiceModel.IClientChannel {
     }
@@ -433,58 +232,6 @@ namespace HistoryClient.SimpleService {
             inValue.Body = new HistoryClient.SimpleService.FoolinRequestBody();
             inValue.Body.a = a;
             return ((HistoryClient.SimpleService.SimpleSoap)(this)).FoolinAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        HistoryClient.SimpleService.getEmotionsResponse HistoryClient.SimpleService.SimpleSoap.getEmotions(HistoryClient.SimpleService.getEmotionsRequest request) {
-            return base.Channel.getEmotions(request);
-        }
-        
-        public HistoryClient.SimpleService.TaskOfString getEmotions(string path, string fileName) {
-            HistoryClient.SimpleService.getEmotionsRequest inValue = new HistoryClient.SimpleService.getEmotionsRequest();
-            inValue.Body = new HistoryClient.SimpleService.getEmotionsRequestBody();
-            inValue.Body.path = path;
-            inValue.Body.fileName = fileName;
-            HistoryClient.SimpleService.getEmotionsResponse retVal = ((HistoryClient.SimpleService.SimpleSoap)(this)).getEmotions(inValue);
-            return retVal.Body.getEmotionsResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<HistoryClient.SimpleService.getEmotionsResponse> HistoryClient.SimpleService.SimpleSoap.getEmotionsAsync(HistoryClient.SimpleService.getEmotionsRequest request) {
-            return base.Channel.getEmotionsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<HistoryClient.SimpleService.getEmotionsResponse> getEmotionsAsync(string path, string fileName) {
-            HistoryClient.SimpleService.getEmotionsRequest inValue = new HistoryClient.SimpleService.getEmotionsRequest();
-            inValue.Body = new HistoryClient.SimpleService.getEmotionsRequestBody();
-            inValue.Body.path = path;
-            inValue.Body.fileName = fileName;
-            return ((HistoryClient.SimpleService.SimpleSoap)(this)).getEmotionsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        HistoryClient.SimpleService.isRefPhotoValidResponse HistoryClient.SimpleService.SimpleSoap.isRefPhotoValid(HistoryClient.SimpleService.isRefPhotoValidRequest request) {
-            return base.Channel.isRefPhotoValid(request);
-        }
-        
-        public HistoryClient.SimpleService.TaskOfBoolean isRefPhotoValid(string path) {
-            HistoryClient.SimpleService.isRefPhotoValidRequest inValue = new HistoryClient.SimpleService.isRefPhotoValidRequest();
-            inValue.Body = new HistoryClient.SimpleService.isRefPhotoValidRequestBody();
-            inValue.Body.path = path;
-            HistoryClient.SimpleService.isRefPhotoValidResponse retVal = ((HistoryClient.SimpleService.SimpleSoap)(this)).isRefPhotoValid(inValue);
-            return retVal.Body.isRefPhotoValidResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<HistoryClient.SimpleService.isRefPhotoValidResponse> HistoryClient.SimpleService.SimpleSoap.isRefPhotoValidAsync(HistoryClient.SimpleService.isRefPhotoValidRequest request) {
-            return base.Channel.isRefPhotoValidAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<HistoryClient.SimpleService.isRefPhotoValidResponse> isRefPhotoValidAsync(string path) {
-            HistoryClient.SimpleService.isRefPhotoValidRequest inValue = new HistoryClient.SimpleService.isRefPhotoValidRequest();
-            inValue.Body = new HistoryClient.SimpleService.isRefPhotoValidRequestBody();
-            inValue.Body.path = path;
-            return ((HistoryClient.SimpleService.SimpleSoap)(this)).isRefPhotoValidAsync(inValue);
         }
     }
 }

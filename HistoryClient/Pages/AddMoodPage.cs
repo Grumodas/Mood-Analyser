@@ -100,25 +100,13 @@ namespace HistoryClient
                 //MessageBox.Show("Please enter a valid event name");
             } else
             {
-                MessageBox.Show("Before");
-                //just fooling with threads
-                SimpleService.SimpleSoapClient webClient = new SimpleService.SimpleSoapClient();
-                string s = webClient.Foolin(10);
-
-
-
                 confirmButton.Enabled = false;
                 LoadingScreen ls = new LoadingScreen();
                 ls.Open();
 
-                // aws -> MiddleService
-                //EmotDetector ed = new EmotDetector();
-                //string emotions = await ed.WhatEmot(path, fileName);
-                SimpleService.SimpleSoapClient webClient = new SimpleService.SimpleSoapClient();
-                Task<string> st = await webClient.getEmotions(path, fileName);
-               
-                //string emotions = await emotionsTask;
-                MessageBox.Show(emotions + "...sure");
+                EmotDetector ed = new EmotDetector();
+                string emotions = await ed.WhatEmot(path, fileName);
+
                 emotions = emotions.Replace("\"", "");
                 //MessageBox.Show(emotions);
 

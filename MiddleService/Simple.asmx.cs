@@ -19,7 +19,6 @@ namespace MiddleService
     // [System.Web.Script.Services.ScriptService]
     public class Simple : System.Web.Services.WebService
     {
-
         [WebMethod]
         public string HelloWorld()
         {
@@ -35,23 +34,6 @@ namespace MiddleService
             }
 
             return Thread.CurrentThread.Name; 
-        }
-
-        [WebMethod]
-        public async Task<string> getEmotions(string path, string fileName)
-        {
-            EmotDetector ed = new EmotDetector();
-            string emotions = await ed.WhatEmot(path, fileName) + "";
-
-            return emotions;
-        }
-
-        [WebMethod]
-        public async Task<bool> isRefPhotoValid(string path)
-        {
-            EmotDetector ed = new EmotDetector();
-            bool response = await ed.IsReferencePhotoValid(path);
-            return response;
         }
     }
 }
