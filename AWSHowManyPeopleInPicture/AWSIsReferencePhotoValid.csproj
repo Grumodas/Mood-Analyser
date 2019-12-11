@@ -11,5 +11,6 @@
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.7.0" />
     <PackageReference Include="Amazon.Lambda.S3Events" Version="1.1.0" />
     <PackageReference Include="EntityFramework" Version="6.4.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991221" />
   </ItemGroup>
 </Project>
