@@ -49,7 +49,25 @@ namespace HistoryClient
         {
             lock(eLock) {
                 this.e = e;
+
             }
+        }
+
+        private string getE()
+        {
+
+            lock (eLock)
+            {
+                string eCopy = String.Copy(e);
+
+                return eCopy;
+            }
+            /*
+            // kreipimasis i musu web serivce pavyzdys
+            //Returns "Hello, World"
+            SimpleService.SimpleSoapClient client = new SimpleService.SimpleSoapClient();
+            return client.HelloWorld();
+            */
         }
 
         public void setEmotions(string e)
@@ -108,13 +126,13 @@ namespace HistoryClient
                 setE("What a great day!");
             }
 
-            lb.SetMessage(e);
+            lb.SetMessage(getE());
             lb.Update();
 
             //var a = tcs.Task.Result;
             lb.RunLoadingDots();
             
-            lb.SetMessage("It seems that today you are " + e.Replace(",", " and ").ToLower());
+            lb.SetMessage("It seems that today you are " + getE().Replace(",", " and ").ToLower());
             lb.HideLoadText();
             lb.Hide();
             lb.Update();
