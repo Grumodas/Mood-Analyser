@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
+using System;
 
 namespace AndroidXamarin
 {
@@ -21,6 +22,13 @@ namespace AndroidXamarin
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        }
+
+        void ButtonClicked(object sender, EventArgs args)
+        {
+            //Conso ("Button Clicked", "This Button has been clicked", "OK");
+            int a = 2;
         }
 
     }

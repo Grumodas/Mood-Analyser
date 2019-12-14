@@ -151,7 +151,7 @@ namespace HistoryClient
                     PossiblyDublicateUploads(this, arg);
                 } else
                 {
-                    //this.tableTableAdapter.Insert(info, image);
+                    this.tableTableAdapter.Insert(info, image);
                     //this.tableTableAdapter.Update(this.appData.Table);
                     using (var context = new Database1Entities())
                     {

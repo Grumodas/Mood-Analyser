@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidXamarin</string>
+    <string name="app_name">Moodiary</string>
     <string name="action_settings">Settings</string>
     <string name = "HelloXamarin">Hello World, I am Xamarin!</string>
     <string name = "ApplicationName">helloWorld</string>
