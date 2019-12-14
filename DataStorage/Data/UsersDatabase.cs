@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DataStorage.Models;
 
 namespace DataStorage.Data
-{/*
+{
     public class UserDatabase
     {
         readonly SQLiteAsyncConnection database;
@@ -16,12 +16,12 @@ namespace DataStorage.Data
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Users>().Wait();
         }
-
+        
         public Task<List<Users>> GetItemsAsync()
         {
             return database.Table<Users>().ToListAsync();
         }
-
+        
         public Task<Users> GetItemAsync(int id)
         {
             return database.Table<Users>().Where(i => i.Id == id).FirstOrDefaultAsync();
@@ -43,5 +43,5 @@ namespace DataStorage.Data
         {
             return database.DeleteAsync(user);
         }
-    }*/
+    }
 }
