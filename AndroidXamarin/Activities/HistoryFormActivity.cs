@@ -14,7 +14,7 @@ using AndroidXamarin.Resources;
 namespace AndroidXamarin
 {
     // comment line below to unset it as the launch activity
-    [Activity(Label = "HistoryFormActivity", MainLauncher = true)]
+    //[Activity(Label = "HistoryFormActivity", MainLauncher = true)]
     class HistoryFormActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

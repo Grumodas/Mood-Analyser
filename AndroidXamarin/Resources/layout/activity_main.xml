@@ -1,21 +1,33 @@
 
 <LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_weight="1"
-	android:background="@android:color/white"
-	android:orientation="horizontal"
-	android:gravity="center"
-	android:minWidth="25px"
-	android:minHeight="25px">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:minWidth="25px"
+    android:minHeight="25px">
 
-	<Button
-		android:id="@+id/okbutton"
-		android:layout_width="211.0dp"
-		android:layout_height="78.5dp"
-		android:text="Upload"
-		android:gravity="center"
-		android:textSize="30sp"
-		android:layout_marginTop="10.0dp" />
-</LinearLayout>  
+    <Button
+        android:id="@+id/UploadRefPhotoButton"
+        android:layout_width="211.0dp"
+        android:layout_height="78.5dp"
+        android:text="Upload"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginTop="10.0dp"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:adjustViewBounds="true"/>
+    
+<TextView
+        android:text="UPLOAD REFERENCE PHOTO HOW DO I MOVE THIS DOWN HELP"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text1"/>
+
+
+
+</LinearLayout>
