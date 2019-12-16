@@ -9,7 +9,7 @@ using DataStorage.Models;
 
 namespace DataStorage.Data
 {
-    class RecordsDatabaseController
+    public class RecordsDatabaseController
     {
         static object locker = new object();
 
@@ -17,6 +17,7 @@ namespace DataStorage.Data
         public RecordsDatabaseController()
         {
             database = DependencyService.Get<ISQLite>().GetConnection();
+
             database.CreateTable<Record>();
         }
         public Record GetRecord()
