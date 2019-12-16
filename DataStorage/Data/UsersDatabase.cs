@@ -14,20 +14,20 @@ namespace DataStorage.Data
         public UserDatabase(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
-            database.CreateTableAsync<User>().Wait();
+            database.CreateTableAsync<Users>().Wait();
         }
         
-        public Task<List<User>> GetItemsAsync()
+        public Task<List<Users>> GetItemsAsync()
         {
-            return database.Table<User>().ToListAsync();
+            return database.Table<Users>().ToListAsync();
         }
         
-        public Task<User> GetItemAsync(int id)
+        public Task<Users> GetItemAsync(int id)
         {
-            return database.Table<User>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return database.Table<Users>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveItemAsync(User user)
+        public Task<int> SaveItemAsync(Users user)
         {
             if (user.Id != 0)
             {
@@ -39,7 +39,7 @@ namespace DataStorage.Data
             }
         }
 
-        public Task<int> DeleteItemAsync(User user)
+        public Task<int> DeleteItemAsync(Users user)
         {
             return database.DeleteAsync(user);
         }

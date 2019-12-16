@@ -53,13 +53,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Web.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -67,21 +63,35 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\CreateNewUserFormActivity.cs" />
     <Compile Include="Activities\FilterFormActivity.cs" />
     <Compile Include="Activities\HistoryFormActivity.cs" />
     <Compile Include="Activities\HistoryItem.cs" />
+    <Compile Include="Activities\LogInFormActivity.cs" />
     <Compile Include="Activities\MainMenuFormActivity.cs" />
+    <Compile Include="Activities\SelectUserFormActivity.cs" />
+    <Compile Include="Activities\UserItem.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Activities\HistoryFormAdapter.cs" />
+    <Compile Include="Resources\HistoryFormAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\UploadNewPhotoActivity.cs" />
-    <Compile Include="uploadToS3Mobile.cs" />
+    <Compile Include="Resources\SelectUserFormAdapter.cs" />
+    <Compile Include="Web References\SimpleService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="Web References\SimpleService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SimpleService\Simple.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_main.xml">
@@ -114,17 +124,10 @@
       <Project>{5B21850A-B9EE-4FA9-B029-2B84312146A4}</Project>
       <Name>AWSLambdaClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataStorage\DataStorage.csproj">
-      <Project>{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}</Project>
-      <Name>DataStorage</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp">
       <Version>4.7.0</Version>
-    </PackageReference>
-    <PackageReference Include="SQLite.Net-PCL">
-      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
@@ -162,6 +165,44 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\FilterFrom.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://localhost:44332/Simple.asmx%3fWSDL">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SimpleService\</RelPath>
+      <UpdateFromURL>https://localhost:44332/Simple.asmx%3fWSDL</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\SelectUserForm.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\LogInForm.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CreateNewUserForm.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\UserItemLayout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

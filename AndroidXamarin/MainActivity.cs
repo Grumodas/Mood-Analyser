@@ -6,16 +6,11 @@ using Android.Widget;
 using System;
 using Android.Content;
 using Android.Views;
-using Java.IO;
-using System.Drawing;
-using Android.Graphics;
-using AndroidXamarin.Activities;
-using AWSLambdaClient;
 
 namespace AndroidXamarin
 {
     // uncomment line below to set activity to launch activity
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+   // [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
 
     public class MainActivity : AppCompatActivity
     {
@@ -35,7 +30,7 @@ namespace AndroidXamarin
             {
                 Toast.MakeText(this, "NICE PHOTO LOL", ToastLength.Short).Show();
 
-                var intent = new Intent(this, typeof(MainMenuFormActivity));
+                var intent = new Intent(this, typeof(UploadNewPhotoActivity));
                 StartActivity(intent);
             };
         }
@@ -55,6 +50,7 @@ namespace AndroidXamarin
             StartActivityForResult(
             Intent.CreateChooser(imageIntent, "Select photo"), 0);
 
+
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -63,25 +59,12 @@ namespace AndroidXamarin
 
             if (resultCode == Result.Ok)
             {
-                var confirmButton = FindViewById<Button>(Resource.Id.confirmButton);
-                confirmButton.Visibility = ViewStates.Visible;
-                
-                //display the image on screen
+
                 var imageView = FindViewById<ImageView>(Resource.Id.selectedPhotoView);
                 imageView.SetImageURI(data.Data);
 
-                //prepare for analysis    
-                string path = Android.OS.Environment.GetExternalStoragePublicDirectory(
-                  Android.OS.Environment.DirectoryPictures).AbsolutePath;
-
-                string myPath = data.Data.Path;
-                //EmotDetector ed = new EmotDetector();
-                //ed.uploadPhotoAndroid(myPath);
-                //EmotDetector ed = new EmotDetector();
-                //File test = new File(myPath);
-                //string emotions = await ed.uploadReferencePhoto(test);
-                Toast.MakeText(this, myPath, ToastLength.Short).Show();
-
+                var confirmButton = FindViewById<Button>(Resource.Id.confirmButton);
+                confirmButton.Visibility = ViewStates.Visible;
             }
         }
     }

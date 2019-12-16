@@ -7,10 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using HistoryClient;
-using Amazon.Runtime;
-using Amazon.S3.Transfer;
-using System.IO;
-using Xamarin.Forms;
 
 namespace AWSLambdaClient
 {
@@ -28,8 +24,7 @@ namespace AWSLambdaClient
         public static string Hi()
         {
             return "hi";
-            ;
-        }
+;        }
 
         public EmotDetector(string accessKey, string privateKey)
         {
@@ -39,7 +34,7 @@ namespace AWSLambdaClient
 
         public EmotDetector()
         {
-            Lazy<Credentials> credentials = new Lazy<Credentials>();
+            Lazy<Credentials> credentials = new Lazy<Credentials>();   
             this.accessKey = credentials.Value.accessKey;
             this.privateKey = credentials.Value.privateKey;
         }
@@ -49,7 +44,7 @@ namespace AWSLambdaClient
             Object emotResult = new ArrayList();
             // Uploading file to S3
             await UploadToS3(filePath, fileName);
-
+            
             // Calling our Lambda function
             AmazonLambdaClient amazonLambdaClient = new AmazonLambdaClient(accessKey, privateKey, Amazon.RegionEndpoint.EUWest2);
             InvokeRequest ir = new InvokeRequest();
@@ -124,23 +119,9 @@ namespace AWSLambdaClient
             {
                 throw new InvalidReferencePictureException("test");
             }
-
+            
             return bool.Parse(response);
         }
 
-        //----------------ANDROID TEST
-        //public void uploadPhotoAndroid(string filePath)
-        //{
-        //    String bucket = "moodanalysis";
-        //    AWSCredentials credentials = new BasicAWSCredentials(accessKey, privateKey);
-        //    AmazonS3Client s3 = new AmazonS3Client(credentials);
-        //    PutObjectRequest request = new PutObjectRequest
-        //    {
-        //        BucketName = bucket,
-        //        Key = "TESTING",
-        //        ContentBody = filePath
-        //    };
-
-        //}
     }
 }

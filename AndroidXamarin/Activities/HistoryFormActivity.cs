@@ -11,7 +11,6 @@ using Android.Views;
 using Android.Widget;
 using AndroidXamarin.Activities;
 using AndroidXamarin.Resources;
-using DataStorage.Data;
 
 namespace AndroidXamarin
 {
@@ -21,6 +20,9 @@ namespace AndroidXamarin
     {
         Button filter_button;
         string filter;
+        ListView list_view;
+        List<HistoryItem> list_source;
+        List<HistoryItem> full_history;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -31,14 +33,13 @@ namespace AndroidXamarin
 
             filter_button.Click += (s, e) =>
             {
-                RecordsDatabaseController dbController = new RecordsDatabaseController();
-
                 Intent filter_activity = new Intent(this, typeof(FilterFormActivity));
+                filter_activity.PutExtra("curr_filter", filter);
                 StartActivityForResult(filter_activity, 0);
             };
 
-            ListView list_view = FindViewById<ListView>(Resource.Id.listView1);
-            List<HistoryItem> list_source = new List<HistoryItem>();
+            list_view = FindViewById<ListView>(Resource.Id.listView1);
+            list_source = new List<HistoryItem>();
 
             //mock data
                 HistoryItem hi1 = new HistoryItem()
@@ -82,6 +83,9 @@ namespace AndroidXamarin
             if (resultCode == Result.Ok)
             {
                 filter= data.GetStringExtra("filter");
+
+
+                //list_source = simpleservice.getfilteredEntries(filter, full_history);
             }
         }
     }
