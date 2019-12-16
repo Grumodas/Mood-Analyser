@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using HistoryClient;
+using System.IO;
 
 namespace AWSLambdaClient
 {
