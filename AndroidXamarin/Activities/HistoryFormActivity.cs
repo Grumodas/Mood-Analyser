@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidXamarin.Activities;
 using AndroidXamarin.Resources;
+using DataStorage.Data;
 
 namespace AndroidXamarin
 {
@@ -30,6 +31,8 @@ namespace AndroidXamarin
 
             filter_button.Click += (s, e) =>
             {
+                RecordsDatabaseController dbController = new RecordsDatabaseController();
+
                 Intent filter_activity = new Intent(this, typeof(FilterFormActivity));
                 StartActivityForResult(filter_activity, 0);
             };

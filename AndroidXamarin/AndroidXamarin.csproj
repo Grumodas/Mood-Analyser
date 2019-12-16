@@ -53,6 +53,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -105,6 +112,10 @@
     <ProjectReference Include="..\AWSLambdaClient\AWSLambdaClient.csproj">
       <Project>{5B21850A-B9EE-4FA9-B029-2B84312146A4}</Project>
       <Name>AWSLambdaClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataStorage\DataStorage.csproj">
+      <Project>{48FE6BE8-DDAC-4B2A-BF53-CB67AA57E1E1}</Project>
+      <Name>DataStorage</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
