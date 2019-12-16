@@ -9,58 +9,77 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidXamarin.Activities;
 using AndroidXamarin.Resources;
 
 namespace AndroidXamarin
 {
     // comment line below to unset it as the launch activity
-    //[Activity(Label = "HistoryFormActivity", MainLauncher = true)]
+    [Activity(Label = "HistoryFormActivity")]
     class HistoryFormActivity : Activity
     {
+        Button filter_button;
+        string filter;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
             SetContentView(Resource.Layout.HistoryForm);
+            
+            filter_button = FindViewById<Button>(Resource.Id.filter_button);
+            filter = "None";
 
-            var listData = FindViewById<ListView>(Resource.Id.listView1);
-
-            List<HistoryItem> listSource = new List<HistoryItem>();
-
-            HistoryItem hi1 = new HistoryItem()
+            filter_button.Click += (s, e) =>
             {
-                id = 1,
-                event_date = "2016 - 03 - 23",
-                event_name = "Pretending to work",
-                mood = "Confused",
-                photo = "jim1"
+                Intent filter_activity = new Intent(this, typeof(FilterFormActivity));
+                StartActivityForResult(filter_activity, 0);
             };
-            listSource.Add(hi1);
 
-            HistoryItem hi2 = new HistoryItem()
+            ListView list_view = FindViewById<ListView>(Resource.Id.listView1);
+            List<HistoryItem> list_source = new List<HistoryItem>();
+
+            //mock data
+                HistoryItem hi1 = new HistoryItem()
+                {
+                    id = 1,
+                    event_date = "2016 - 03 - 23",
+                    event_name = "Pretending to work",
+                    mood = "Confused",
+                    photo = "jim1"
+                };
+                list_source.Add(hi1);
+
+                HistoryItem hi2 = new HistoryItem()
+                {
+                    id = 1,
+                    event_date = "2017 - 08 - 14",
+                    event_name = "Working",
+                    mood = "Sad",
+                    photo = "jim2"
+                };
+                list_source.Add(hi2);
+
+                HistoryItem hi3 = new HistoryItem()
+                {
+                    id = 1,
+                    event_date = "2018 - 02 - 14",
+                    event_name = "Just got fired",
+                    mood = "Happy",
+                    photo = "jim3"
+                };
+                list_source.Add(hi3);
+
+
+            var adapter = new HistoryFormAdapter(this, list_source);
+            list_view.Adapter = adapter;
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (resultCode == Result.Ok)
             {
-                id = 1,
-                event_date = "2017 - 08 - 14",
-                event_name = "Working",
-                mood = "Sad",
-                photo = "jim2"
-            };
-            listSource.Add(hi2);
-
-            HistoryItem hi3 = new HistoryItem()
-            {
-                id = 1,
-                event_date = "2018 - 02 - 14",
-                event_name = "Just got fired",
-                mood = "Happy",
-                photo = "jim3"
-            };
-            listSource.Add(hi3);
-
-
-            var adapter = new HistoryFormAdapter(this, listSource);
-            listData.Adapter = adapter;
-
+                filter= data.GetStringExtra("filter");
+            }
         }
     }
 }
