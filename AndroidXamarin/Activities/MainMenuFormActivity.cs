@@ -29,8 +29,8 @@ namespace AndroidXamarin.Activities
             add_button.Click += (s, e) =>
             {
                 //Insert activity label and uncomment lines below
-                //Intent add_activity = new Intent(this, typeof(<<ACTIVITY LABEL>>));
-                //StartActivity(add_activity);
+                Intent add_activity = new Intent(this, typeof(UploadNewPhotoActivity));
+                StartActivity(add_activity);
             };
 
             history_button.Click += (s, e) =>
