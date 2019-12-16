@@ -11,6 +11,9 @@ using System.Drawing;
 using Android.Graphics;
 using AndroidXamarin.Activities;
 using AWSLambdaClient;
+using System.IO;
+using Android.Database;
+using Android.Provider;
 
 namespace AndroidXamarin
 {
@@ -73,14 +76,38 @@ namespace AndroidXamarin
                 //prepare for analysis    
                 string path = Android.OS.Environment.GetExternalStoragePublicDirectory(
                   Android.OS.Environment.DirectoryPictures).AbsolutePath;
-
                 string myPath = data.Data.Path;
                 //EmotDetector ed = new EmotDetector();
-                //ed.uploadPhotoAndroid(myPath);
-                //EmotDetector ed = new EmotDetector();
-                //File test = new File(myPath);
-                //string emotions = await ed.uploadReferencePhoto(test);
-                Toast.MakeText(this, myPath, ToastLength.Short).Show();
+
+                Android.Net.Uri uri = data.Data;
+                Stream stream = ContentResolver.OpenInputStream(uri);
+
+                string filepath = GetFilePath(uri);
+
+                EmotDetector ed = new EmotDetector();
+                ed.uploadPhotoAndroid(filepath);
+                Toast.MakeText(this, filepath, ToastLength.Short).Show();
+            }
+
+            string GetFilePath(Android.Net.Uri uri)
+            {
+                string filePath = "";
+                //             
+                string imageId = DocumentsContract.GetDocumentId(uri);
+                string id = imageId.Split(':')[1];
+                string[] proj = { MediaStore.Images.Media.InterfaceConsts.Data };
+                string sel = MediaStore.Images.Media.InterfaceConsts.Id + "=?";
+
+                using (ICursor cursor = ContentResolver.Query(MediaStore.Images.Media.ExternalContentUri, proj, sel, new string[] { id }, null))
+                {
+                    int columnIndex = cursor.GetColumnIndex(proj[0]);
+                    if (cursor.MoveToFirst())
+                    {
+                        filePath = cursor.GetString(columnIndex);
+                    }
+                }
+                return filePath;
+
 
             }
         }

@@ -30,6 +30,8 @@ namespace AndroidXamarin
 			global::PCLCrypto.Resource.String.Hello = global::AndroidXamarin.Resource.String.Hello;
 			global::PCLStorage.Resource.String.ApplicationName = global::AndroidXamarin.Resource.String.ApplicationName;
 			global::PCLStorage.Resource.String.Hello = global::AndroidXamarin.Resource.String.Hello;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::AndroidXamarin.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::AndroidXamarin.Resource.String.Hello;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::AndroidXamarin.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::AndroidXamarin.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::AndroidXamarin.Resource.Attribute.font;
