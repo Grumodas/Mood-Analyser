@@ -6,6 +6,9 @@ using Android.Widget;
 using System;
 using Android.Content;
 using Android.Views;
+using Java.IO;
+using System.Drawing;
+using Android.Graphics;
 
 namespace AndroidXamarin
 {
@@ -50,7 +53,6 @@ namespace AndroidXamarin
             StartActivityForResult(
             Intent.CreateChooser(imageIntent, "Select photo"), 0);
 
-
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -59,12 +61,37 @@ namespace AndroidXamarin
 
             if (resultCode == Result.Ok)
             {
-
+                var confirmButton = FindViewById<Button>(Resource.Id.confirmButton);
+                confirmButton.Visibility = ViewStates.Visible;
+                
+                //display the image on screen
                 var imageView = FindViewById<ImageView>(Resource.Id.selectedPhotoView);
                 imageView.SetImageURI(data.Data);
 
-                var confirmButton = FindViewById<Button>(Resource.Id.confirmButton);
-                confirmButton.Visibility = ViewStates.Visible;
+                //prepare for analysis    
+                //Uri selectedImage = data.Data;
+                //InputStream imageStream = null;
+                //try
+                //{
+                //    imageStream = getContentResolver().openInputStream(selectedImage);
+                //}
+                //catch (FileNotFoundException e)
+                //{
+                //    // TODO Auto-generated catch block
+                //}
+                //Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+
+
+                //if (yourSelectedImage != null)
+                //{
+                //    Log.e(TAG, "pic ok");
+                //}
+                //else
+                //{
+                //    Log.e(TAG, "pic not ok");
+                //}
+
+
             }
         }
     }
