@@ -13,7 +13,7 @@ using Android.Widget;
 namespace AndroidXamarin.Activities
 {
     // comment line below to unset it as the launch activity
-    [Activity(Label = "MainMenuFormActivity", MainLauncher = true)]
+    [Activity(Label = "MainMenuFormActivity")]
     class MainMenuFormActivity : Activity
     {
         Button add_button;
