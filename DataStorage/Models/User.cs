@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataStorage.Models
 {
-    public class Users
+    public class User
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
