@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Widget;
 using System;
 using Android.Content;
+using Android.Views;
 
 namespace AndroidXamarin
 {
@@ -23,6 +24,15 @@ namespace AndroidXamarin
 
             uploadRefPhotoButton = FindViewById<Button>(Resource.Id.UploadRefPhotoButton);
             uploadRefPhotoButton.Click += this.ChooseRefPhoto;
+
+            var confirmButton = FindViewById<Button>(Resource.Id.confirmButton);
+            confirmButton.Click += delegate
+            {
+                Toast.MakeText(this, "NICE PHOTO LOL", ToastLength.Short).Show();
+
+                var intent = new Intent(this, typeof(UploadNewPhotoActivity));
+                StartActivity(intent);
+            };
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
@@ -34,33 +44,28 @@ namespace AndroidXamarin
 
         void ChooseRefPhoto(object sender, EventArgs args)
         {
-
             var imageIntent = new Intent();
             imageIntent.SetType("image/*");
             imageIntent.SetAction(Intent.ActionGetContent);
             StartActivityForResult(
             Intent.CreateChooser(imageIntent, "Select photo"), 0);
 
-            Toast.MakeText(this, "NICE PHOTO BRO WAIT THIS SHOULD BE SHOWN LATER SORRY", ToastLength.Short).Show();
-
-            //var intent = new Intent(this, typeof(UploadNewPhotoActivity));
-            ////intent.PutExtra("DATA_PASS", txtdatapass.Text); //DATA_PASS is Identify the Value Pass variable  
-            //this.StartActivity(intent);
-
 
         }
 
-        //protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-        //{
-        //    base.OnActivityResult(requestCode, resultCode, data);
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
 
-        //    if (resultCode == Result.Ok)
-        //    {
-        //        var intent = new Intent(this, typeof(UploadNewPhotoActivity));
-        //        //intent.PutExtra("DATA_PASS", txtdatapass.Text); //DATA_PASS is Identify the Value Pass variable  
-        //        this.StartActivity(intent);
-        //    }
-        //}
+            if (resultCode == Result.Ok)
+            {
 
+                var imageView = FindViewById<ImageView>(Resource.Id.selectedPhotoView);
+                imageView.SetImageURI(data.Data);
+
+                var confirmButton = FindViewById<Button>(Resource.Id.confirmButton);
+                confirmButton.Visibility = ViewStates.Visible;
+            }
+        }
     }
 }
