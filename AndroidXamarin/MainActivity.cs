@@ -9,11 +9,13 @@ using Android.Views;
 using Java.IO;
 using System.Drawing;
 using Android.Graphics;
+using AndroidXamarin.Activities;
+using AWSLambdaClient;
 
 namespace AndroidXamarin
 {
     // uncomment line below to set activity to launch activity
-   // [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
 
     public class MainActivity : AppCompatActivity
     {
@@ -33,7 +35,7 @@ namespace AndroidXamarin
             {
                 Toast.MakeText(this, "NICE PHOTO LOL", ToastLength.Short).Show();
 
-                var intent = new Intent(this, typeof(UploadNewPhotoActivity));
+                var intent = new Intent(this, typeof(MainMenuFormActivity));
                 StartActivity(intent);
             };
         }
@@ -69,28 +71,16 @@ namespace AndroidXamarin
                 imageView.SetImageURI(data.Data);
 
                 //prepare for analysis    
-                //Uri selectedImage = data.Data;
-                //InputStream imageStream = null;
-                //try
-                //{
-                //    imageStream = getContentResolver().openInputStream(selectedImage);
-                //}
-                //catch (FileNotFoundException e)
-                //{
-                //    // TODO Auto-generated catch block
-                //}
-                //Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+                string path = Android.OS.Environment.GetExternalStoragePublicDirectory(
+                  Android.OS.Environment.DirectoryPictures).AbsolutePath;
 
-
-                //if (yourSelectedImage != null)
-                //{
-                //    Log.e(TAG, "pic ok");
-                //}
-                //else
-                //{
-                //    Log.e(TAG, "pic not ok");
-                //}
-
+                string myPath = data.Data.Path;
+                //EmotDetector ed = new EmotDetector();
+                //ed.uploadPhotoAndroid(myPath);
+                //EmotDetector ed = new EmotDetector();
+                //File test = new File(myPath);
+                //string emotions = await ed.uploadReferencePhoto(test);
+                Toast.MakeText(this, myPath, ToastLength.Short).Show();
 
             }
         }

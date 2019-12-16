@@ -65,10 +65,11 @@
     <Compile Include="Activities\HistoryItem.cs" />
     <Compile Include="Activities\MainMenuFormActivity.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Resources\HistoryFormAdapter.cs" />
+    <Compile Include="Activities\HistoryFormAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\UploadNewPhotoActivity.cs" />
+    <Compile Include="uploadToS3Mobile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
