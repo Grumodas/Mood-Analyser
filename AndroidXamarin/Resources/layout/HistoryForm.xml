@@ -4,35 +4,66 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff1e5261"
-    android:id="@+id/some_layout">
+    android:background="@color/myWhite">
+    <GridLayout
+        android:id="@+id/history_header_view"
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="1"
+        android:background="@color/mySalmon">
+        <Button
+            android:text="Settings"
+            android:id="@+id/history_settings"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/roundstylejet"
+            android:textColor="@color/myWhite"
+            android:textSize="18sp"/>
+        <TextView
+            android:text="History"
+            android:id="@+id/history_window_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_columnWeight="2"
+            android:textColor="@color/myWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Button
+            android:text="User"
+            android:id="@+id/history_user"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/roundstylejet"
+            android:textColor="@color/myWhite"
+            android:textSize="18sp"/>
+    </GridLayout>
 
     <Button
         android:text="Filter"
+        android:id="@+id/history_filter"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:minHeight="20dp"
         android:minWidth="40dp"
-        android:id="@+id/filter_button"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#ffc4af3b"
-        android:background="#ff236f86"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:layout_margin="10dp"
-        android:paddingRight="30dp"
-        android:paddingLeft="30dp"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp" />
+        android:padding="10dp"
+        android:background="@drawable/roundstylejet"
+        android:textColor="@color/myWhite"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <ListView
+        android:id="@+id/history_list"
         android:minWidth="25dp"
         android:minHeight="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listView1" />
-    
-
-    
-
+        android:background="@color/myWhite" />
 </LinearLayout>

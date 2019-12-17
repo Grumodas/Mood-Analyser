@@ -26,7 +26,7 @@ namespace AndroidXamarin.Activities
 
             SetContentView(Resource.Layout.CreateNewUserForm);
 
-            user_taken = FindViewById<TextView>(Resource.Id.user_taken_message);
+            user_taken = FindViewById<TextView>(Resource.Id.create_user_warning);
             input = FindViewById<EditText>(Resource.Id.create_user_input);
             add_button = FindViewById<Button>(Resource.Id.create_user_confirm);
 
@@ -48,7 +48,8 @@ namespace AndroidXamarin.Activities
 
                 if (user_exsists)
                 {
-                    user_taken.Text = "USERNAME ALREADY TAKEN";
+                    user_taken.Visibility = ViewStates.Invisible;
+                    user_taken.Visibility = ViewStates.Visible;
                     
                 }
                 else

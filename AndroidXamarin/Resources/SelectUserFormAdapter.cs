@@ -52,7 +52,7 @@ namespace AndroidXamarin.Resources
         {
             var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.UserItemLayout, parent, false);
 
-            var nameText = view.FindViewById<TextView>(Resource.Id.text);
+            var nameText = view.FindViewById<TextView>(Resource.Id.user_item_name);
 
             nameText.Text = user_list[position].name;
 

@@ -3,45 +3,85 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff1e5261">
+    android:background="@color/myWhite">
+    <GridLayout
+        android:id="@+id/create_user_header_view"
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="1"
+        android:background="@color/mySalmon">
+        <Button
+            android:text="Settings"
+            android:id="@+id/create_user_settings"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/roundstylejet"
+            android:textColor="@color/myWhite"
+            android:textSize="18sp"/>
+        <TextView
+            android:text="Log In"
+            android:id="@+id/create_user_window_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_columnWeight="2"
+            android:textColor="@color/myWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Button
+            android:text="User"
+            android:id="@+id/create_user_blank"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/myJet"
+            android:textColor="@color/myWhite"
+            android:visibility="invisible" />
+    </GridLayout>
     <TextView
-        android:text="USERNAME ALREADY TAKEN"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Username Alreadey Taken"
+        android:id="@+id/create_user_warning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/user_taken_message"
-        android:textColor="#ffc4af3b"
-        android:textStyle="bold"
-        android:padding="10dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:textColor="@color/myBlack"
+        android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_marginTop="30dp"/>
-
+        android:visibility="invisible" 
+        />
     <EditText
-        android:text="USERNAME"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Username"
+        android:id="@+id/create_user_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/create_user_input"
-        android:textColor="#ffc4af3b"
-        android:textStyle="bold"
-        android:padding="10dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
+        android:padding="10dp"
+        android:textColor="@color/myBlack"
+        android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_marginTop="200dp" />
+    />
     <Button
-        android:text="ADD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#ff236f86"
-        android:textColor="#ffc4af3b"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold"
-        android:padding="10dp"
+        android:text="Add"
         android:id="@+id/create_user_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@drawable/roundstylejet"
+        android:textColor="@color/myWhite"
+        android:textStyle="bold"
         android:textSize="20sp"
-        android:layout_marginTop="30dp" />
+         />
 
 </LinearLayout>

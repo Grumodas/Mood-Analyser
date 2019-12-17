@@ -32,10 +32,7 @@ namespace AndroidXamarin.Activities
         ListView list_view;
         SelectUserFormAdapter adapter;
         public static ObservableCollection<UserItem> list_source { get; set; }
-        Button confirm;
         Button add_user;
-        EditText input;
-        Boolean user_exsists;
         string username;
         string selected_user;
         
@@ -43,12 +40,11 @@ namespace AndroidXamarin.Activities
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.LogInForm);
-
-            list_view = FindViewById<ListView>(Resource.Id.user_list_view);
+            //ListView Id bugged
+            list_view = FindViewById<ListView>(Resource.Id.login_list);
+            add_user = FindViewById<Button>(Resource.Id.login_add);
             list_source = new ObservableCollection<UserItem>();
-            //input = FindViewById<EditText>(Resource.Id.input_text);
-            //confirm = FindViewById<Button>(Resource.Id.confirm_username);
-            add_user = FindViewById<Button>(Resource.Id.add_user);
+            adapter = new SelectUserFormAdapter(this, list_source);
 
             #region
             /*
@@ -96,7 +92,7 @@ namespace AndroidXamarin.Activities
                 list_source.Add(mock_user);
             }
 
-            adapter = new SelectUserFormAdapter(this, list_source);
+            
             list_view.Adapter = adapter;
             list_view.ItemClick += userListOnItemClick;
         }
@@ -105,6 +101,11 @@ namespace AndroidXamarin.Activities
         {
             CurrentUser.name = list_source[e.Position].name;
             CurrentUser.has_ref_photo = list_source[e.Position].has_ref_photo;
+
+
+            //<<Check if user has ref photogo to main menu, if not - add ref screen>>
+
+
             Intent main_menu_activity = new Intent(this, typeof(MainMenuFormActivity));
             StartActivity(main_menu_activity);
         }
@@ -114,15 +115,15 @@ namespace AndroidXamarin.Activities
             base.OnActivityResult(requestCode, resultCode, data);
             if (resultCode == Result.Ok)
             {
-                UserItem user = new UserItem()
+                UserItem new_user = new UserItem()
                 {
                     name = username = data.GetStringExtra("name"),
                     has_ref_photo = false
                 };
 
-                list_source.Add(user);
+                list_source.Add(new_user);
 
-                adapter = new SelectUserFormAdapter(this, list_source);
+                //adapter = new SelectUserFormAdapter(this, list_source);
                 list_view.Adapter = adapter;
                 list_view.ItemClick += userListOnItemClick;
             }

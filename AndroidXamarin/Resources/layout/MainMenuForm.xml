@@ -1,47 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff1e5261">
+    android:background="@color/myWhite">
+    <GridLayout
+        android:id="@+id/main_header_view"
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="1"
+        android:background="@color/mySalmon">
+        <Button
+            android:text="Settings"
+            android:id="@+id/main_settings"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/roundstylejet"
+            android:textColor="@color/myWhite"/>
+        <TextView
+            android:text="Main Menu"
+            android:id="@+id/main_window_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_columnWeight="2"
+            android:textColor="@color/myWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Button
+            android:text="User"
+            android:id="@+id/main_user"
+            android:radius="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/roundstylejet"
+            android:textColor="@color/myWhite" />
+    </GridLayout>
+
     <TextView
         android:text="Mood Analyser"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/main_title"
         android:layout_height="wrap_content"
-        android:id="@+id/title_text"
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="90dp"
-        android:textColor="#ffc4af3b"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/myBlack"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:text="Hi"
+        android:id="@+id/main_greeting"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/myBlack"
         android:textSize="40sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
     <Button
         android:text="Add New"
+        android:id="@+id/main_add"
         android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
         android:minWidth="60dp"
         android:minHeight="50dp"
-        android:id="@+id/add_new_button"
         android:layout_gravity="center_horizontal"
-        android:textColor="#ffc4af3b"
-        android:background="#ff236f86"
-        android:textSize="30sp"
-        android:textStyle="bold"
         android:padding="10dp"
-        android:layout_marginTop="120dp"
-        android:layout_width="wrap_content" />
+        android:layout_marginTop="80dp"
+        android:background="@drawable/roundstylejet"
+        android:textColor="@color/myWhite"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
     <Button
+        android:id="@+id/main_history"
         android:text="History"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
-        android:id="@+id/history_button"
         android:layout_gravity="center_horizontal"
-        android:background="#ff236f86"
-        android:textSize="30sp"
-        android:textStyle="bold"
         android:padding="10dp"
-        android:textColor="#ffc4af3b"
-        android:layout_marginTop="40dp" />
-
+        android:layout_marginTop="40dp"
+        android:background="@drawable/roundstylejet"
+        android:textColor="@color/myWhite"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
 </LinearLayout>

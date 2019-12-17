@@ -4,37 +4,76 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background=#efa830">
+    android:background="@color/myWhite">
+    <GridLayout
+        android:id="@+id/login_header_view"
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="1"
+        android:background="@color/mySalmon">
+        <Button
+            android:text="Settings"
+            android:id="@+id/login_settings"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/roundstylejet"
+            android:textColor="@color/myWhite"
+            android:textSize="18sp"/>
+        <TextView
+            android:text="Log In"
+            android:id="@+id/login_window_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_columnWeight="2"
+            android:textColor="@color/myWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Button
+            android:text="User"
+            android:id="@+id/login_blank"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/myJet"
+            android:textColor="@color/myWhite"
+            android:visibility="invisible" />
+    </GridLayout>
     <Button
-        android:text="ADD USER"
-        android:id="@+id/add_user"
-        android:layout_width="wrap_content"
+        android:text="Add User"
+        android:id="@+id/login_add"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
         android:padding="10dp"
-        android:background="#ff236f86"
-        android:textColor="#ffc4af3b"
+        android:background="@drawable/roundstylejet"
+        android:textColor="@color/myWhite"
         android:textStyle="bold"
         android:textSize="20sp"
     />
     <TextView
-        android:text="OR"
-        android:id="@+id/select_user_text1"
+        android:text="Or"
+        android:id="@+id/login_text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="10dp"
+        android:paddingTop="6dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:paddingBottom="5dp" 
-        android:textColor="#ffc4af3b"
+        android:paddingBottom="0dp" 
+        android:textColor="@color/myBlack"
         android:textStyle="bold"
-        android:textSize="10sp"
+        android:textSize="15sp"
     />
     <TextView
-        android:text="SELECT EXSISTING"
-        android:id="@+id/select_user_text2"
+        android:text="Select Exsisting"
+        android:id="@+id/login_text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -42,46 +81,16 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp" 
-        android:textColor="#ffc4af3b"
+        android:textColor="@color/myBlack"
         android:textStyle="bold"
         android:textSize="20sp"
-        
     />
-    <!--
-    <EditText
-        android:text="USERNAME"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:id="@+id/input_text"
-        android:textColor="#ffc4af3b"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
-        android:layout_marginTop="1dp" />
-    -->
-    <!--
-    <Button
-        android:text="CONFIRM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#ff1e5261"
-        android:textColor="#ffc4af3b"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:id="@+id/confirm_username"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp" />
-    -->
     <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
+        android:id="@+id/login_list"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/user_list_view" />
+        android:layout_height="wrap_content"
+        android:background="@color/myWhite" />
 
 </LinearLayout>
