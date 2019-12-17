@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UploadReferencePhoto));
             this.filepathButton = new System.Windows.Forms.TextBox();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.confirmButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // filepathButton
@@ -83,17 +85,32 @@
             this.label1.Text = "Hello! Upload a photo with ONLY your face";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(713, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 52);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Dark Mode";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // UploadReferencePhoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.browseFilesButton);
             this.Controls.Add(this.filepathButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UploadReferencePhoto";
-            this.Text = "UploadReferencePhoto";
+            this.Text = "We want to recognize you";
+            this.Load += new System.EventHandler(this.UploadReferencePhoto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +122,6 @@
         private System.Windows.Forms.Button browseFilesButton;
         private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Amazon.S3;
 using Amazon.S3.Model;
 using AWSLambdaClient;
+using HistoryClient.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,11 +19,30 @@ namespace HistoryClient
 {
     public partial class AddMoodPage : Form
     {
+        public delegate void ThreeUnknownsInaRow<EventArgs>(MultipleUnknownPhotosEventArgs e);
+        //public delegate Action<EventArgs> ThreeUnknownsInaRow(MultipleUnknownPhotosEventArgs e);
+        public event ThreeUnknownsInaRow<EventArgs> PossiblyBadReferencePicture;
+        
+        public delegate void IsDublicateBoxChecked(object sender, EventArgs e);
+        public event IsDublicateBoxChecked PossiblyDublicateUploads;
+
         string path, fileName;
-        private readonly string accessKey, secretKey;
         public AddMoodPage()
         {
             InitializeComponent();
+            PossiblyBadReferencePicture += new ThreeUnknownsInaRow<EventArgs>(MultipleUnknownsHandler.InviteReuploadRefPhoto);
+            PossiblyDublicateUploads += new IsDublicateBoxChecked(CheckForDublicateEventHandler.CheckIfDublicate);
+            dublicateBox.Checked = false;
+
+            bool dm = Properties.Settings.Default.DarkMode;
+            if (dm)
+            {
+                this.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                this.BackColor = Color.Cyan;
+            }
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -36,9 +57,37 @@ namespace HistoryClient
 
         //CONFIRM (analyse) button
         string fileDir;
+
+        private void GenError<T>(T val)
+        {
+            MessageBox.Show(val.ToString());
+        }
+
+        public delegate T add<T>(T param1, T param2);
+
+        public static int AddNumber(int val1, int val2)
+        {
+            return val1 + val2;
+        }
+
+        public static string Concate(string str1, string str2)
+        {
+            return str1 + str2;
+        }
+
         private async void Button1_Click(object sender, EventArgs e)
         {
-            string eventNamePattern = @"\w*[a-zA-Z]\w*";
+            string value = System.Configuration.ConfigurationManager.AppSettings["eventName"];
+            string eventNamePattern;
+            //MessageBox.Show("val is: " + value + " much");
+            if (value == "text")
+            {
+                eventNamePattern = @"\w*[a-zA-Z]\w*";
+            }
+            else
+            {
+                eventNamePattern = "(.*?)";
+            }
 
             string eventName = StringChanger.ChangeFirstLetterCase(eventText.Text);
 
@@ -46,12 +95,18 @@ namespace HistoryClient
 
             if (!isEventNameValid)  
             {
-                MessageBox.Show("Please enter a valid event name");
+                add<string> conct = Concate;
+                GenError<string>(conct("Please enter a valid event name, you entered - ", eventText.Text));
+                //MessageBox.Show("Please enter a valid event name");
             } else
             {
-                EmotDetector ed = new EmotDetector("AKIAJD7LAUG64Y5KY3SA", "CKX8DTED/dvNbYtORQf5sdeK747bEz1kJgT1aIUG");
-                //await ed.UploadToS3(path, fileName);
-                string emotions = await ed.WhatEmot(path, fileName) + "";
+                confirmButton.Enabled = false;
+                LoadingScreen ls = new LoadingScreen();
+                ls.Open();
+
+                EmotDetector ed = new EmotDetector();
+                string emotions = await ed.WhatEmot(path, fileName);
+
                 emotions = emotions.Replace("\"", "");
                 //MessageBox.Show(emotions);
 
@@ -66,12 +121,14 @@ namespace HistoryClient
                     emotions = "UNKNOWN";
                 } else
                 {
-                    foreach (var emotion in emotionArray)
+                    foreach (string emotion in emotionArray)
                     {
                         if (i == 0)
                         {
                             emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
-                            i++;
+                            add<int> sum = AddNumber;
+                            i = sum(i, 1);
+                            //i++;
                         }
                         else
                         {
@@ -79,46 +136,69 @@ namespace HistoryClient
                         
                         }
                     }
-                }
+                }   
 
                 string binaryEmotions = Convert.ToString((int)emos, 2);
-                MessageBox.Show("Emotions detected: " + emotions);
+                // Send found emotions to loading screen
+                ls.setEmotions(emotions);
 
-                Byte[] image = null;
-                image = File.ReadAllBytes(fileDir);
-                //PhotoInfo photoInfo = new PhotoInfo(eventName, emos);
+                Byte[] image = File.ReadAllBytes(fileDir);
                 Info info = new Info(eventName, emos);
                 IEquatable<Info> narrow = info; 
-                if (Info.index > 1)
+                if (Info.index > 1 && dublicateBox.Checked)
                 {
-                    Info lastInfo = info[Info.index - 2];
-
-                    //if (lastInfo.CompareTo(info) > 0)
-                    //{
-                    //    MessageBox.Show("everything good");
-                    //}
-
-                    if (!narrow.Equals(lastInfo))
-                    {
-                        this.tableTableAdapter.Insert(info, image);
-                        this.tableTableAdapter.Update(this.appData.Table);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Event already uploaded");
-                    }
+                    EventArgs arg = new EventArgs();
+                    PossiblyDublicateUploads(this, arg);
                 } else
                 {
-                    this.tableTableAdapter.Insert(info, image);
-                    this.tableTableAdapter.Update(this.appData.Table);
+                    //this.tableTableAdapter.Insert(info, image);
+                    //this.tableTableAdapter.Update(this.appData.Table);
+                    using (var context = new Database1Entities())
+                    {
+                        context.Photoinfoes.Add(new Photoinfo(info, image));
+                        context.SaveChanges();
+                    }
                 }
 
+                ls.WaitForClose();
+                confirmButton.Enabled = true;
+
+                if (Info.index > 2)
+                {
+                    Info infoCurrent = info[Info.index - 1];
+
+                    if (infoCurrent.emotion == 0 &&
+                        info[Info.index - 2].emotion == 0 &&
+                        info[Info.index - 3].emotion == 0)
+                    {
+                        int counter = 1;
+                        for (int n = Info.index - counter; n >= 0 && info[n].emotion == 0; n--)
+                        {
+                            counter++;
+                        }
+
+                        MultipleUnknownPhotosEventArgs arg = new MultipleUnknownPhotosEventArgs(counter - 1);
+                        PossiblyBadReferencePicture(arg);
+                    }
+                    //MessageBox.Show(info[0].eventName + '\n' +
+                    //    info[1].eventName + '\n' +
+                    //    info[2].eventName);
+                }
             }
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dublicateBox.Checked == true)
+            {
+                MessageBox.Show("This feature will check if your previous photo or event name are \n" +
+                    "the same and will prevent you from uploading the picture to prevent accidental dublicates");
+            }
         }
 
         //browse button

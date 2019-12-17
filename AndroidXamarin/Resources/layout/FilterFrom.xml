@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff1e5261" >
+
+
+        <CheckBox
+        android:text="Happy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:id="@+id/radio_happy" />
+        <CheckBox
+        android:text="Sad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/radio_sad" />
+      <CheckBox
+        android:text="Angry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/radio_Angry" />
+        <CheckBox
+        android:text="Surprised"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/radio_surprised" />
+      <CheckBox
+        android:text="Disgusted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/radio_disgusted" />
+        <CheckBox
+        android:text="Confused"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/radio_confused" />
+        <CheckBox
+        android:text="Scared"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/radio_scared" />
+        <CheckBox
+        android:text="Calm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/radio_calm" />
+        <CheckBox
+        android:text="None"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="25dp"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:checked = "true"
+        android:id="@+id/radio_none"
+        android:layout_marginTop="5dp" />
+    
+    
+    <Button
+        android:text="Confirm"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:minHeight="20dp"
+        android:minWidth="40dp"
+        android:id="@+id/confirm_button"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#ffc4af3b"
+        android:background="#ff236f86"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" />
+
+
+</LinearLayout>

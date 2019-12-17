@@ -39,6 +39,7 @@
             this.appData = new HistoryClient.AppData();
             this.tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableTableAdapter = new HistoryClient.AppDataTableAdapters.TableTableAdapter();
+            this.dublicateBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.appData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +64,7 @@
             // confirmButton
             // 
             this.confirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.confirmButton.Location = new System.Drawing.Point(216, 185);
+            this.confirmButton.Location = new System.Drawing.Point(100, 193);
             this.confirmButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(175, 50);
@@ -123,11 +124,26 @@
             // 
             this.tableTableAdapter.ClearBeforeFill = true;
             // 
+            // dublicateBox
+            // 
+            this.dublicateBox.AutoSize = true;
+            this.dublicateBox.Checked = true;
+            this.dublicateBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.dublicateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.dublicateBox.Location = new System.Drawing.Point(286, 205);
+            this.dublicateBox.Name = "dublicateBox";
+            this.dublicateBox.Size = new System.Drawing.Size(216, 29);
+            this.dublicateBox.TabIndex = 5;
+            this.dublicateBox.Text = "Dublicate checking";
+            this.dublicateBox.UseVisualStyleBackColor = true;
+            this.dublicateBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // AddMoodPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 254);
+            this.Controls.Add(this.dublicateBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.filepathButton);
             this.Controls.Add(this.browseFilesButton);
@@ -138,6 +154,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddMoodPage";
             this.Text = "New record";
+            //this.Load += new System.EventHandler(this.AddMoodPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.appData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -156,5 +173,6 @@
         private AppData appData;
         private System.Windows.Forms.BindingSource tableBindingSource;
         private AppDataTableAdapters.TableTableAdapter tableTableAdapter;
+        private System.Windows.Forms.CheckBox dublicateBox;
     }
 }

@@ -1,0 +1,61 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff1e5261">
+    <TextView
+        android:text="1999 - 09 - 09  09:09"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/text"
+        android:layout_marginLeft="7dp"
+        android:layout_marginVertical="2dp"
+        android:textSize="15sp"
+        android:textColor="#ffc4af3b" />
+    <TextView
+        android:text="Studying for exams x.x"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginVertical="2dp"
+        android:textSize="20sp"
+        android:textColor="#ffc4af3b" />
+    <TextView
+        android:text="Sad and Confused"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text2"
+        android:textSize="20sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginVertical="2dp"
+        android:textColor="#ffc4af3b" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/jim1"
+        android:adjustViewBounds="true"/>
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="#ff101313"
+        android:foreground="#ff0f0d0d"
+        android:drawableTint="#ff080707"
+        android:backgroundTint="#ff0f0b0b"
+        app:backgroundTint="#ff000000"
+        android:background="#ff0d0c0c"
+        android:height="2dp"
+        android:layout_marginTop="3dp" />
+
+</LinearLayout>
