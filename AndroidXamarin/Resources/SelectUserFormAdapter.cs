@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -20,10 +21,10 @@ namespace AndroidXamarin.Resources
     class SelectUserFormAdapter : BaseAdapter
     {
         private Activity activity;
-        private List<UserItem> user_list;
+        private ObservableCollection<UserItem> user_list;
 
 
-        public SelectUserFormAdapter(Activity activity, List<UserItem> user_list)
+        public SelectUserFormAdapter(Activity activity, ObservableCollection<UserItem> user_list)
         {
             this.activity = activity;
             this.user_list = user_list;
