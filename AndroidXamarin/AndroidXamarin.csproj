@@ -69,7 +69,6 @@
     <Compile Include="Activities\HistoryItem.cs" />
     <Compile Include="Activities\LogInFormActivity.cs" />
     <Compile Include="Activities\MainMenuFormActivity.cs" />
-    <Compile Include="Activities\SelectUserFormActivity.cs" />
     <Compile Include="Activities\UserItem.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\HistoryFormAdapter.cs" />
@@ -185,11 +184,6 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\SelectUserForm.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\LogInForm.xml">

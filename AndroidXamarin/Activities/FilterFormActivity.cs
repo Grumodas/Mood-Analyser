@@ -17,22 +17,23 @@ namespace AndroidXamarin.Activities
     {
         Button confirm_button;
         RadioGroup radio_group;
-        RadioButton radio_happy, radio_sad, radio_surprised, radio_calm,
+        CheckBox radio_happy, radio_sad, radio_surprised, radio_calm,
             radio_confused, radio_angry, radio_disgusted, radio_scared, radio_none;
         string filter;
+        List<string> filts;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            radio_happy = FindViewById<RadioButton>(Resource.Id.radio_happy);
-            radio_sad = FindViewById<RadioButton>(Resource.Id.radio_happy);
-            radio_surprised = FindViewById<RadioButton>(Resource.Id.radio_happy);
-            radio_calm = FindViewById<RadioButton>(Resource.Id.radio_happy);
-            radio_confused = FindViewById<RadioButton>(Resource.Id.radio_happy);
-            radio_angry = FindViewById<RadioButton>(Resource.Id.radio_happy);
-            radio_disgusted = FindViewById<RadioButton>(Resource.Id.radio_happy);
-            radio_scared = FindViewById<RadioButton>(Resource.Id.radio_happy);
-            radio_none = FindViewById<RadioButton>(Resource.Id.radio_happy);
+            radio_happy = FindViewById<CheckBox>(Resource.Id.radio_happy);
+            radio_sad = FindViewById<CheckBox>(Resource.Id.radio_happy);
+            radio_surprised = FindViewById<CheckBox>(Resource.Id.radio_happy);
+            radio_calm = FindViewById<CheckBox>(Resource.Id.radio_happy);
+            radio_confused = FindViewById<CheckBox>(Resource.Id.radio_happy);
+            radio_angry = FindViewById<CheckBox>(Resource.Id.radio_happy);
+            radio_disgusted = FindViewById<CheckBox>(Resource.Id.radio_happy);
+            radio_scared = FindViewById<CheckBox>(Resource.Id.radio_happy);
+            radio_none = FindViewById<CheckBox>(Resource.Id.radio_happy);
 
 
             filter = Intent.GetStringExtra("curr_filter") ?? string.Empty;
@@ -41,13 +42,33 @@ namespace AndroidXamarin.Activities
             SetContentView(Resource.Layout.FilterFrom);
 
             confirm_button = FindViewById<Button>(Resource.Id.confirm_button);
-            radio_group = FindViewById<RadioGroup>(Resource.Id.radio_group);
 
             confirm_button.Click += delegate
             {
-                RadioButton radio_selected = FindViewById<RadioButton>(radio_group.CheckedRadioButtonId);
+                //filts = new List<string>();
+                //string filter_name = "";
+                //if (radio_happy.Checked)
+                //{
+                //    filter_name += "happy";
+                //}
+                //if (radio_sad.Checked)
+                //{
+                //    if(filter_name != "")
+                //    {
+                //        filter_name += ",";
+                //    }
+                //    filter_name += "sad";
+                //}
+                //if (radio_confused.Checked)
+                //{
+                //    if (filter_name != "")
+                //    {
+                //        filter_name += ",";
+                //    }
+                //    filter_name += "confused";
+                //}
 
-                string filter_name = radio_selected.Text;
+                string filter_name = "sad";
 
                 Intent myIntent = new Intent(this, typeof(HistoryFormActivity));
                 myIntent.PutExtra("filter", filter_name);

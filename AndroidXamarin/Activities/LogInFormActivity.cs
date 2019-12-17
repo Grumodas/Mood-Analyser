@@ -21,8 +21,10 @@ namespace AndroidXamarin.Activities
         List<UserItem> list_source;
         Button confirm;
         Button add_user;
-        EditText input { get; set; }
-        UserItem user;
+        EditText input;
+        Boolean user_exsists;
+        // The username of the CURRENT USER
+        public static string username { get; set; }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -36,8 +38,26 @@ namespace AndroidXamarin.Activities
 
             confirm.Click += (s, e) =>
             {
-                Intent main_menu_activity = new Intent(this, typeof(MainMenuFormActivity));
-                StartActivity(main_menu_activity);
+                user_exsists = false;
+                username = input.Text;
+
+                foreach (UserItem user in list_source)
+                {
+                    if (username == user.name)
+                    {
+                        user_exsists = true;
+                        break;
+                    }
+                }
+
+                if (user_exsists)
+                {
+                    Intent main_menu_activity = new Intent(this, typeof(MainMenuFormActivity));
+                    StartActivity(main_menu_activity);
+                } else
+                {
+                    input.Text = "NOT FOUND";
+                }
             };
 
             add_user.Click += (s, e) =>

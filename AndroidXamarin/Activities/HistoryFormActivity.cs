@@ -23,13 +23,19 @@ namespace AndroidXamarin
         ListView list_view;
         List<HistoryItem> list_source;
         List<HistoryItem> full_history;
+        List<HistoryItem> disp_list;
+        TextView entry_count_text;
+        int entry_count;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.HistoryForm);
-            
+
+            //entry_count_text = FindViewById<TextView>(Resource.Id.entry_count);
             filter_button = FindViewById<Button>(Resource.Id.filter_button);
             filter = "None";
+
+
 
             filter_button.Click += (s, e) =>
             {
@@ -72,8 +78,59 @@ namespace AndroidXamarin
                 };
                 list_source.Add(hi3);
 
+            HistoryItem hi;
 
-            var adapter = new HistoryFormAdapter(this, list_source);
+            IEnumerable<HistoryItem> happy_list_linq = from list_item in list_source
+                                                       where list_item.mood == "Happy"
+                                                       select list_item;
+            List<HistoryItem> happy_list = new List<HistoryItem>();
+
+            foreach (HistoryItem item in happy_list_linq)
+            {
+                happy_list.Add(item);
+            }
+
+
+            //IEnumerable<HistoryItem> sad_list_linq = from list_item in list_source
+            //                                           where list_item.mood == "sad"
+            //                                           select list_item;
+            //List<HistoryItem> sad_list = new List<HistoryItem>();
+
+            //foreach (HistoryItem item in sad_list_linq)
+            //{
+            //    sad_list.Add(item);
+            //}
+
+
+            //IEnumerable<HistoryItem> confused_list_linq = from list_item in list_source
+            //                                           where list_item.mood == "confused"
+            //                                           select list_item;
+            //List<HistoryItem> confused_list = new List<HistoryItem>();
+
+            //foreach (HistoryItem item in confused_list_linq)
+            //{
+            //    confused_list.Add(item);
+            //}
+
+            //String[] all_filters = filter.Split(",");
+            //disp_list = new List<HistoryItem>();
+
+            //if(filter.Contains("happy"))
+            //{
+            //    disp_list = happy_list;
+            //}
+            //if (filter.Contains("sad"))
+            //{
+            //    IEnumerable<HistoryItem> temp_disp_list = disp_list.Concat(happy_list);
+            //    foreach (HistoryItem item in temp_disp_list)
+            //    {
+            //        disp_list.Add(item);
+            //    }
+            //}
+
+
+
+            var adapter = new HistoryFormAdapter(this, happy_list);
             list_view.Adapter = adapter;
         }
 
@@ -82,7 +139,7 @@ namespace AndroidXamarin
             base.OnActivityResult(requestCode, resultCode, data);
             if (resultCode == Result.Ok)
             {
-                filter= data.GetStringExtra("filter");
+                filter = data.GetStringExtra("filter");
 
 
                 //list_source = simpleservice.getfilteredEntries(filter, full_history);

@@ -5,14 +5,8 @@
     android:layout_height="match_parent"
     android:background="#ff1e5261" >
 
-    <RadioGroup
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/radio_group">
 
-        <RadioButton
+        <CheckBox
         android:text="Happy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +18,7 @@
         android:textStyle="bold"
         android:padding="10dp"
         android:id="@+id/radio_happy" />
-        <RadioButton
+        <CheckBox
         android:text="Sad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +31,7 @@
         android:padding="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/radio_sad" />
-      <RadioButton
+      <CheckBox
         android:text="Angry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +44,7 @@
         android:padding="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/radio_Angry" />
-        <RadioButton
+        <CheckBox
         android:text="Surprised"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +57,7 @@
         android:padding="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/radio_surprised" />
-      <RadioButton
+      <CheckBox
         android:text="Disgusted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +70,7 @@
         android:padding="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/radio_disgusted" />
-        <RadioButton
+        <CheckBox
         android:text="Confused"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -89,7 +83,7 @@
         android:padding="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/radio_confused" />
-        <RadioButton
+        <CheckBox
         android:text="Scared"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,7 +96,7 @@
         android:padding="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/radio_scared" />
-        <RadioButton
+        <CheckBox
         android:text="Calm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -115,7 +109,7 @@
         android:padding="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/radio_calm" />
-        <RadioButton
+        <CheckBox
         android:text="None"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -129,7 +123,7 @@
         android:checked = "true"
         android:id="@+id/radio_none"
         android:layout_marginTop="5dp" />
-    </RadioGroup>
+    
     
     <Button
         android:text="Confirm"
