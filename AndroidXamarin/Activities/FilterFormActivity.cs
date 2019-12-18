@@ -26,14 +26,16 @@ namespace AndroidXamarin.Activities
             radio_sad, 
             radio_scared,
             radio_surprised,
-            radio_none;
-        string curr_filter;
-        List<string> filts;
+            radio_none,
+            radio_selected;
+        string filter;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.FilterFrom);
+
+            filter = Intent.GetStringExtra("curr_filter") ?? string.Empty;
 
             radio_angry = FindViewById<RadioButton>(Resource.Id.filter_angry);
             radio_calm = FindViewById<RadioButton>(Resource.Id.filter_calm);
@@ -45,16 +47,20 @@ namespace AndroidXamarin.Activities
             radio_surprised = FindViewById<RadioButton>(Resource.Id.filter_surprised);
             radio_none = FindViewById<RadioButton>(Resource.Id.filter_none);
 
+            radio_group = FindViewById<RadioGroup>(Resource.Id.filter_radio_group);
             confirm_button = FindViewById<Button>(Resource.Id.filter_confirm);
 
-            curr_filter = Intent.GetStringExtra("curr_filter") ?? string.Empty;
-
             
- 
+            radio_happy.Checked = true;
+
             confirm_button.Click += delegate
             {
+                radio_selected = FindViewById<RadioButton>(radio_group.CheckedRadioButtonId); 
+                filter = radio_selected.Text;
+                Toast toast = Toast.MakeText(Application.Context, filter, ToastLength.Short);
+                toast.Show();
                 Intent myIntent = new Intent(this, typeof(HistoryFormActivity));
-                myIntent.PutExtra("filter", "Happy");
+                myIntent.PutExtra("filter", filter);
                 SetResult(Result.Ok, myIntent);
                 Finish();
             };

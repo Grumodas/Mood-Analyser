@@ -78,6 +78,17 @@ namespace AndroidXamarin
             };
             list_source.Add(hi3);
             list_filtered.Add(hi3);
+
+            HistoryItem hi4 = new HistoryItem()
+            {
+                id = 1,
+                event_date = "2018 - 03 - 23",
+                event_name = "Pretending to work",
+                mood = "Sad",
+                photo = "jim1"
+            };
+            list_source.Add(hi4);
+            list_filtered.Add(hi4);
             #endregion
 
             /* ~filter
