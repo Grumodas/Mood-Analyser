@@ -31,6 +31,6 @@ namespace AndroidXamarin.Data.Data
         //public Boolean fear { get; set; }
         //public Boolean unknown { get; set; }
         public Byte[] Photo { get; set; }
-        public int User { get; set; }
+        public String User { get; set; }
     }
 }
