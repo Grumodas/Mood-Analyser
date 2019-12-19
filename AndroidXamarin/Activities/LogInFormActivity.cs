@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -10,6 +11,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidXamarin.Data.Data;
+using AndroidXamarin.Data.Models;
 using AndroidXamarin.Resources;
 
 //nuGet packages:
@@ -33,7 +36,6 @@ namespace AndroidXamarin.Activities
         public static ObservableCollection<UserItem> list_source { get; set; }
         Button add_user;
         string username;
-        string selected_user;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -80,17 +82,26 @@ namespace AndroidXamarin.Activities
             };
 
             // adding mock data
-            for (int i = 0; i < 12; i++)
+            DataTable data = UsersDataTable.GetTable();
+
+            for (int i = 0; i < data.Rows.Count; i++)
             {
-                UserItem mock_user = new UserItem()
-                {
-                    name = "agent " + i,
-                    has_ref_photo = false
-                };
+                User user = new User();
+                user.name = data.Rows[i]["name"].ToString();
 
-                list_source.Add(mock_user);
+                string arrayString = data.Rows[i]["refPhoto"].ToString();
+                //GALI NEVEIKTI
+                user.refPhoto = Encoding.ASCII.GetBytes(arrayString);
+
+                UserItem userItem = new UserItem();
+                userItem.name = user.name;
+                userItem.refPhoto = user.refPhoto;
+                if (userItem.refPhoto == null)
+                    userItem.has_ref_photo = false;
+                else
+                    userItem.has_ref_photo = true;
+                list_source.Add(userItem);
             }
-
             
             list_view.Adapter = adapter;
             list_view.ItemClick += userListOnItemClick;

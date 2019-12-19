@@ -17,5 +17,7 @@ namespace AndroidXamarin.Data.Models
     {
         [PrimaryKey]
         public string name { get; set; }
+        public Byte[] refPhoto { get; set; }
+        //public Boolean hasRefPhoto { get; set; }
     }
 }
