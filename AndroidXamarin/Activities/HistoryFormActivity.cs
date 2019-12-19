@@ -63,10 +63,7 @@ namespace AndroidXamarin
                 record.dateTime = data.Rows[i]["Date & Time"].ToString();
                 record.situation = data.Rows[i]["Situation"].ToString();
                 record.emotion = data.Rows[i]["Emotion"].ToString();
-
-                string arrayString = data.Rows[i]["Photo"].ToString();
-                //GALI NEVEIKTI
-                record.Photo = Encoding.ASCII.GetBytes(arrayString);
+                record.Photo = Converter.ObjectToByteArray(data.Rows[i]["Photo"]);
 
                 record.User = data.Rows[i]["User"].ToString();
 

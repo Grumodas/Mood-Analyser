@@ -21,11 +21,11 @@ namespace AndroidXamarin.Data.Models
 
             table.Columns.Add("name", typeof(String));
             table.Columns.Add("refPhoto", typeof(Byte[]));
-            //table.Columns.Add("hasRefPhoto", typeof(Boolean));
+            table.Columns.Add("hasRefPhoto", typeof(int));
 
-            table.Rows.Add("Arnas", null);
-            table.Rows.Add("Rimantas", null);
-            table.Rows.Add("Kestutis", null);
+            table.Rows.Add("Arnas", null, 0);
+            table.Rows.Add("Rimantas", null, 0);
+            table.Rows.Add("Kestutis", null, 0);
 
             return table;
         }

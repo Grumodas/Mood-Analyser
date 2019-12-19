@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
 using Android.App;
@@ -36,7 +38,7 @@ namespace AndroidXamarin.Activities
         public static ObservableCollection<UserItem> list_source { get; set; }
         Button add_user;
         string username;
-        
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -86,17 +88,23 @@ namespace AndroidXamarin.Activities
 
             for (int i = 0; i < data.Rows.Count; i++)
             {
+                /*
+                   byte[] myImage = (byte[])  myDataSet.Tables["TableName"].RowsNo["ImageColumnName"];
+                   To get the same value from a datareader :
+                   byte[] myImage = (byte[])  reader.GetValue(0);
+                   To obtain an image from the byte array use this code:
+                   MemoryStream ms = new MemoryStream(myImage);
+                   Bitmap mybmp = new Bitmap(ms);
+                    */
                 User user = new User();
                 user.name = data.Rows[i]["name"].ToString();
-
-                string arrayString = data.Rows[i]["refPhoto"].ToString();
-                //GALI NEVEIKTI
-                user.refPhoto = Encoding.ASCII.GetBytes(arrayString);
+                user.refPhoto = Converter.ObjectToByteArray(data.Rows[i]["refPhoto"]);
+                user.hasRefPhoto = Convert.ToInt32(data.Rows[i]["hasRefPhoto"]);
 
                 UserItem userItem = new UserItem();
                 userItem.name = user.name;
                 userItem.refPhoto = user.refPhoto;
-                if (userItem.refPhoto == null)
+                if (user.hasRefPhoto == 0)
                     userItem.has_ref_photo = false;
                 else
                     userItem.has_ref_photo = true;
