@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -10,14 +11,18 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidXamarin.Activities;
+using AndroidXamarin.Data.Data;
+using AndroidXamarin.Data.Models;
 using AndroidXamarin.Resources;
 
 namespace AndroidXamarin
 {
+
     // comment line below to unset it as the launch activity
     [Activity(Label = "HistoryFormActivity")]
     class HistoryFormActivity : Activity
     {
+
         Button filter_button;
         string filter;
         ListView list_view;
@@ -48,6 +53,27 @@ namespace AndroidXamarin
 
             #region
             //mock data
+            //______________________ HISTORY LIST POLULATION __________
+            DataTable data = RecordsDataTable.GetTable();
+
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                Record record = new Record();
+                record.Id = Convert.ToInt32(data.Rows[i]["Id"]);
+                record.dateTime = data.Rows[i]["Date & Time"].ToString();
+                record.situation = data.Rows[i]["Situation"].ToString();
+                record.emotion = data.Rows[i]["Emotion"].ToString();
+
+                HistoryItem hi = new HistoryItem();
+                hi.event_date = record.dateTime;
+                hi.event_name = record.situation;
+                hi.mood = record.emotion;
+                //Turi konvertuoti is masyvo i photo ar kazkoki kita hunjia
+                hi.photo = null;
+                list_source.Add(hi);
+                list_filtered.Add(hi);
+            }
+            /*
             HistoryItem hi1 = new HistoryItem()
             {
                 id = 1,
@@ -94,6 +120,7 @@ namespace AndroidXamarin
                 user = "agent 0"
             };
             list_source.Add(hi4);
+
             //list_filtered.Add(hi4);
             #endregion
 
@@ -106,23 +133,10 @@ namespace AndroidXamarin
                 }
             }
 
-            /* ~filter
-            HistoryItem hi;
-
-            IEnumerable<HistoryItem> happy_list_linq = from list_item in list_source
-                                                       where list_item.mood == "Happy"
-                                                       select list_item;
-            List<HistoryItem> happy_list = new List<HistoryItem>();
-
-            foreach (HistoryItem item in happy_list_linq)
-            {
-                happy_list.Add(item);
-            }
-            */
-
+            list_filtered.Add(hi4); */
+            #endregion
             list_view.Adapter = adapter;
-            //for on-item click event
-            //list_view.ItemClick += userListOnItemClick;
+
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
