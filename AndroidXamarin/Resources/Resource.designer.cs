@@ -6231,34 +6231,34 @@ namespace AndroidXamarin
 			public const int group_divider = 2131230844;
 			
 			// aapt resource value: 0x7F08007D
-			public const int history_filter = 2131230845;
+			public const int history_clear = 2131230845;
 			
 			// aapt resource value: 0x7F08007E
-			public const int history_header_view = 2131230846;
+			public const int history_filter = 2131230846;
 			
 			// aapt resource value: 0x7F08007F
-			public const int history_item_date = 2131230847;
+			public const int history_header_view = 2131230847;
 			
 			// aapt resource value: 0x7F080080
-			public const int history_item_event = 2131230848;
+			public const int history_item_date = 2131230848;
 			
 			// aapt resource value: 0x7F080081
-			public const int history_item_line = 2131230849;
+			public const int history_item_event = 2131230849;
 			
 			// aapt resource value: 0x7F080082
-			public const int history_item_mood = 2131230850;
+			public const int history_item_line = 2131230850;
 			
 			// aapt resource value: 0x7F080083
-			public const int history_item_photo = 2131230851;
+			public const int history_item_mood = 2131230851;
 			
 			// aapt resource value: 0x7F080084
-			public const int history_list = 2131230852;
+			public const int history_item_photo = 2131230852;
 			
 			// aapt resource value: 0x7F080085
-			public const int history_settings = 2131230853;
+			public const int history_list = 2131230853;
 			
 			// aapt resource value: 0x7F080086
-			public const int history_user = 2131230854;
+			public const int history_settings = 2131230854;
 			
 			// aapt resource value: 0x7F080087
 			public const int history_window_name = 2131230855;

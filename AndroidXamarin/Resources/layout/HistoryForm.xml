@@ -36,15 +36,14 @@
             android:textSize="20sp"
             android:textStyle="bold" />
         <Button
-            android:text="User"
-            android:id="@+id/history_user"
+            android:text="Clear"
+            android:id="@+id/history_clear"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/roundstylejet"
             android:textColor="@color/myWhite"
-            android:textSize="18sp" 
-            android:visibility="invisible"/>
+            android:textSize="18sp" />
     </GridLayout>
 
     <Button

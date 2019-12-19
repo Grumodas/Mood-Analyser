@@ -24,6 +24,7 @@ namespace AndroidXamarin
     {
 
         Button filter_button;
+        Button clear;
         string filter;
         ListView list_view;
         public static List<HistoryItem> list_source;
@@ -37,6 +38,7 @@ namespace AndroidXamarin
 
             //entry_count_text = FindViewById<TextView>(Resource.Id.entry_count);
             filter_button = FindViewById<Button>(Resource.Id.history_filter);
+            clear = FindViewById<Button>(Resource.Id.history_clear);
             list_view = FindViewById<ListView>(Resource.Id.history_list);
             list_source = new List<HistoryItem>();
             list_users = new List<HistoryItem>();
@@ -49,6 +51,13 @@ namespace AndroidXamarin
                 Intent filter_activity = new Intent(this, typeof(FilterFormActivity));
                 filter_activity.PutExtra("curr_filter", filter);
                 StartActivityForResult(filter_activity, 0);
+            };
+            clear.Click += (s, e) =>
+            {
+
+                // write stuff here
+
+                Finish();
             };
 
 
@@ -88,8 +97,6 @@ namespace AndroidXamarin
                     list_filtered.Add(hi);
                 }
             }
-
-#endregion
             list_view.Adapter = adapter;
 
         }
