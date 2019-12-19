@@ -29,11 +29,12 @@ namespace AndroidXamarin.Data.Data
         {
             return database.Table<User>().ToListAsync();
         }
-
+        /*
         public Task<User> GetItemAsync(int id)
         {
             return database.Table<User>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
+        
         public Task<int> SaveItemAsync(User user)
         {
             if (user.Id != 0)
@@ -45,7 +46,7 @@ namespace AndroidXamarin.Data.Data
                 return database.InsertAsync(user);
             }
         }
-
+        */
         public Task<int> DeleteItemAsync(User user)
         {
             return database.DeleteAsync(user);

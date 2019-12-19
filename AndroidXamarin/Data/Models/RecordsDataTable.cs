@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Drawing;
 
 using Android.App;
 using Android.Content;
@@ -10,6 +11,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.IO;
 
 namespace AndroidXamarin.Data.Models
 {
@@ -32,21 +34,35 @@ namespace AndroidXamarin.Data.Models
             table.Columns.Add("Date & Time", typeof(DateTime));
             table.Columns.Add("Situation", typeof(String));
             table.Columns.Add("Emotion", typeof(String));
-            //table.Columns.Add("Happy", typeof(Boolean));
-            //table.Columns.Add("Sad", typeof(Boolean));
-            //table.Columns.Add("Angry", typeof(Boolean));
-            //table.Columns.Add("Confused", typeof(Boolean));
-            //table.Columns.Add("Disgusted", typeof(Boolean));
-            //table.Columns.Add("Suprised", typeof(Boolean));
-            //table.Columns.Add("Calm", typeof(Boolean));
-            //table.Columns.Add("Fear", typeof(Boolean));
-            //table.Columns.Add("Unknown", typeof(Boolean));
             table.Columns.Add("Photo", typeof(Byte[]));
-            table.Columns.Add("User", typeof(int));
+            table.Columns.Add("User", typeof(String));
+            
+            //Image img = Image.FromFile(@"H:\arnasb\source\repos\MoodAnalyser\AndroidXamarin\mock\1.jpg");
+            //byte[] arr;
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //    arr = ms.ToArray();
+            //}
+            
+            table.Rows.Add(null, "2019-10-11 9:14:34", "Hungry AF", "Sad", null, "agent1");
 
-            table.Rows.Add(null, "2019-10-11 9:14:34", "Hungry AF", "SAD", null, null);
-            table.Rows.Add(null, "2019-12-11 4:42:12", "Sleeping", "HAPPY", null, null);
-            table.Rows.Add(null, "2019-12-21 2:35:20", "Walking", "FEAR", null, null);
+            //img = Image.FromFile(@"H:\arnasb\source\repos\MoodAnalyser\AndroidXamarin\mock\2.jpg");
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //    arr = ms.ToArray();
+            //}
+            table.Rows.Add(null, "2019-12-11 4:42:12", "Sleeping", "Happy", null, "agent2");
+            
+            //img = Image.FromFile(@"H:\arnasb\source\repos\MoodAnalyser\AndroidXamarin\mock\3.jpg");
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            //    arr = ms.ToArray();
+            //}
+            
+            table.Rows.Add(null, "2019-12-21 2:35:20", "Walking", "Fear", null, "agent3");
             /*
             HistoryItem hi1 = new HistoryItem()
             {

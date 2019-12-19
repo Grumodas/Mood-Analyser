@@ -45,7 +45,11 @@ namespace AndroidXamarin.Activities
                 StartActivity(history_activity);
             };
 
-          
+            //mosaic_button.Click += (s, e) =>
+            //{
+            //    Intent mosaic_activity = new Intent(this, typeof(MosaicFormActivity));
+            //    StartActivity(mosaic_activity);
+            //};
 
         }
     }

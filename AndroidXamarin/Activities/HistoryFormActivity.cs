@@ -63,70 +63,22 @@ namespace AndroidXamarin
                 record.dateTime = data.Rows[i]["Date & Time"].ToString();
                 record.situation = data.Rows[i]["Situation"].ToString();
                 record.emotion = data.Rows[i]["Emotion"].ToString();
+                record.Photo = Converter.ObjectToByteArray(data.Rows[i]["Photo"]);
 
+                record.User = data.Rows[i]["User"].ToString();
 
                 HistoryItem hi = new HistoryItem();
                 hi.event_date = record.dateTime;
                 hi.event_name = record.situation;
                 hi.mood = record.emotion;
                 //Turi konvertuoti is masyvo i photo ar kazkoki kita hunjia
-                hi.photo = null;
+                hi.photo = record.Photo;
+                hi.user = record.User;
                 list_source.Add(hi);
-                //list_filtered.Add(hi);
+                list_filtered.Add(hi);
             }
-            /*
-            HistoryItem hi1 = new HistoryItem()
-            {
-                id = 1,
-                event_date = "2016 - 03 - 23",
-                event_name = "Pranking",
-                mood = "Confused",
-                photo = "jim1",
-                user = "agent 0"
-            };
-            list_source.Add(hi1);
-            //list_filtered.Add(hi1);
 
-            HistoryItem hi2 = new HistoryItem()
-            {
-                id = 1,
-                event_date = "2017 - 08 - 14",
-                event_name = "Working",
-                mood = "Sad",
-                photo = "jim2",
-                user =  "agent 1"
-            };
-            list_source.Add(hi2);
-            //list_filtered.Add(hi2);
-
-            HistoryItem hi3 = new HistoryItem()
-            {
-                id = 1,
-                event_date = "2018 - 02 - 14",
-                event_name = "Just got fired",
-                mood = "Happy",
-                photo = "jim3",
-                user = "agent 0"
-            };
-            list_source.Add(hi3);
-            //list_filtered.Add(hi3);
-
-            HistoryItem hi4 = new HistoryItem()
-            {
-                id = 1,
-                event_date = "2018 - 03 - 23",
-                event_name = "Pretending to work",
-                mood = "Sad",
-                photo = "jim1",
-                user = "agent 0"
-            };
-            list_source.Add(hi4);
-
-            //list_filtered.Add(hi4);
-            #endregion
-            */
-
-            foreach (HistoryItem hi in list_source)
+            foreach(HistoryItem hi in list_source)
             {
                 Toast toast = Toast.MakeText(Application.Context, "Now: " + hi.mood, ToastLength.Short);
                 toast.Show();
@@ -137,6 +89,7 @@ namespace AndroidXamarin
                 }
             }
 
+#endregion
             list_view.Adapter = adapter;
 
         }

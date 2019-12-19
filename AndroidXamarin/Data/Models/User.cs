@@ -15,8 +15,9 @@ namespace AndroidXamarin.Data.Models
 {
     public class User
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        [PrimaryKey]
         public string name { get; set; }
+        public Byte[] refPhoto { get; set; }
+        public int hasRefPhoto { get; set; }
     }
 }

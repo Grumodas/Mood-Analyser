@@ -14,8 +14,9 @@ namespace AndroidXamarin.Activities
 {
     public class UserItem
     {
-        public int id { get; set; }
         public string name { get; set; }
+        public Byte[] refPhoto { get; set; }
         public bool has_ref_photo { get; set; }
+        public int id { get; set; }
     }
 }
