@@ -20,16 +20,6 @@ namespace AndroidXamarin.Data.Data
         public string dateTime { get; set; }
         public string situation { get; set; }
         public string emotion { get; set; }
-
-        //public Boolean happy { get; set; }
-        //public Boolean sad { get; set; }
-        //public Boolean angry { get; set; }
-        //public Boolean confused { get; set; }
-        //public Boolean disgusted { get; set; }
-        //public Boolean suprised { get; set; }
-        //public Boolean calm { get; set; }
-        //public Boolean fear { get; set; }
-        //public Boolean unknown { get; set; }
         public Byte[] Photo { get; set; }
         public String User { get; set; }
     }

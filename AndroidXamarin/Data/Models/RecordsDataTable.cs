@@ -34,15 +34,6 @@ namespace AndroidXamarin.Data.Models
             table.Columns.Add("Date & Time", typeof(DateTime));
             table.Columns.Add("Situation", typeof(String));
             table.Columns.Add("Emotion", typeof(String));
-            //table.Columns.Add("Happy", typeof(Boolean));
-            //table.Columns.Add("Sad", typeof(Boolean));
-            //table.Columns.Add("Angry", typeof(Boolean));
-            //table.Columns.Add("Confused", typeof(Boolean));
-            //table.Columns.Add("Disgusted", typeof(Boolean));
-            //table.Columns.Add("Suprised", typeof(Boolean));
-            //table.Columns.Add("Calm", typeof(Boolean));
-            //table.Columns.Add("Fear", typeof(Boolean));
-            //table.Columns.Add("Unknown", typeof(Boolean));
             table.Columns.Add("Photo", typeof(Byte[]));
             table.Columns.Add("User", typeof(String));
             
@@ -54,7 +45,7 @@ namespace AndroidXamarin.Data.Models
             //    arr = ms.ToArray();
             //}
             
-            table.Rows.Add(null, "2019-10-11 9:14:34", "Hungry AF", "SAD", null, "agent1");
+            table.Rows.Add(null, "2019-10-11 9:14:34", "Hungry AF", "Sad", null, "agent1");
 
             //img = Image.FromFile(@"H:\arnasb\source\repos\MoodAnalyser\AndroidXamarin\mock\2.jpg");
             //using (MemoryStream ms = new MemoryStream())
@@ -62,7 +53,7 @@ namespace AndroidXamarin.Data.Models
             //    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             //    arr = ms.ToArray();
             //}
-            table.Rows.Add(null, "2019-12-11 4:42:12", "Sleeping", "HAPPY", null, "agent2");
+            table.Rows.Add(null, "2019-12-11 4:42:12", "Sleeping", "Happy", null, "agent2");
             
             //img = Image.FromFile(@"H:\arnasb\source\repos\MoodAnalyser\AndroidXamarin\mock\3.jpg");
             //using (MemoryStream ms = new MemoryStream())
@@ -71,7 +62,7 @@ namespace AndroidXamarin.Data.Models
             //    arr = ms.ToArray();
             //}
             
-            table.Rows.Add(null, "2019-12-21 2:35:20", "Walking", "FEAR", null, "agent3");
+            table.Rows.Add(null, "2019-12-21 2:35:20", "Walking", "Fear", null, "agent3");
             /*
             HistoryItem hi1 = new HistoryItem()
             {

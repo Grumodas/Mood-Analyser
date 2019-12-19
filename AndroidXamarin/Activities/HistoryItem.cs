@@ -20,7 +20,7 @@ namespace AndroidXamarin
         public string event_name { get; set; }
         public string mood { get; set; }
         //proabaly not string
-        public string photo { get; set; }
+        public Byte[] photo { get; set; }
         public string user { get; set; }
     }
 }
