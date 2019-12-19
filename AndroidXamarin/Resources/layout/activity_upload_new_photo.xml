@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"    
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/myWhite">
     <GridLayout
-        android:id="@+id/login_header_view"
+        android:id="@+id/add_photo_header_view"
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
@@ -15,16 +16,15 @@
         android:background="@color/mySalmon">
         <Button
             android:text="Settings"
-            android:id="@+id/login_settings"
+            android:id="@+id/add_photo_settings"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/roundstylejet"
-            android:textColor="@color/myWhite"
-            android:textSize="18sp"/>
+            android:textColor="@color/myWhite"/>
         <TextView
-            android:text="Log In"
-            android:id="@+id/login_window_name"
+            android:text="Add Photo"
+            android:id="@+id/add_photo_window_name"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
@@ -34,11 +34,12 @@
             android:textStyle="bold" />
         <Button
             android:text="User"
-            android:id="@+id/login_blank"
+            android:id="@+id/add_photo_user"
+            android:radius="25dp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_margin="10dp"
-            android:background="@color/myJet"
+            android:background="@drawable/roundstylejet"
             android:textColor="@color/myWhite" />
     </GridLayout>
     <!--
@@ -51,17 +52,17 @@
     -->
 
     <GridLayout
-        android:id="@+id/login_header_view2"
+        android:id="@+id/add_photo_content_view"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnCount="1"
-        android:rowCount="5"
+        android:rowCount="3"
         android:background="@color/myWhite">
         <Button
         android:text="Upload A Photo"
-        android:id="@+id/uploadPhotoButton"
+        android:id="@+id/add_photo_upload_photo"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_marginLeft="10dp"
@@ -73,30 +74,32 @@
         android:textColor="@color/myWhite"
         android:textSize="20sp"
         android:textStyle="bold" />
-        
-        <ImageView 
-        android:id="@+id/selectedPhotoView"
-        android:layout_width="match_parent" 
+
+        <ImageView
+        android:id="@+id/add_photo_image"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true" 
-            android:layout_rowWeight="3"
-        android:src="@drawable/jim1"/>  
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"
+        android:src="@drawable/otter"
+        android:maxHeight="360dp" />  
 
         <Button
         android:text="Confirm"
-        android:id="@+id/confirmButton"
+        android:id="@+id/add_photo_confirm"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:layout_marginBottom="15dp"
         android:padding="10dp"
         android:background="@drawable/roundstylesalad"
         android:textColor="@color/myWhite"
         android:textSize="20sp"
         android:textStyle="bold" 
-        android:visibility="invisible" />
+        />
+        
     </GridLayout>
 
 </LinearLayout>

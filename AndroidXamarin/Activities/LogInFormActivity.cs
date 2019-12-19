@@ -13,15 +13,13 @@ using Android.Widget;
 using AndroidXamarin.Resources;
 
 //nuGet packages:
-
-//downloaded:
-//For splashScreen:
-//Xamarin.Android.Support.v4
-//Xamarin.Android.Support.v7.AppCompat 
-
-//not downloaded:
-//To make gridview work well on older devices, install nuGet package:
-//xamarin.android.suppord.v7.gridLayout
+    //downloaded:
+        //For splashScreen:
+        //Xamarin.Android.Support.v4
+        //Xamarin.Android.Support.v7.AppCompat 
+    //not downloaded:
+        //To make gridview work well on older devices, install nuGet package:
+        //xamarin.android.suppord.v7.gridLayout
 
 namespace AndroidXamarin.Activities
 {
