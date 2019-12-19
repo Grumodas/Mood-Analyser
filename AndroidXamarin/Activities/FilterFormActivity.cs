@@ -57,7 +57,7 @@ namespace AndroidXamarin.Activities
             {
                 radio_selected = FindViewById<RadioButton>(radio_group.CheckedRadioButtonId); 
                 filter = radio_selected.Text;
-                Toast toast = Toast.MakeText(Application.Context, filter, ToastLength.Short);
+                Toast toast = Toast.MakeText(Application.Context, "Filter: " + filter, ToastLength.Short);
                 toast.Show();
                 Intent myIntent = new Intent(this, typeof(HistoryFormActivity));
                 myIntent.PutExtra("filter", filter);

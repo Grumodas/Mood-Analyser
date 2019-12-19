@@ -74,6 +74,7 @@
     <Compile Include="Activities\HistoryFormActivity.cs" />
     <Compile Include="Activities\HistoryItem.cs" />
     <Compile Include="Activities\LogInFormActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\MainMenuFormActivity.cs" />
     <Compile Include="Activities\SplashScreenActivity.cs" />
     <Compile Include="Activities\UserItem.cs" />
@@ -88,7 +89,6 @@
     <Compile Include="Data\Models\Record.cs" />
     <Compile Include="Data\Models\User.cs" />
     <Compile Include="Data\Models\UsersDataTable.cs" />
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\HistoryFormAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
