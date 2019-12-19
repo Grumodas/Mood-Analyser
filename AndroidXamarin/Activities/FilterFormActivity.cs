@@ -17,105 +17,53 @@ namespace AndroidXamarin.Activities
     {
         Button confirm_button;
         RadioGroup radio_group;
-        CheckBox radio_happy, radio_sad, radio_surprised, radio_calm,
-            radio_confused, radio_angry, radio_disgusted, radio_scared, radio_none;
+        RadioButton
+            radio_angry,
+            radio_calm,
+            radio_confused,
+            radio_disgusted,
+            radio_happy, 
+            radio_sad, 
+            radio_scared,
+            radio_surprised,
+            radio_none,
+            radio_selected;
         string filter;
-        List<string> filts;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            radio_happy = FindViewById<CheckBox>(Resource.Id.radio_happy);
-            radio_sad = FindViewById<CheckBox>(Resource.Id.radio_happy);
-            radio_surprised = FindViewById<CheckBox>(Resource.Id.radio_happy);
-            radio_calm = FindViewById<CheckBox>(Resource.Id.radio_happy);
-            radio_confused = FindViewById<CheckBox>(Resource.Id.radio_happy);
-            radio_angry = FindViewById<CheckBox>(Resource.Id.radio_happy);
-            radio_disgusted = FindViewById<CheckBox>(Resource.Id.radio_happy);
-            radio_scared = FindViewById<CheckBox>(Resource.Id.radio_happy);
-            radio_none = FindViewById<CheckBox>(Resource.Id.radio_happy);
-
-
-            filter = Intent.GetStringExtra("curr_filter") ?? string.Empty;
-            //setRadioButton();
-
             SetContentView(Resource.Layout.FilterFrom);
 
-            confirm_button = FindViewById<Button>(Resource.Id.confirm_button);
+            filter = Intent.GetStringExtra("curr_filter") ?? string.Empty;
+
+            radio_angry = FindViewById<RadioButton>(Resource.Id.filter_angry);
+            radio_calm = FindViewById<RadioButton>(Resource.Id.filter_calm);
+            radio_confused = FindViewById<RadioButton>(Resource.Id.filter_confused);
+            radio_disgusted = FindViewById<RadioButton>(Resource.Id.filter_disgusted);
+            radio_happy = FindViewById<RadioButton>(Resource.Id.filter_happy);
+            radio_sad = FindViewById<RadioButton>(Resource.Id.filter_sad);
+            radio_scared = FindViewById<RadioButton>(Resource.Id.filter_scared);
+            radio_surprised = FindViewById<RadioButton>(Resource.Id.filter_surprised);
+            radio_none = FindViewById<RadioButton>(Resource.Id.filter_none);
+
+            radio_group = FindViewById<RadioGroup>(Resource.Id.filter_radio_group);
+            confirm_button = FindViewById<Button>(Resource.Id.filter_confirm);
+
+            
+            radio_happy.Checked = true;
 
             confirm_button.Click += delegate
             {
-                //filts = new List<string>();
-                //string filter_name = "";
-                //if (radio_happy.Checked)
-                //{
-                //    filter_name += "happy";
-                //}
-                //if (radio_sad.Checked)
-                //{
-                //    if(filter_name != "")
-                //    {
-                //        filter_name += ",";
-                //    }
-                //    filter_name += "sad";
-                //}
-                //if (radio_confused.Checked)
-                //{
-                //    if (filter_name != "")
-                //    {
-                //        filter_name += ",";
-                //    }
-                //    filter_name += "confused";
-                //}
-
-                string filter_name = "sad";
-
+                radio_selected = FindViewById<RadioButton>(radio_group.CheckedRadioButtonId); 
+                filter = radio_selected.Text;
+                Toast toast = Toast.MakeText(Application.Context, filter, ToastLength.Short);
+                toast.Show();
                 Intent myIntent = new Intent(this, typeof(HistoryFormActivity));
-                myIntent.PutExtra("filter", filter_name);
+                myIntent.PutExtra("filter", filter);
                 SetResult(Result.Ok, myIntent);
                 Finish();
             };
-
-        }
-
-        private void setRadioButton()
-        {
-            
-            switch (filter)
-            {
-                case "Happy":
-                    radio_happy.Checked = true;
-                break;
-
-                case "Sad":
-                    radio_sad.Checked = true;
-                break;
-
-                case "Surprised":
-                    radio_surprised.Checked = true;
-                break;
-
-                case "Calm":
-                    radio_calm.Checked = true;
-                break;
-
-                case "Confused":
-                    radio_confused.Checked = true;
-                break;
-
-                case "Angry":
-                    radio_angry.Checked = true;
-                break;
-
-                case "Disgusted":
-                    radio_disgusted.Checked = true;
-                break;
-
-                case "Scared":
-                    radio_scared.Checked = true;
-                break;
-                
-            }
         }
     }
 }

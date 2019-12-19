@@ -5,57 +5,51 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff1e5261">
+    android:background="@color/myWhite">
     <TextView
-        android:text="1999 - 09 - 09  09:09"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
+        android:text="Date"
+        android:id="@+id/history_item_date"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:id="@+id/text"
-        android:layout_marginLeft="7dp"
-        android:layout_marginVertical="2dp"
-        android:textSize="15sp"
-        android:textColor="#ffc4af3b" />
+        android:layout_gravity="left"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="4dp"
+        android:textColor="@color/myBlack"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
     <TextView
-        android:text="Studying for exams x.x"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
+        android:text="Event"
+        android:id="@+id/history_item_event"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text1"
-        android:layout_marginLeft="5dp"
-        android:layout_marginVertical="2dp"
-        android:textSize="20sp"
-        android:textColor="#ffc4af3b" />
+        android:layout_gravity="left"
+        android:paddingLeft="4dp"
+        android:textColor="@color/myBlack"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
     <TextView
-        android:text="Sad and Confused"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
+        android:text="Mood"
+        android:id="@+id/history_item_mood"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text2"
-        android:textSize="20sp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginVertical="2dp"
-        android:textColor="#ffc4af3b" />
+        android:layout_gravity="left"
+        android:paddingLeft="4dp"
+        android:textColor="@color/myBlack"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <!--Don't know how to use photo from DB-->
     <ImageView
+        android:id="@+id/history_item_photo"
+        android:src="@drawable/jim1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/jim1"
         android:adjustViewBounds="true"/>
     <TextView
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/history_item_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textColor="#ff101313"
-        android:foreground="#ff0f0d0d"
-        android:drawableTint="#ff080707"
-        android:backgroundTint="#ff0f0b0b"
-        app:backgroundTint="#ff000000"
-        android:background="#ff0d0c0c"
-        android:height="2dp"
-        android:layout_marginTop="3dp" />
+        android:background="@color/myWenge"
+        android:height="1dp"
+        android:layout_marginTop="5dp" />
 
 </LinearLayout>

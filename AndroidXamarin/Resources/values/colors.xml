@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2c3e50</color>
+    <color name="colorPrimary">#23415E</color>
     <color name="colorPrimaryDark">#1B3147</color>
     <color name="colorAccent">#3498db</color>
+  
+    <color name="myWhite">#F6e8ea</color>
+    <color name="myBlack">#22181c</color>
+    <color name="myJet">#312f2f</color>
+    <color name="mySalmon">#ef626c</color>
+    <color name="mySalad">#84dccf</color>
+  <color name="myWenge">#605D5D</color>
+  <!--
+  <color name="myWhite">#F6e8ea</color>
+    <color name="myBlack">#22181c</color>
+    <color name="myJet">#312f2f</color>
+    <color name="mySalmon">#ef626c</color>
+    <color name="mySalad">#84dccf</color>
+  <color name="myWenge">#605D5D</color>
+  
+  -->
+  
 </resources>

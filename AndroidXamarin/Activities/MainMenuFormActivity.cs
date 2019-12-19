@@ -18,13 +18,17 @@ namespace AndroidXamarin.Activities
     {
         Button add_button;
         Button history_button;
+        TextView greeting_button;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate (bundle);
             SetContentView (Resource.Layout.MainMenuForm);
 
-            add_button = FindViewById<Button>(Resource.Id.add_new_button);
-            history_button = FindViewById<Button>(Resource.Id.history_button);
+            add_button = FindViewById<Button>(Resource.Id.main_add);
+            history_button = FindViewById<Button>(Resource.Id.main_history);
+            greeting_button = FindViewById<TextView>(Resource.Id.main_greeting);
+
+            greeting_button.Text = "Hello, " + CurrentUser.name;
 
             add_button.Click += (s, e) =>
             {

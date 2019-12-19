@@ -3,19 +3,23 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff1e5261">
+    android:background="@color/myWhite">
 
     <TextView
-        android:text="NAME"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name"
+        android:id="@+id/user_item_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minWidth="25dp"
         android:minHeight="25dp"
-        android:id="@+id/text"
-        android:textColor="#ffc4af3b"
-        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:padding="10dp"
-        android:layout_gravity="left"/>
-
+        android:background="@drawable/roundstylejet"
+        android:textColor="@color/myWhite"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
 </LinearLayout>

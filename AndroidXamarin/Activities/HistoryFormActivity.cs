@@ -22,20 +22,20 @@ namespace AndroidXamarin
         string filter;
         ListView list_view;
         List<HistoryItem> list_source;
-        List<HistoryItem> full_history;
-        List<HistoryItem> disp_list;
-        TextView entry_count_text;
-        int entry_count;
+        List<HistoryItem> list_filtered;
+        HistoryFormAdapter adapter;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.HistoryForm);
 
             //entry_count_text = FindViewById<TextView>(Resource.Id.entry_count);
-            filter_button = FindViewById<Button>(Resource.Id.filter_button);
+            filter_button = FindViewById<Button>(Resource.Id.history_filter);
+            list_view = FindViewById<ListView>(Resource.Id.history_list);
+            list_source = new List<HistoryItem>();
+            list_filtered = new List<HistoryItem>();
+            adapter = new HistoryFormAdapter(this, list_filtered);
             filter = "None";
-
-
 
             filter_button.Click += (s, e) =>
             {
@@ -44,40 +44,54 @@ namespace AndroidXamarin
                 StartActivityForResult(filter_activity, 0);
             };
 
-            list_view = FindViewById<ListView>(Resource.Id.listView1);
-            list_source = new List<HistoryItem>();
-
+            #region
             //mock data
-                HistoryItem hi1 = new HistoryItem()
-                {
-                    id = 1,
-                    event_date = "2016 - 03 - 23",
-                    event_name = "Pretending to work",
-                    mood = "Confused",
-                    photo = "jim1"
-                };
-                list_source.Add(hi1);
+            HistoryItem hi1 = new HistoryItem()
+            {
+                id = 1,
+                event_date = "2016 - 03 - 23",
+                event_name = "Pretending to work",
+                mood = "Confused",
+                photo = "jim1"
+            };
+            list_source.Add(hi1);
+            list_filtered.Add(hi1);
 
-                HistoryItem hi2 = new HistoryItem()
-                {
-                    id = 1,
-                    event_date = "2017 - 08 - 14",
-                    event_name = "Working",
-                    mood = "Sad",
-                    photo = "jim2"
-                };
-                list_source.Add(hi2);
+            HistoryItem hi2 = new HistoryItem()
+            {
+                id = 1,
+                event_date = "2017 - 08 - 14",
+                event_name = "Working",
+                mood = "Sad",
+                photo = "jim2"
+            };
+            list_source.Add(hi2);
+            list_filtered.Add(hi2);
 
-                HistoryItem hi3 = new HistoryItem()
-                {
-                    id = 1,
-                    event_date = "2018 - 02 - 14",
-                    event_name = "Just got fired",
-                    mood = "Happy",
-                    photo = "jim3"
-                };
-                list_source.Add(hi3);
+            HistoryItem hi3 = new HistoryItem()
+            {
+                id = 1,
+                event_date = "2018 - 02 - 14",
+                event_name = "Just got fired",
+                mood = "Happy",
+                photo = "jim3"
+            };
+            list_source.Add(hi3);
+            list_filtered.Add(hi3);
 
+            HistoryItem hi4 = new HistoryItem()
+            {
+                id = 1,
+                event_date = "2018 - 03 - 23",
+                event_name = "Pretending to work",
+                mood = "Sad",
+                photo = "jim1"
+            };
+            list_source.Add(hi4);
+            list_filtered.Add(hi4);
+            #endregion
+
+            /* ~filter
             HistoryItem hi;
 
             IEnumerable<HistoryItem> happy_list_linq = from list_item in list_source
@@ -89,49 +103,11 @@ namespace AndroidXamarin
             {
                 happy_list.Add(item);
             }
+            */
 
-
-            //IEnumerable<HistoryItem> sad_list_linq = from list_item in list_source
-            //                                           where list_item.mood == "sad"
-            //                                           select list_item;
-            //List<HistoryItem> sad_list = new List<HistoryItem>();
-
-            //foreach (HistoryItem item in sad_list_linq)
-            //{
-            //    sad_list.Add(item);
-            //}
-
-
-            //IEnumerable<HistoryItem> confused_list_linq = from list_item in list_source
-            //                                           where list_item.mood == "confused"
-            //                                           select list_item;
-            //List<HistoryItem> confused_list = new List<HistoryItem>();
-
-            //foreach (HistoryItem item in confused_list_linq)
-            //{
-            //    confused_list.Add(item);
-            //}
-
-            //String[] all_filters = filter.Split(",");
-            //disp_list = new List<HistoryItem>();
-
-            //if(filter.Contains("happy"))
-            //{
-            //    disp_list = happy_list;
-            //}
-            //if (filter.Contains("sad"))
-            //{
-            //    IEnumerable<HistoryItem> temp_disp_list = disp_list.Concat(happy_list);
-            //    foreach (HistoryItem item in temp_disp_list)
-            //    {
-            //        disp_list.Add(item);
-            //    }
-            //}
-
-
-
-            var adapter = new HistoryFormAdapter(this, happy_list);
             list_view.Adapter = adapter;
+            //for on-item click event
+            //list_view.ItemClick += userListOnItemClick;
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -141,8 +117,18 @@ namespace AndroidXamarin
             {
                 filter = data.GetStringExtra("filter");
 
+                if (filter != "none") {
+                    list_filtered.Clear();
+                    foreach (HistoryItem hi in list_source)
+                    {
+                        if (hi.mood == filter)
+                        {
+                            list_filtered.Add(hi);
+                        }
+                    }
+                }
 
-                //list_source = simpleservice.getfilteredEntries(filter, full_history);
+                list_view.Adapter = adapter;
             }
         }
     }

@@ -52,10 +52,10 @@ namespace AndroidXamarin.Resources
         {
             var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.HistoryItemLayout, parent, false);
 
-            var dateText = view.FindViewById<TextView>(Resource.Id.text);
-            var eventText = view.FindViewById<TextView>(Resource.Id.text1);
-            var moodText = view.FindViewById<TextView>(Resource.Id.text2);
-            var photoBox = view.FindViewById<ImageView>(Resource.Id.imageView);
+            var dateText = view.FindViewById<TextView>(Resource.Id.history_item_date);
+            var eventText = view.FindViewById<TextView>(Resource.Id.history_item_event);
+            var moodText = view.FindViewById<TextView>(Resource.Id.history_item_mood);
+            var photoBox = view.FindViewById<ImageView>(Resource.Id.history_item_photo);
             
             dateText.Text = history_list[position].event_date;
             eventText.Text = history_list[position].event_name;

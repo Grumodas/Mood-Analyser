@@ -6,6 +6,20 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+      <item name="android:textAppearanceButton">@style/MyTextAppearance.Material.Button</item>
     </style>
+
+  <style name="MyTextAppearance.Material.Button" parent="@android:style/TextAppearance.Material.Button">
+    <item name="textAllCaps">false</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+  
+  <style name="MyTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/splashscreen</item>
+    <item name="android:windowNoTitle">true</item>  
+    <item name="android:windowFullscreen">true</item>  
+    <item name="android:windowContentOverlay">@null</item>  
+    <item name="android:windowActionBar">true</item>  
+  </style>
 
 </resources>
