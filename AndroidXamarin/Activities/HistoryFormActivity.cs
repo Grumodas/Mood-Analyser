@@ -22,7 +22,8 @@ namespace AndroidXamarin
         string filter;
         ListView list_view;
         List<HistoryItem> list_source;
-        List<HistoryItem> list_filtered;
+        List<HistoryItem> list_users;
+        public List<HistoryItem> list_filtered { get; set; }
         HistoryFormAdapter adapter;
         protected override void OnCreate(Bundle bundle)
         {
@@ -33,7 +34,8 @@ namespace AndroidXamarin
             filter_button = FindViewById<Button>(Resource.Id.history_filter);
             list_view = FindViewById<ListView>(Resource.Id.history_list);
             list_source = new List<HistoryItem>();
-            list_filtered = new List<HistoryItem>();
+            list_users = new List<HistoryItem>();
+            list_filtered  = new List<HistoryItem>();
             adapter = new HistoryFormAdapter(this, list_filtered);
             filter = "None";
 
@@ -50,12 +52,13 @@ namespace AndroidXamarin
             {
                 id = 1,
                 event_date = "2016 - 03 - 23",
-                event_name = "Pretending to work",
+                event_name = "Pranking",
                 mood = "Confused",
-                photo = "jim1"
+                photo = "jim1",
+                user = "agent 0"
             };
             list_source.Add(hi1);
-            list_filtered.Add(hi1);
+            //list_filtered.Add(hi1);
 
             HistoryItem hi2 = new HistoryItem()
             {
@@ -63,10 +66,11 @@ namespace AndroidXamarin
                 event_date = "2017 - 08 - 14",
                 event_name = "Working",
                 mood = "Sad",
-                photo = "jim2"
+                photo = "jim2",
+                user =  "agent 1"
             };
             list_source.Add(hi2);
-            list_filtered.Add(hi2);
+            //list_filtered.Add(hi2);
 
             HistoryItem hi3 = new HistoryItem()
             {
@@ -74,10 +78,11 @@ namespace AndroidXamarin
                 event_date = "2018 - 02 - 14",
                 event_name = "Just got fired",
                 mood = "Happy",
-                photo = "jim3"
+                photo = "jim3",
+                user = "agent 0"
             };
             list_source.Add(hi3);
-            list_filtered.Add(hi3);
+            //list_filtered.Add(hi3);
 
             HistoryItem hi4 = new HistoryItem()
             {
@@ -85,11 +90,21 @@ namespace AndroidXamarin
                 event_date = "2018 - 03 - 23",
                 event_name = "Pretending to work",
                 mood = "Sad",
-                photo = "jim1"
+                photo = "jim1",
+                user = "agent 0"
             };
             list_source.Add(hi4);
-            list_filtered.Add(hi4);
+            //list_filtered.Add(hi4);
             #endregion
+
+            foreach (HistoryItem hi in list_source)
+            {
+                if (hi.user == CurrentUser.name)
+                {
+                    list_users.Add(hi);
+                    list_filtered.Add(hi);
+                }
+            }
 
             /* ~filter
             HistoryItem hi;
@@ -119,7 +134,7 @@ namespace AndroidXamarin
 
                 if (filter != "none") {
                     list_filtered.Clear();
-                    foreach (HistoryItem hi in list_source)
+                    foreach (HistoryItem hi in list_users)
                     {
                         if (hi.mood == filter)
                         {
