@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+
 using SQLite;
 using Xamarin.Forms;
-using DataStorage.Models;
 
-namespace DataStorage.Data
+namespace AndroidXamarin.Data.Data
 {
     public class RecordsDatabaseController
     {
@@ -22,7 +28,7 @@ namespace DataStorage.Data
         }
         public Record GetRecord()
         {
-            if(database.Table<Record>().Count() == 0)
+            if (database.Table<Record>().Count() == 0)
             {
                 return null;
             }
@@ -34,9 +40,9 @@ namespace DataStorage.Data
 
         public int SaveRecord(Record record)
         {
-            lock (locker) 
+            lock (locker)
             {
-                if(record.Id != 0)
+                if (record.Id != 0)
                 {
                     database.Update(record);
                     return record.Id;
@@ -55,6 +61,5 @@ namespace DataStorage.Data
                 return database.Delete<Record>(Id);
             }
         }
-
     }
 }

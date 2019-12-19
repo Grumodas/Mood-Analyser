@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.Lambda" Version="3.3.106.5" />
-    <PackageReference Include="AWSSDK.S3" Version="3.3.110" />
+    <PackageReference Include="AWSSDK.Lambda" Version="3.3.106.8" />
+    <PackageReference Include="AWSSDK.S3" Version="3.3.110.3" />
     <PackageReference Include="EntityFramework" Version="6.4.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
   </ItemGroup>

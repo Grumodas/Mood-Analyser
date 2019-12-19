@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+
 using System.IO;
 using Xamarin.Forms;
-using DataStorage.Data;
+using AndroidXamarin.Data.Data;
 
 [assembly: Dependency(typeof(SQLite_Android))]
 
-namespace DataStorage.Data
+namespace AndroidXamarin.Data.Data
 {
     public class SQLite_Android : ISQLite
     {

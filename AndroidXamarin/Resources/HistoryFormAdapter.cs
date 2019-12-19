@@ -61,8 +61,8 @@ namespace AndroidXamarin.Resources
             eventText.Text = history_list[position].event_name;
             moodText.Text = history_list[position].mood;
 
-            int imageId = (int)typeof(Resource.Drawable).GetField(history_list[position].photo).GetValue(null);
-            photoBox.SetImageResource(imageId);
+            //int imageId = (int)typeof(Resource.Drawable).GetField(history_list[position].photo).GetValue(null);
+            //photoBox.SetImageResource(imageId);
             //int someId = Resources
 
             return view;

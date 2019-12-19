@@ -1,9 +1,17 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
-namespace DataStorage.Models
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using System.Data;
+
+namespace AndroidXamarin.Data.Models
 {
     class UsersDataTable
     {
@@ -22,6 +30,10 @@ namespace DataStorage.Models
             DataTable table = new DataTable("Subject");
             table.Columns.Add(column);
             table.Columns.Add("Name", typeof(String));
+
+            table.Rows.Add(null, "Arnas");
+            table.Rows.Add(null, "Rimantas");
+            table.Rows.Add(null, "Kestutis");
 
             return table;
         }
