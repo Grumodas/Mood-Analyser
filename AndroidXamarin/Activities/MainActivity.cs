@@ -18,27 +18,30 @@ using Android.Provider;
 namespace AndroidXamarin
 {
     // uncomment line below to set activity to launch activity
-    //[Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "MainActivity"/*, Theme = "@style/AppTheme", MainLauncher = true*/)]
 
     public class MainActivity : AppCompatActivity
     {
         Button uploadRefPhotoButton;
+        Button confirmButton;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            //what's this?
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
+
             SetContentView(Resource.Layout.activity_main);
 
-            uploadRefPhotoButton = FindViewById<Button>(Resource.Id.UploadRefPhotoButton);
-            uploadRefPhotoButton.Click += this.ChooseRefPhoto;
+            uploadRefPhotoButton = FindViewById<Button>(Resource.Id.add_ref_upload);
+            confirmButton = FindViewById<Button>(Resource.Id.add_ref_confirm);
+            confirmButton.Visibility = ViewStates.Visible;
+            //uploadRefPhotoButton.Click += this.ChooseRefPhoto;
 
-            var confirmButton = FindViewById<Button>(Resource.Id.confirmButton);
             confirmButton.Click += delegate
             {
                 Toast.MakeText(this, "NICE PHOTO LOL", ToastLength.Short).Show();
-
-                var intent = new Intent(this, typeof(UploadNewPhotoActivity));
+                CurrentUser.has_ref_photo = true;
+                var intent = new Intent(this, typeof(MainMenuFormActivity));
                 StartActivity(intent);
             };
         }
@@ -68,7 +71,7 @@ namespace AndroidXamarin
             if (resultCode == Result.Ok)
             {
 
-                var imageView = FindViewById<ImageView>(Resource.Id.selectedPhotoView);
+                ImageView imageView = FindViewById<ImageView>(Resource.Id.add_ref_image);
                 imageView.SetImageURI(data.Data);
 
                 //prepare for analysis    

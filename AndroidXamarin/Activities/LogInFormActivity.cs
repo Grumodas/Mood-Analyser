@@ -17,6 +17,9 @@ using AndroidXamarin.Resources;
         //For splashScreen:
         //Xamarin.Android.Support.v4
         //Xamarin.Android.Support.v7.AppCompat 
+        //SkiaSharp
+        //SkiaSharp.Views
+        //SkiaSharp.Views.Forms
     //not downloaded:
         //To make gridview work well on older devices, install nuGet package:
         //xamarin.android.suppord.v7.gridLayout
@@ -100,12 +103,16 @@ namespace AndroidXamarin.Activities
             CurrentUser.name = list_source[e.Position].name;
             CurrentUser.has_ref_photo = list_source[e.Position].has_ref_photo;
 
-
-            //<<Check if user has ref photogo to main menu, if not - add ref screen>>
-
-
-            Intent main_menu_activity = new Intent(this, typeof(MainMenuFormActivity));
-            StartActivity(main_menu_activity);
+            if (CurrentUser.has_ref_photo == false)
+            {
+                Intent upload_ref = new Intent(this, typeof(MainActivity));
+                StartActivity(upload_ref);
+            }
+            else
+            {
+                Intent main_menu_activity = new Intent(this, typeof(MainMenuFormActivity));
+                StartActivity(main_menu_activity);
+            }
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
