@@ -18,7 +18,8 @@ namespace AndroidXamarin.Activities
     {
         Button add_button;
         Button history_button;
-        TextView greeting_button;
+        Button mosaic_button;
+        TextView greeting;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate (bundle);
@@ -26,9 +27,10 @@ namespace AndroidXamarin.Activities
 
             add_button = FindViewById<Button>(Resource.Id.main_add);
             history_button = FindViewById<Button>(Resource.Id.main_history);
-            greeting_button = FindViewById<TextView>(Resource.Id.main_greeting);
+            mosaic_button = FindViewById<Button>(Resource.Id.main_mosaic);
+            greeting = FindViewById<TextView>(Resource.Id.main_greeting);
 
-            greeting_button.Text = "Hello, " + CurrentUser.name;
+            greeting.Text = "Hello, " + CurrentUser.name;
 
             add_button.Click += (s, e) =>
             {
@@ -41,6 +43,12 @@ namespace AndroidXamarin.Activities
             {
                 Intent history_activity = new Intent(this, typeof(HistoryFormActivity));
                 StartActivity(history_activity);
+            };
+
+            mosaic_button.Click += (s, e) =>
+            {
+                Intent mosaic_activity = new Intent(this, typeof(MosaicFormActivity));
+                StartActivity(mosaic_activity);
             };
 
         }

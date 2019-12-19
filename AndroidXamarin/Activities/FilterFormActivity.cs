@@ -51,7 +51,7 @@ namespace AndroidXamarin.Activities
             confirm_button = FindViewById<Button>(Resource.Id.filter_confirm);
 
             
-            radio_happy.Checked = true;
+            radio_none.Checked = true;
 
             confirm_button.Click += delegate
             {
