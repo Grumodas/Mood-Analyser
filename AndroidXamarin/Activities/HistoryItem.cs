@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -20,5 +21,6 @@ namespace AndroidXamarin
         public string mood { get; set; }
         //proabaly not string
         public string photo { get; set; }
+        public string user { get; set; }
     }
 }
