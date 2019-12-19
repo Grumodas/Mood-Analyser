@@ -26,8 +26,8 @@ namespace AndroidXamarin
         Button filter_button;
         string filter;
         ListView list_view;
-        List<HistoryItem> list_source;
-        List<HistoryItem> list_users;
+        public static List<HistoryItem> list_source;
+        public static List<HistoryItem> list_users;
         public List<HistoryItem> list_filtered { get; set; }
         HistoryFormAdapter adapter;
         protected override void OnCreate(Bundle bundle)
@@ -51,7 +51,7 @@ namespace AndroidXamarin
                 StartActivityForResult(filter_activity, 0);
             };
 
-            #region
+
             //mock data
             //______________________ HISTORY LIST POLULATION __________
             DataTable data = RecordsDataTable.GetTable();
@@ -64,6 +64,7 @@ namespace AndroidXamarin
                 record.situation = data.Rows[i]["Situation"].ToString();
                 record.emotion = data.Rows[i]["Emotion"].ToString();
 
+
                 HistoryItem hi = new HistoryItem();
                 hi.event_date = record.dateTime;
                 hi.event_name = record.situation;
@@ -71,7 +72,7 @@ namespace AndroidXamarin
                 //Turi konvertuoti is masyvo i photo ar kazkoki kita hunjia
                 hi.photo = null;
                 list_source.Add(hi);
-                list_filtered.Add(hi);
+                //list_filtered.Add(hi);
             }
             /*
             HistoryItem hi1 = new HistoryItem()
@@ -123,9 +124,12 @@ namespace AndroidXamarin
 
             //list_filtered.Add(hi4);
             #endregion
+            */
 
             foreach (HistoryItem hi in list_source)
             {
+                Toast toast = Toast.MakeText(Application.Context, "Now: " + hi.mood, ToastLength.Short);
+                toast.Show();
                 if (hi.user == CurrentUser.name)
                 {
                     list_users.Add(hi);
@@ -133,8 +137,6 @@ namespace AndroidXamarin
                 }
             }
 
-            list_filtered.Add(hi4); */
-            #endregion
             list_view.Adapter = adapter;
 
         }

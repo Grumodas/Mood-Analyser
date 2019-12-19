@@ -23,7 +23,8 @@
             android:layout_margin="10dp"
             android:background="@drawable/roundstylejet"
             android:textColor="@color/myWhite"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:visibility="invisible" />
         <TextView
             android:text="Log In"
             android:id="@+id/login_window_name"
@@ -42,7 +43,8 @@
             android:layout_margin="10dp"
             android:background="@color/myJet"
             android:textColor="@color/myWhite"
-            android:visibility="invisible" />
+            android:visibility="invisible" 
+         />
     </GridLayout>
     <Button
         android:text="Add User"

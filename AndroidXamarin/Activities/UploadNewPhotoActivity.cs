@@ -14,7 +14,11 @@ using Android.Provider;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidXamarin.Activities;
 using Java.IO;
+using Java.Text;
+using Java.Util;
+using System.Drawing;
 
 namespace AndroidXamarin
 {
@@ -25,6 +29,8 @@ namespace AndroidXamarin
         Button confirm;
         ImageView image;
         Intent imageIntent;
+        EditText eventName;
+        Android.Graphics.Bitmap bm;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -33,6 +39,7 @@ namespace AndroidXamarin
             upload = FindViewById<Button>(Resource.Id.add_photo_upload_photo);
             confirm = FindViewById<Button>(Resource.Id.add_photo_confirm);
             image = FindViewById<ImageView>(Resource.Id.add_photo_image);
+            eventName = FindViewById<EditText>(Resource.Id.add_photo_event_name);
             
 
             upload.Click += (s, e) =>
@@ -41,6 +48,15 @@ namespace AndroidXamarin
                  imageIntent.SetType("image/*");
                  imageIntent.SetAction(Intent.ActionGetContent);
                  StartActivityForResult(Intent.CreateChooser(imageIntent, "Select photo"), 0);
+            };
+
+            confirm.Click += delegate
+            {
+                Toast toast = Toast.MakeText(Application.Context, "Confirmed", ToastLength.Short);
+                toast.Show();
+                Intent myIntent = new Intent(this, typeof(MainMenuFormActivity));
+                HistoryFormActivity.list_source.Add(createHI(BitToByte(bm)));
+                Finish();
             };
 
 
@@ -53,7 +69,7 @@ namespace AndroidXamarin
 
             if (resultCode == Result.Ok)
             {
-                Bitmap img_src = MediaStore.Images.Media.GetBitmap(this.ContentResolver, data.Data);
+                Android.Graphics.Bitmap img_src = MediaStore.Images.Media.GetBitmap(this.ContentResolver, data.Data);
                 string img_path = GetActualPathFromFile(data.Data);
 
                 ExifInterface exif = new ExifInterface(img_path);
@@ -64,11 +80,45 @@ namespace AndroidXamarin
                 {
                     mat.PreRotate(rot_deg);
                 }
-                Bitmap bm = Bitmap.CreateBitmap(img_src, 0, 0, img_src.Width, img_src.Height, mat, true);
+                bm = Android.Graphics.Bitmap.CreateBitmap(img_src, 0, 0, img_src.Width, img_src.Height, mat, true);
                 image.SetImageBitmap(bm);
+
                 
+
+                
+
+
                 confirm.Visibility = ViewStates.Visible;
             }
+        }
+
+        private byte[] BitToByte(Android.Graphics.Bitmap bitm)
+        {
+            byte[] bitmapData;
+            using (var stream = new MemoryStream())
+            {
+                bm.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 0, stream);
+                bitmapData = stream.ToArray();
+            }
+
+            return bitmapData;
+        }
+
+        private HistoryItem createHI(byte[] ba)
+        {
+ 
+            string date = DateTime.Now.ToString();
+
+            HistoryItem hi = new HistoryItem() {
+                id = 1,
+                event_date = date,
+                event_name = eventName.Text,
+                mood = "Confused",
+                photo = ba,
+                user = CurrentUser.name
+
+            };
+            return hi;
         }
 
         //Don't understand code very well

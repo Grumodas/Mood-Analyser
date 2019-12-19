@@ -23,7 +23,8 @@
             android:layout_margin="10dp"
             android:background="@drawable/roundstylejet"
             android:textColor="@color/myWhite"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:visibility="invisible" />
         <TextView
             android:text="History"
             android:id="@+id/history_window_name"
@@ -42,7 +43,8 @@
             android:layout_margin="10dp"
             android:background="@drawable/roundstylejet"
             android:textColor="@color/myWhite"
-            android:textSize="18sp"/>
+            android:textSize="18sp" 
+            android:visibility="invisible"/>
     </GridLayout>
 
     <Button
