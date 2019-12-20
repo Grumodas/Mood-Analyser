@@ -45,7 +45,7 @@ namespace AndroidXamarin.Data.Models
             //    arr = ms.ToArray();
             //}
             
-            table.Rows.Add(null, "2019-10-11 9:14:34", "Hungry AF", "Sad", null, "agent1");
+            table.Rows.Add(null, "2019-10-11 9:14:34", "Hungry AF", "Sad", null, "Rimantas");
 
             //img = Image.FromFile(@"H:\arnasb\source\repos\MoodAnalyser\AndroidXamarin\mock\2.jpg");
             //using (MemoryStream ms = new MemoryStream())
@@ -53,7 +53,7 @@ namespace AndroidXamarin.Data.Models
             //    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             //    arr = ms.ToArray();
             //}
-            table.Rows.Add(null, "2019-12-11 4:42:12", "Sleeping", "Happy", null, "agent2");
+            table.Rows.Add(null, "2019-12-11 4:42:12", "Sleeping", "Happy", null, "Rimantas");
             
             //img = Image.FromFile(@"H:\arnasb\source\repos\MoodAnalyser\AndroidXamarin\mock\3.jpg");
             //using (MemoryStream ms = new MemoryStream())
@@ -62,7 +62,7 @@ namespace AndroidXamarin.Data.Models
             //    arr = ms.ToArray();
             //}
             
-            table.Rows.Add(null, "2019-12-21 2:35:20", "Walking", "Fear", null, "agent3");
+            table.Rows.Add(null, "2019-12-21 2:35:20", "Walking", "Fear", null, "Rimantas");
             /*
             HistoryItem hi1 = new HistoryItem()
             {
