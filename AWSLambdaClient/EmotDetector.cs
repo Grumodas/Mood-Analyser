@@ -21,12 +21,6 @@ namespace AWSLambdaClient
         private readonly string accessKey;
         private readonly string privateKey;
 
-        // for testing
-        public static string Hi()
-        {
-            return "hi";
-;        }
-
         public EmotDetector(string accessKey, string privateKey)
         {
             this.accessKey = accessKey;

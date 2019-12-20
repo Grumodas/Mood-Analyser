@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace AndroidXamarin.Activities
 {
-    
+
     [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true)]
     public class SplashScreenActivity : AppCompatActivity
     {
@@ -25,24 +25,26 @@ namespace AndroidXamarin.Activities
         }
 
         // Launches the startup task
+        
         protected override void OnResume()
         {
             base.OnResume();
+            //kad nesi'recreate'intusi vaikstant tarp langu
+            CurrentUser.list_source = new List<HistoryItem>();
 
             Intent my_intent = new Intent(Application.Context, typeof(LogInFormActivity));
             StartActivity(my_intent);
 
-            //Task startupWork = new Task(() => { SimulateStartup(); });
-            //startupWork.Start();
+        //Task startupWork = new Task(() => { SimulateStartup(); });
+        //startupWork.Start();
         }
 
-        // Simulates background work that happens behind the splash screen
-        async void SimulateStartup()
-        {
-            await Task.Delay(1000); // Simulate a bit of startup work.
-            Intent my_intent =  new Intent(Application.Context, typeof(LogInFormActivity));
-            StartActivity(my_intent);
-        }
+    // Simulates background work that happens behind the splash screen
+    async void SimulateStartup()
+    {
+        await Task.Delay(1000); // Simulate a bit of startup work.
+        Intent my_intent = new Intent(Application.Context, typeof(LogInFormActivity));
+        StartActivity(my_intent);
     }
-    
+}
 }

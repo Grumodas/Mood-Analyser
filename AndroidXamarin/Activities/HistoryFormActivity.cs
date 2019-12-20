@@ -27,7 +27,7 @@ namespace AndroidXamarin
         Button clear;
         string filter;
         ListView list_view;
-        public static List<HistoryItem> list_source;
+        //public static List<HistoryItem> list_source;
         public static List<HistoryItem> list_users;
         public List<HistoryItem> list_filtered { get; set; }
         HistoryFormAdapter adapter;
@@ -40,7 +40,7 @@ namespace AndroidXamarin
             filter_button = FindViewById<Button>(Resource.Id.history_filter);
             clear = FindViewById<Button>(Resource.Id.history_clear);
             list_view = FindViewById<ListView>(Resource.Id.history_list);
-            list_source = new List<HistoryItem>();
+            //list_source = new List<HistoryItem>();
             list_users = new List<HistoryItem>();
             list_filtered  = new List<HistoryItem>();
             adapter = new HistoryFormAdapter(this, list_filtered);
@@ -49,9 +49,10 @@ namespace AndroidXamarin
             filter_button.Click += (s, e) =>
             {
                 Intent filter_activity = new Intent(this, typeof(FilterFormActivity));
-                filter_activity.PutExtra("curr_filter", filter);
+                //filter_activity.PutExtra("curr_filter", filter);
                 StartActivityForResult(filter_activity, 0);
             };
+            /*
             clear.Click += (s, e) =>
             {
 
@@ -59,8 +60,8 @@ namespace AndroidXamarin
 
                 Finish();
             };
-
-
+            */
+            /*
             //mock data
             //______________________ HISTORY LIST POLULATION __________
             DataTable data = RecordsDataTable.GetTable();
@@ -87,16 +88,19 @@ namespace AndroidXamarin
                 list_filtered.Add(hi);
             }
 
-            foreach(HistoryItem hi in list_source)
+            */
+
+            list_users.Clear();
+            foreach(HistoryItem hi in CurrentUser.list_source)
             {
-                Toast toast = Toast.MakeText(Application.Context, "Now: " + hi.mood, ToastLength.Short);
-                toast.Show();
+                //Toast toast = Toast.MakeText(Application.Context, "Now: " + hi.mood, ToastLength.Short);
+                //toast.Show();
                 if (hi.user == CurrentUser.name)
                 {
                     list_users.Add(hi);
-                    list_filtered.Add(hi);
                 }
             }
+            adapter = new HistoryFormAdapter(this, list_users);
             list_view.Adapter = adapter;
 
         }
@@ -107,16 +111,19 @@ namespace AndroidXamarin
             if (resultCode == Result.Ok)
             {
                 filter = data.GetStringExtra("filter");
-
-                if (filter != "none") {
+                if (String.Compare(filter, "none", true) != 0) {
+                    adapter = new HistoryFormAdapter(this, list_filtered);
                     list_filtered.Clear();
                     foreach (HistoryItem hi in list_users)
                     {
-                        if (hi.mood == filter)
+                        if (String.Compare(hi.mood, filter, true) == 0)
                         {
                             list_filtered.Add(hi);
                         }
                     }
+                } else
+                {
+                    adapter = new HistoryFormAdapter(this, list_users);
                 }
 
                 list_view.Adapter = adapter;

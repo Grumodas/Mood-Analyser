@@ -12,10 +12,12 @@ using Android.Widget;
 
 namespace AndroidXamarin.Activities
 {
-    public class CurrentUser
+    public static class CurrentUser
     {
         public static string name { get; set; }
         public static bool has_ref_photo { get; set; }
+
+        public static List<HistoryItem> list_source { get; set; }
 
     }
 }

@@ -14,6 +14,7 @@ using Amazon.Rekognition.Model;
 
 namespace AWSLambda1
 {
+    /*
     public class Function
     {
         public delegate bool ConfidenceFilterDelegate(Emotion e);
@@ -128,6 +129,67 @@ namespace AWSLambda1
             if (result.Length != 0)
             {
                 result = result.Substring(0, result.Length - 1);
+            }
+
+            return result;
+        }
+
+        //static public List<Emotion> FilterEmotions(FaceDetail face, ConfidenceFilterDelegate filter)
+        //{
+        //    return face.Emotions.FindAll(n => filter(n)).ToList();
+        //}
+
+        static public bool IsHighConfidence(Emotion e)
+        {
+            return e.Confidence > 50;
+        }
+        static public bool IsMediumConfidence(Emotion e)
+        {
+            return e.Confidence > 20;
+        }
+        static public bool IsLowConfidence(Emotion e)
+        {
+            return e.Confidence > 2;
+        }
+    }
+    */
+
+    //Very simplified :c
+    public class Function
+    {
+        public static async Task<string> FunctionHandler(String photo)
+        {
+            String bucket = "moodanalysis";
+            string result = "";
+            float topConf = 0;
+
+            AmazonRekognitionClient rekognitionClient = new AmazonRekognitionClient();
+
+            DetectFacesRequest detectFacesRequest = new DetectFacesRequest()
+            {
+                Image = new Image()
+                {
+                    S3Object = new S3Object()
+                    {
+                        Name = photo,
+                        Bucket = bucket
+                    },
+                },
+                Attributes = new List<String>() { "ALL" }
+            };
+
+            DetectFacesResponse detectFacesResponse = await rekognitionClient.DetectFacesAsync(detectFacesRequest);
+
+            foreach (FaceDetail face in detectFacesResponse.FaceDetails)
+            {
+                foreach (Emotion emot in face.Emotions)
+                {
+                    if (emot.Confidence > topConf)
+                    {
+                        result = emot.Type;
+                        topConf = emot.Confidence;
+                    }
+                }
             }
 
             return result;

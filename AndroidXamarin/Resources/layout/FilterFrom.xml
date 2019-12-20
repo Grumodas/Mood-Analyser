@@ -185,7 +185,7 @@
                     android:textStyle="bold"
             />
                 <RadioButton
-                    android:text="Scared"
+                    android:text="Fear"
                     android:id="@+id/filter_scared"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

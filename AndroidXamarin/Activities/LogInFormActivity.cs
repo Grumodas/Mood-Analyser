@@ -117,19 +117,24 @@ namespace AndroidXamarin.Activities
 
         private void userListOnItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
+            //Not using ref photo
             CurrentUser.name = list_source[e.Position].name;
             CurrentUser.has_ref_photo = list_source[e.Position].has_ref_photo;
 
-            if (CurrentUser.has_ref_photo == false)
-            {
-                Intent upload_ref = new Intent(this, typeof(MainActivity));
-                StartActivity(upload_ref);
-            }
-            else
-            {
-                Intent main_menu_activity = new Intent(this, typeof(MainMenuFormActivity));
-                StartActivity(main_menu_activity);
-            }
+            Intent main_menu_activity = new Intent(this, typeof(MainMenuFormActivity));
+            StartActivity(main_menu_activity);
+
+            //Using ref photo
+            //if (CurrentUser.has_ref_photo == false)
+            //{
+            //    Intent upload_ref = new Intent(this, typeof(MainActivity));
+            //    StartActivity(upload_ref);
+            //}
+            //else
+            //{
+            //Intent upload_ref_activity = new Intent(this, typeof(MainActivity));
+            //StartActivity(upload_ref_activity);
+            //}
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

@@ -89,6 +89,7 @@
     <Compile Include="Data\Models\User.cs" />
     <Compile Include="Data\Models\UsersDataTable.cs" />
     <Compile Include="Resources\HistoryFormAdapter.cs" />
+    <Compile Include="Resources\Info.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\UploadNewPhotoActivity.cs" />

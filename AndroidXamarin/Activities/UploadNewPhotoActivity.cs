@@ -19,6 +19,7 @@ using Java.IO;
 using Java.Text;
 using Java.Util;
 using System.Drawing;
+using AWSLambdaClient;
 
 namespace AndroidXamarin
 {
@@ -28,9 +29,11 @@ namespace AndroidXamarin
         Button upload;
         Button confirm;
         ImageView image;
-        Intent imageIntent;
         EditText eventName;
+        TextView waitMsg;
         Android.Graphics.Bitmap bm;
+        string img_path;
+        string emot;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,16 +43,23 @@ namespace AndroidXamarin
             confirm = FindViewById<Button>(Resource.Id.add_photo_confirm);
             image = FindViewById<ImageView>(Resource.Id.add_photo_image);
             eventName = FindViewById<EditText>(Resource.Id.add_photo_event_name);
-            
+            waitMsg = FindViewById<TextView>(Resource.Id.add_photo_wait);
+
+            EmotDetector ed = new EmotDetector();
+            String emotions;
+            Emotion emos;
+            Info info;
+
 
             upload.Click += (s, e) =>
             {
-                 imageIntent = new Intent();
+                 waitMsg.Visibility = ViewStates.Gone;
+                 Intent imageIntent = new Intent();
                  imageIntent.SetType("image/*");
                  imageIntent.SetAction(Intent.ActionGetContent);
                  StartActivityForResult(Intent.CreateChooser(imageIntent, "Select photo"), 0);
             };
-
+            /*
             confirm.Click += delegate
             {
                 Toast toast = Toast.MakeText(Application.Context, "Confirmed", ToastLength.Short);
@@ -57,6 +67,63 @@ namespace AndroidXamarin
                 Intent myIntent = new Intent(this, typeof(MainMenuFormActivity));
                 HistoryFormActivity.list_source.Add(createHI(BitToByte(bm)));
                 Finish();
+            };
+            */
+            
+            confirm.Click += async delegate {
+                // layour object visibility managed
+                confirm.Visibility = ViewStates.Gone;
+                upload.Visibility = ViewStates.Invisible;
+                waitMsg.Text = "Inspecting... Please Wait";
+                waitMsg.Visibility = ViewStates.Visible;
+
+                // not sure what's  happening
+                emotions = "";
+                emos = new Emotion();
+                info = new Info();
+
+                emotions = await ed.WhatEmot(img_path, System.IO.Path.GetFileName(img_path));
+                //String result = emotions;
+                emotions = emotions.Replace("\"", "");
+                emos = new Emotion();
+                int i = 0;
+                string[] emotionArray = emotions.Split(',');
+                
+                if (emotionArray[0] == "")
+                {
+                    emos = Emotion.UNKNOWN;
+                    emotions = "UNKNOWN";
+                }
+                else
+                {
+                    foreach (string emotion in emotionArray)
+                    {
+                        if (i == 0)
+                        {
+                            emos = (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                            i++;
+                        }
+                        else
+                        {
+                            emos |= (Emotion)Enum.Parse(typeof(Emotion), emotion);
+                        }
+                    }
+                }
+                //Not sure how your code worked here, so I just used a wooden option, sry
+                emot = emotionArray[0];
+
+                // According to recently collected data, creates HistoryItem and adds it to main list(list_source)
+                CurrentUser.list_source.Add(createHI());
+   
+                upload.Visibility = ViewStates.Visible;
+                waitMsg.Text = "You feel: " + emot;
+                //Toast.MakeText(this, emotions, ToastLength.Short).Show();
+                //AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                //alert.SetTitle("#feelz");
+                //alert.SetMessage(result);
+                //Dialog dialog = alert.Show();
+                //info = new Info("TEST EVENT NAME", emos);
+                //Byte[] image = System.IO.File.ReadAllBytes(img_path);
             };
 
 
@@ -70,8 +137,10 @@ namespace AndroidXamarin
             if (resultCode == Result.Ok)
             {
                 Android.Graphics.Bitmap img_src = MediaStore.Images.Media.GetBitmap(this.ContentResolver, data.Data);
-                string img_path = GetActualPathFromFile(data.Data);
+                // Paema tikra path
+                img_path = GetActualPathFromFile(data.Data);
 
+                // Teisingai pasuka ir ikelia
                 ExifInterface exif = new ExifInterface(img_path);
                 int rot = exif.GetAttributeInt(ExifInterface.TagOrientation, (int)Android.Media.Orientation.Normal);
                 int rot_deg  = exifToDegrees(rot);
@@ -82,11 +151,6 @@ namespace AndroidXamarin
                 }
                 bm = Android.Graphics.Bitmap.CreateBitmap(img_src, 0, 0, img_src.Width, img_src.Height, mat, true);
                 image.SetImageBitmap(bm);
-
-                
-
-                
-
 
                 confirm.Visibility = ViewStates.Visible;
             }
@@ -104,16 +168,16 @@ namespace AndroidXamarin
             return bitmapData;
         }
 
-        private HistoryItem createHI(byte[] ba)
+        private HistoryItem createHI()
         {
- 
+            byte[] ba = BitToByte(bm);
             string date = DateTime.Now.ToString();
 
             HistoryItem hi = new HistoryItem() {
                 id = 1,
                 event_date = date,
                 event_name = eventName.Text,
-                mood = "Confused",
+                mood = emot,
                 photo = ba,
                 user = CurrentUser.name
 

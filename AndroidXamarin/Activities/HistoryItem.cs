@@ -19,8 +19,9 @@ namespace AndroidXamarin
         public string event_date { get; set; }
         public string event_name { get; set; }
         public string mood { get; set; }
-        //proabaly not string
-        public Byte[] photo { get; set; }
+        //Nespejau rasti, kaip byte[] konvertuoti i toki bitmap
+        public byte[] photo { get; set; }
+        //public Android.Graphics.Bitmap photo { get; set; }
         public string user { get; set; }
     }
 }

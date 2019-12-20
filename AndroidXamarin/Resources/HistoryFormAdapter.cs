@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -60,6 +61,9 @@ namespace AndroidXamarin.Resources
             dateText.Text = history_list[position].event_date;
             eventText.Text = history_list[position].event_name;
             moodText.Text = history_list[position].mood;
+            photoBox.SetImageBitmap(BitmapFactory.DecodeByteArray(history_list[position].photo, 0, history_list[position].photo.Length));
+
+            
 
             //int imageId = (int)typeof(Resource.Drawable).GetField(history_list[position].photo).GetValue(null);
             //photoBox.SetImageResource(imageId);

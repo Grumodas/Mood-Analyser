@@ -62,6 +62,7 @@
         android:columnCount="1"
         android:rowCount="4"
         android:background="@color/myWhite">
+        
         <Button
         android:text="Upload A Photo"
         android:id="@+id/add_photo_upload_photo"
@@ -111,7 +112,21 @@
         android:textColor="@color/myWhite"
         android:textSize="20sp"
         android:textStyle="bold" 
+        android:visibility="invisible"
+            
         />
+        <TextView
+            android:text="Inspecting... Please Wait."
+            android:id="@+id/add_photo_wait"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="2dp"
+            android:layout_gravity="center"
+            android:textColor="@color/myBlack"
+            android:textSize="20sp"
+            android:textStyle="bold" 
+            android:visibility="gone" />
         
     </GridLayout>
 
