@@ -144,7 +144,7 @@ namespace AndroidXamarin
             byte[] bitmapData;
             using (var stream = new MemoryStream())
             {
-                bm.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 0, stream);
+                bitm.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 0, stream);
                 bitmapData = stream.ToArray();
             }
 
